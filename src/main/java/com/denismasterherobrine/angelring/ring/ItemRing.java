@@ -12,14 +12,13 @@ import top.theillusivec4.curios.api.imc.CurioIMCMessage;
 
 @Mod.EventBusSubscriber(modid = AngelRing.MODID, bus = Mod.EventBusSubscriber.Bus.MOD)
 @ObjectHolder(AngelRing.MODID)
-public class ItemRing extends Item {
     public ItemRing() {
         super(new Item.Properties().maxStackSize(1));
     }
 
     @SubscribeEvent
     public static void sendImc(InterModEnqueueEvent event) {
-        InterModComms.sendTo("curios", CuriosAPI.IMC.REGISTER_TYPE, () -> new CurioIMCMessage("ring"));
+        InterModComms.sendTo("curios", CuriosAPI.IMC.REGISTER_TYPE, () -> new CurioIMCMessage("charm"));
     }
 }
 
