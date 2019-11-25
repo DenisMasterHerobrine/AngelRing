@@ -12,6 +12,7 @@ import top.theillusivec4.curios.api.imc.CurioIMCMessage;
 
 @Mod.EventBusSubscriber(modid = AngelRing.MODID, bus = Mod.EventBusSubscriber.Bus.MOD)
 @ObjectHolder(AngelRing.MODID)
+public class ItemRing extends Item {
     public ItemRing() {
         super(new Item.Properties().maxStackSize(1));
     }
