@@ -4,8 +4,8 @@ import com.denismasterherobrine.angelring.proxy.ClientProxy;
 import com.denismasterherobrine.angelring.proxy.IProxy;
 import com.denismasterherobrine.angelring.proxy.ServerProxy;
 import com.denismasterherobrine.angelring.register.ItemRegistry;
+import com.denismasterherobrine.angelring.ring.ItemRing;
 import net.minecraft.item.Item;
-import net.minecraft.item.ItemGroup;
 import net.minecraft.util.ResourceLocation;
 import net.minecraftforge.common.MinecraftForge;
 import net.minecraftforge.event.RegistryEvent;
@@ -50,7 +50,7 @@ public class AngelRing
         public static void RegisterItems(final RegistryEvent.Register<Item> event) {
             event.getRegistry().registerAll
                     (
-                            ItemRegistry.ItemRing = new Item(new Item.Properties().maxStackSize(1).group(ItemGroup.MISC)).setRegistryName(location("itemring"))
+                            ItemRegistry.ItemRing = new ItemRing().setRegistryName(location("itemring"))
                     );
         }
     private static ResourceLocation location(String name)
