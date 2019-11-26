@@ -20,12 +20,12 @@ import org.apache.logging.log4j.Logger;
 
 // The value here should match an entry in the META-INF/mods.toml file
 @Mod("angelring")
-public class AngelRing
-{
+public class AngelRing {
     // Directly reference a log4j logger.
     public static final String MODID = "angelring";
     private static final Logger LOGGER = LogManager.getLogger();
     public static IProxy proxy = DistExecutor.runForDist(() -> () -> new ClientProxy(), () -> () -> new ServerProxy());
+
     public AngelRing() {
         // Register the setup method for modloading
         FMLJavaModLoadingContext.get().getModEventBus().addListener(this::setup);
@@ -34,9 +34,9 @@ public class AngelRing
         MinecraftForge.EVENT_BUS.register(this);
     }
 
-    private void setup(final FMLCommonSetupEvent event)
-    {
+    private void setup(final FMLCommonSetupEvent event) {
     }
+
     // You can use SubscribeEvent and let the Event Bus discover methods to call
     @SubscribeEvent
     public void onServerStarting(FMLServerStartingEvent event) {
@@ -44,7 +44,7 @@ public class AngelRing
 
     // You can use EventBusSubscriber to automatically subscribe events on the contained class (this is subscribing to the MOD
     // Event bus for receiving Registry Events)
-    @Mod.EventBusSubscriber(bus=Mod.EventBusSubscriber.Bus.MOD)
+    @Mod.EventBusSubscriber(bus = Mod.EventBusSubscriber.Bus.MOD)
     public static class RegistryEvents {
         @SubscribeEvent
         public static void RegisterItems(final RegistryEvent.Register<Item> event) {
@@ -53,9 +53,9 @@ public class AngelRing
                             ItemRegistry.ItemRing = new ItemRing().setRegistryName(location("itemring"))
                     );
         }
-    private static ResourceLocation location(String name)
-    {
-        return new ResourceLocation(MODID, name);
-    }
+
+        private static ResourceLocation location(String name) {
+            return new ResourceLocation(MODID, name);
+        }
     }
 }

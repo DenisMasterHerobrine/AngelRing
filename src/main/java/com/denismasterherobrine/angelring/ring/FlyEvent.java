@@ -9,16 +9,16 @@ import net.minecraftforge.eventbus.api.SubscribeEvent;
 import net.minecraftforge.fml.common.Mod;
 import top.theillusivec4.curios.api.CuriosAPI;
 
-@Mod.EventBusSubscriber(bus=Mod.EventBusSubscriber.Bus.FORGE)
+@Mod.EventBusSubscriber(bus = Mod.EventBusSubscriber.Bus.FORGE)
 public class FlyEvent {
     @SubscribeEvent
-    public static void onTickPlayerEvent(TickEvent.PlayerTickEvent event){
+    public static void onTickPlayerEvent(TickEvent.PlayerTickEvent event) {
         PlayerEntity player = event.player;
         ItemStack angelRing = new ItemStack(ItemRegistry.ItemRing);
-        if(player.inventory.hasItemStack(angelRing) || CuriosAPI.getCurioEquipped(angelRing.getItem(), (LivingEntity) player.getEntity()).isPresent()){
+        if (player.inventory.hasItemStack(angelRing) || CuriosAPI.getCurioEquipped(angelRing.getItem(), (LivingEntity) player.getEntity()).isPresent()) {
             player.abilities.allowFlying = true;
-        }else{
-            if(player.abilities.isFlying && !player.inventory.hasItemStack(angelRing) && !player.isCreative() && !player.isSpectator()){
+        } else {
+            if (player.abilities.isFlying && !player.inventory.hasItemStack(angelRing) && !player.isCreative() && !player.isSpectator()) {
                 player.abilities.isFlying = false;
                 player.abilities.allowFlying = false;
             }
