@@ -24,7 +24,7 @@ import javax.annotation.Nullable;
 
 @Mod.EventBusSubscriber(modid = AngelRing.MODID, bus = Mod.EventBusSubscriber.Bus.MOD)
 @ObjectHolder(AngelRing.MODID)
-public class ItemRing extends Item implements ICurio {
+public class ItemRing extends Item {
 
     public ItemRing() {
         super(new Item.Properties().maxStackSize(1).group(ItemGroup.MISC));
