@@ -48,7 +48,7 @@ This mod adds an Angel Ring, which allows you to fly, like in a creative mode.
 
 [[dependencies.angelring]]
    modId="curios"
-   mandatory=true
+   mandatory=false
    versionRange="[FORGE-1.14.4-1.0.5,]"
    ordering="AFTER"
    side="BOTH"
