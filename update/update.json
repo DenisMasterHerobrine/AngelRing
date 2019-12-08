@@ -1,0 +1,12 @@
+{
+  "homepage": "https://www.curseforge.com/minecraft/mc-mods/angel-ring",
+  "promos": {
+    "1.14.4-latest": "1.1.0-pre1",
+    "1.14.4-recommended": "1.1.0-pre1"
+  },
+  "1.14.4": {
+    "1.1.0-pre1": "Added Curios compatibility, now Angel Ring can be equiped into Charm slot. (Special thanks to MelanX!)\nCleaned code a bit\nUpdated forge to 28.1.90",
+    "1.0.1": "Fixed bug, that prevents flying in spectator mode\nUpdated forge to 28.0.45",
+    "1.0.0": "Initial release"
+  }
+}

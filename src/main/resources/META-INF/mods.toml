@@ -1,12 +1,12 @@
 modLoader="javafml"
 loaderVersion="[26,)"
-issueTrackerURL="http://my.issue.tracker/"
+issueTrackerURL="https://github.com/DenisMasterHerobrine/AngelRing/issues"
 
 [[mods]]
 modId="angelring"
 version="${file.jarVersion}"
 displayName="Angel Ring"
-updateJSONURL="http:/myurl.me/"
+updateJSONURL="https://raw.githubusercontent.com/DenisMasterHerobrine/AngelRing/master/update/update.json"
 authors="DenisMasterHerobrine"
 description='''
 This mod adds an Angel Ring, which allows you to fly, like in a creative mode.
