@@ -1,5 +1,6 @@
 package com.denismasterherobrine.angelring.compat;
 
+import com.denismasterherobrine.angelring.AngelRing;
 import net.minecraft.entity.LivingEntity;
 import net.minecraft.item.ItemStack;
 import net.minecraft.util.Direction;
@@ -17,7 +18,7 @@ import javax.annotation.Nullable;
 
 public class CuriosCompat {
     public static void sendImc() {
-        InterModComms.sendTo("curios", CuriosAPI.IMC.REGISTER_TYPE, () -> new CurioIMCMessage("charm"));
+        InterModComms.sendTo("curios", CuriosAPI.IMC.REGISTER_TYPE, () -> new CurioIMCMessage("angelring"));
     }
 
     public static ICapabilityProvider initCapabilities() {

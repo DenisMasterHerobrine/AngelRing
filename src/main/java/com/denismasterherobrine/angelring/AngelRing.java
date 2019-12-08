@@ -1,6 +1,5 @@
 package com.denismasterherobrine.angelring;
 
-import com.denismasterherobrine.angelring.compat.CuriosCompat;
 import com.denismasterherobrine.angelring.compat.ExternalMods;
 import com.denismasterherobrine.angelring.proxy.ClientProxy;
 import com.denismasterherobrine.angelring.proxy.IProxy;
@@ -15,7 +14,6 @@ import net.minecraftforge.eventbus.api.SubscribeEvent;
 import net.minecraftforge.fml.DistExecutor;
 import net.minecraftforge.fml.common.Mod;
 import net.minecraftforge.fml.event.lifecycle.FMLCommonSetupEvent;
-import net.minecraftforge.fml.event.lifecycle.InterModEnqueueEvent;
 import net.minecraftforge.fml.event.server.FMLServerStartingEvent;
 import net.minecraftforge.fml.javafmlmod.FMLJavaModLoadingContext;
 import org.apache.logging.log4j.LogManager;
@@ -38,6 +36,8 @@ public class AngelRing {
     }
 
     private void setup(final FMLCommonSetupEvent event) {
+        if (ExternalMods.CURIOS.isLoaded())
+            LOGGER.info("Curios is loaded. Angel Ring will be made compatible.");
     }
 
     // You can use SubscribeEvent and let the Event Bus discover methods to call
