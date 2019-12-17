@@ -1,6 +1,7 @@
 package com.denismasterherobrine.angelring.ring;
 
 import com.denismasterherobrine.angelring.compat.CuriosCompat;
+import com.denismasterherobrine.angelring.compat.EverlastingAbilitiesCompat;
 import com.denismasterherobrine.angelring.compat.ExternalMods;
 import com.denismasterherobrine.angelring.register.ItemRegistry;
 import net.minecraft.entity.LivingEntity;
@@ -16,7 +17,7 @@ public class FlyEvent {
     public static void onTickPlayerEvent(TickEvent.PlayerTickEvent event) {
         PlayerEntity player = event.player;
         ItemStack angelRing = new ItemStack(ItemRegistry.ItemRing);
-        if (player.inventory.hasItemStack(angelRing) || checkRing(angelRing, player)) {
+        if (player.inventory.hasItemStack(angelRing) || checkRing(angelRing, player) || checkAbility(player)) {
             player.abilities.allowFlying = true;
         } else {
             if (player.abilities.isFlying && !player.inventory.hasItemStack(angelRing) && !player.isCreative() && !player.isSpectator()) {
@@ -29,6 +30,12 @@ public class FlyEvent {
     private static boolean checkRing(ItemStack angelRing, LivingEntity player) {
         if (ExternalMods.CURIOS.isLoaded())
             return CuriosCompat.isRingInCuriosSlot(angelRing, player);
+        return false;
+    }
+
+    private static boolean checkAbility(PlayerEntity player) {
+        if (ExternalMods.EVERLASTINGABILITIES.isLoaded())
+            return EverlastingAbilitiesCompat.getAllowFlying(player);
         return false;
     }
 }
