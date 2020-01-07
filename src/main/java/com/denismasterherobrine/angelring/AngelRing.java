@@ -1,5 +1,6 @@
 package com.denismasterherobrine.angelring;
 
+import com.denismasterherobrine.angelring.compat.ExternalMods;
 import com.denismasterherobrine.angelring.proxy.ClientProxy;
 import com.denismasterherobrine.angelring.proxy.IProxy;
 import com.denismasterherobrine.angelring.proxy.ServerProxy;
@@ -35,6 +36,8 @@ public class AngelRing {
     }
 
     private void setup(final FMLCommonSetupEvent event) {
+        if (ExternalMods.CURIOS.isLoaded())
+            LOGGER.info("Curios is loaded. Angel Ring will be made compatible.");
     }
 
     // You can use SubscribeEvent and let the Event Bus discover methods to call
