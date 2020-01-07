@@ -17,7 +17,7 @@ import javax.annotation.Nullable;
 
 public class CuriosCompat {
     public static void sendImc() {
-        InterModComms.sendTo("curios", CuriosAPI.IMC.REGISTER_TYPE, () -> new CurioIMCMessage("charm"));
+        InterModComms.sendTo("curios", CuriosAPI.IMC.REGISTER_TYPE, () -> new CurioIMCMessage("angelring"));
     }
 
     public static ICapabilityProvider initCapabilities() {

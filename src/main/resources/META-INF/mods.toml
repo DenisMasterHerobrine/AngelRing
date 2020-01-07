@@ -18,7 +18,7 @@ version="${file.jarVersion}"
  # A display name for the mod
 displayName="Angel Ring" #mandatory
 # A URL to query for updates for this mod. See the JSON update specification <here>
-updateJSONURL="http:/myurl.me/" #optional
+updateJSONURL="http://myurl.me/" #optional
 # A URL for the "homepage" for this mod, displayed in the mod UI
 displayURL="" #optional
 # A file name (in the root of the mod JAR) containing a logo for display
@@ -50,5 +50,19 @@ This mod adds an Angel Ring, which allows you to fly, like in a creative mode.
    modId="curios"
    mandatory=false
    versionRange="[FORGE-1.14.4-1.0.5,]"
+   ordering="AFTER"
+   side="BOTH"
+
+[[dependencies.angelring]]
+   modId="cyclopscore"
+   mandatory=false
+   versionRange="[1.14.4,]"
+   ordering="AFTER"
+   side="BOTH"
+
+[[dependencies.angelring]]
+   modId="everlastingabilities"
+   mandatory=false
+   versionRange="[1.14.4,]"
    ordering="AFTER"
    side="BOTH"

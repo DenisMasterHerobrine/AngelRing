@@ -13,7 +13,7 @@ apply plugin: 'net.minecraftforge.gradle'
 apply plugin: 'eclipse'
 apply plugin: 'maven-publish'
 
-version = '1.1.0-pre1'
+version = '1.1.0-pre2'
 group = 'com.denismasterherobrine.angelring' // http://maven.apache.org/guides/mini/guide-naming-conventions.html
 archivesBaseName = 'angelring'
 
@@ -80,6 +80,10 @@ repositories {
         name = "Curios"
         url = "https://maven.theillusivec4.top/"
     }
+    maven {
+        name "Cyclops"
+        url "https://oss.jfrog.org/artifactory/simple/libs-release/"
+    }
 }
 
 dependencies {
@@ -87,6 +91,8 @@ dependencies {
 
     runtimeOnly fg.deobf("top.theillusivec4.curios:curios:FORGE-1.14.4-1.0.5.3")
     compileOnly fg.deobf("top.theillusivec4.curios:curios:FORGE-1.14.4-1.0.5.3:api")
+    compile "org.cyclops.cyclopscore:CyclopsCore:1.14.4-1.6.0-1017:deobf"
+    compile "org.cyclops.everlastingabilities:EverlastingAbilities:1.14.4-1.6.0-225:deobf"
 }
 
 // Example for how to get properties into the manifest for reading by the runtime..
