@@ -3,7 +3,8 @@ package com.denismasterherobrine.angelring.compat;
 import net.minecraftforge.fml.ModList;
 
 public enum ExternalMods {
-    CURIOS("curios");
+    CURIOS("curios"),
+    EVERLASTINGABILITIES("everlastingabilities");
 
     private final boolean loaded;
 
