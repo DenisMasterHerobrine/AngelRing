@@ -1,19 +1,22 @@
 {
     "type": "crafting_shaped",
     "pattern": [
-        "IGI",
+        "FGF",
         "GEG",
-        "IGI"
+        "XGX"
     ],
     "key": {
         "I": {
-            "item": "minecraft:gold_ingot"
+            "item": "minecraft:feather"
         },
         "E": {
-            "item": "minecraft:elytra"
+            "item": "angelring:itemdiamondring"
         },
         "G": {
             "item": "minecraft:gold_block"
+        },
+        "X": {
+            "item": "minecraft:blaze_rod"
         }
     },
     "result": {
