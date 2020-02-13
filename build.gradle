@@ -13,7 +13,7 @@ apply plugin: 'net.minecraftforge.gradle'
 apply plugin: 'eclipse'
 apply plugin: 'maven-publish'
 
-version = '1.1.0-pre1'
+version = '1.1.0'
 group = 'com.denismasterherobrine.angelring' // http://maven.apache.org/guides/mini/guide-naming-conventions.html
 archivesBaseName = 'angelring'
 
@@ -21,7 +21,9 @@ sourceCompatibility = targetCompatibility = compileJava.sourceCompatibility = co
 
 minecraft {
     mappings channel: 'snapshot', version: '20190719-1.14.3'
-
+    // makeObfSourceJar = false // an Srg named sources jar is made by default. uncomment this to disable.
+    
+    // accessTransformer = file('src/main/resources/META-INF/accesstransformer.cfg')
     runs {
         client {
             workingDirectory project.file('run')
@@ -83,10 +85,9 @@ repositories {
 }
 
 dependencies {
-    minecraft 'net.minecraftforge:forge:1.14.4-28.1.90'
-
-    runtimeOnly fg.deobf("top.theillusivec4.curios:curios:FORGE-1.14.4-1.0.5.3")
-    compileOnly fg.deobf("top.theillusivec4.curios:curios:FORGE-1.14.4-1.0.5.3:api")
+    minecraft 'net.minecraftforge:forge:1.14.4-28.2.0'
+    runtimeOnly fg.deobf("top.theillusivec4.curios:curios:FORGE-1.14.4-1.0.6.1")
+    compileOnly fg.deobf("top.theillusivec4.curios:curios:FORGE-1.14.4-1.0.6.1:api")
 }
 
 // Example for how to get properties into the manifest for reading by the runtime..
