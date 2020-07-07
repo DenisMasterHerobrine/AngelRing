@@ -1,6 +1,10 @@
 package com.denismasterherobrine.angelring.compat;
 
+import javax.annotation.Nonnull;
+import javax.annotation.Nullable;
+
 import com.denismasterherobrine.angelring.register.ItemRegistry;
+
 import net.minecraft.entity.LivingEntity;
 import net.minecraft.entity.player.PlayerEntity;
 import net.minecraft.item.ItemStack;
@@ -11,17 +15,14 @@ import net.minecraftforge.common.capabilities.Capability;
 import net.minecraftforge.common.capabilities.ICapabilityProvider;
 import net.minecraftforge.common.util.LazyOptional;
 import net.minecraftforge.fml.InterModComms;
-import top.theillusivec4.curios.api.CuriosAPI;
-import top.theillusivec4.curios.api.capability.CuriosCapability;
-import top.theillusivec4.curios.api.capability.ICurio;
-import top.theillusivec4.curios.api.imc.CurioIMCMessage;
-
-import javax.annotation.Nonnull;
-import javax.annotation.Nullable;
+import top.theillusivec4.curios.api.CuriosApi;
+import top.theillusivec4.curios.api.CuriosCapability;
+import top.theillusivec4.curios.api.SlotTypeMessage;
+import top.theillusivec4.curios.api.type.capability.ICurio;
 
 public class CuriosCompat {
     public static void sendImc() {
-        InterModComms.sendTo("curios", CuriosAPI.IMC.REGISTER_TYPE, () -> new CurioIMCMessage("angelring"));
+        InterModComms.sendTo("curios", SlotTypeMessage.REGISTER_TYPE, () -> new SlotTypeMessage.Builder("angelring").build());
     }
 
     public static ICapabilityProvider initCapabilities() {
@@ -32,13 +33,13 @@ public class CuriosCompat {
             }
 
             @Override
-            public void onEquipped(String identifier, LivingEntity livingEntity) {
+            public void onEquip(String identifier, int index, LivingEntity livingEntity) {
                 if (livingEntity instanceof PlayerEntity) {
                     startFlying((PlayerEntity) livingEntity);
                 }
             }
             @Override
-            public void onUnequipped(String identifier, LivingEntity livingEntity) {
+            public void onUnequip(String identifier, int index, LivingEntity livingEntity) {
                 if (livingEntity instanceof PlayerEntity) {
                     stopFlying((PlayerEntity) livingEntity);
                 }
@@ -57,7 +58,7 @@ public class CuriosCompat {
                 }
             }
             @Override
-            public void onCurioTick(String identifier, int index, LivingEntity livingEntity) {
+            public void curioTick(String identifier, int index, LivingEntity livingEntity) {
                 if (livingEntity instanceof PlayerEntity) {
                     PlayerEntity player = ((PlayerEntity) livingEntity);
                     if (!player.abilities.allowFlying) {
@@ -67,12 +68,12 @@ public class CuriosCompat {
             }
             @Override
             public boolean canEquip(String identifier, LivingEntity entityLivingBase) {
-                return !CuriosAPI.getCurioEquipped(ItemRegistry.ItemRing, entityLivingBase).isPresent();
+                return !CuriosApi.getCuriosHelper().findEquippedCurio(ItemRegistry.ItemRing, entityLivingBase).isPresent();
             }
 
             @Override
-            public void playEquipSound(LivingEntity entityLivingBase) {
-                entityLivingBase.world.playSound(null, entityLivingBase.getPosition(),
+            public void playRightClickEquipSound(LivingEntity entityLivingBase) {
+                entityLivingBase.world.playSound(null, entityLivingBase.func_233580_cy_(),
                         SoundEvents.ITEM_ARMOR_EQUIP_ELYTRA, SoundCategory.NEUTRAL,
                         1.0F, 1.0F);
             }
@@ -92,6 +93,6 @@ public class CuriosCompat {
     }
 
     public static boolean isRingInCuriosSlot(ItemStack angelRing, LivingEntity player) {
-        return CuriosAPI.getCurioEquipped(angelRing.getItem(), player).isPresent();
+        return CuriosApi.getCuriosHelper().findEquippedCurio(angelRing.getItem(), player).isPresent();
     }
 }
