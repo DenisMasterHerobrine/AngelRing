@@ -18,7 +18,7 @@ import net.minecraftforge.registries.ObjectHolder;
 public class ItemRing extends Item {
 
     public ItemRing() {
-        super(new Item.Properties().maxStackSize(1).group(ItemGroup.MISC));
+        super(new Item.Properties().stacksTo(1).tab(ItemGroup.TAB_MISC));
     }
 
     @SubscribeEvent

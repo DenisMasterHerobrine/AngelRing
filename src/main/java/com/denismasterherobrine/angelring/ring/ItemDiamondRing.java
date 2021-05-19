@@ -8,6 +8,6 @@ import net.minecraftforge.registries.ObjectHolder;
 @ObjectHolder(AngelRing.MODID)
 public class ItemDiamondRing extends Item {
         public ItemDiamondRing() {
-            super(new Item.Properties().maxStackSize(1).group(ItemGroup.MISC));
+            super(new Properties().stacksTo(1).tab(ItemGroup.TAB_MISC));
         }
 }
