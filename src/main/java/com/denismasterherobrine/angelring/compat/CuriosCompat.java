@@ -8,7 +8,6 @@ import com.denismasterherobrine.angelring.register.ItemRegistry;
 import net.minecraft.entity.LivingEntity;
 import net.minecraft.entity.player.PlayerEntity;
 import net.minecraft.item.ItemStack;
-import net.minecraft.nbt.CompoundNBT;
 import net.minecraft.util.Direction;
 import net.minecraft.util.SoundEvents;
 import net.minecraftforge.common.capabilities.Capability;
@@ -86,6 +85,11 @@ public class CuriosCompat {
                 entityLivingBase.playSound(SoundEvents.ARMOR_EQUIP_ELYTRA,
                         1.0F, 1.0F);
             }
+
+            @Override
+            public boolean showAttributesTooltip(String identifier) {
+                return true;
+            }
         };
 
         return new ICapabilityProvider() {
@@ -99,6 +103,7 @@ public class CuriosCompat {
                 return CuriosCapability.ITEM.orEmpty(cap, curioOpt);
             }
         };
+
     }
 
     public static boolean isRingInCuriosSlot(ItemStack angelRing, LivingEntity player) {

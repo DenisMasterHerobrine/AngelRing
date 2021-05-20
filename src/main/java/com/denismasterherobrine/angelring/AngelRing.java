@@ -1,5 +1,6 @@
 package com.denismasterherobrine.angelring;
 
+import com.denismasterherobrine.angelring.compat.ExternalMods;
 import com.denismasterherobrine.angelring.proxy.ClientProxy;
 import com.denismasterherobrine.angelring.proxy.IProxy;
 import com.denismasterherobrine.angelring.proxy.ServerProxy;
@@ -35,6 +36,9 @@ public class AngelRing {
 
     @SubscribeEvent
     public void onServerStarting(FMLServerStartingEvent event) {
+        if (ExternalMods.TINKERSCONSTRUCT.isLoaded()) {
+            LOGGER.warn("Tinkers' Construct is loaded! Slime Boots doesn't work with Angel Ring at the moment.");
+        }
     }
 
     @Mod.EventBusSubscriber(bus = Mod.EventBusSubscriber.Bus.MOD)

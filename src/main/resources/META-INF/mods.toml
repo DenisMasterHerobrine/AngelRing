@@ -45,13 +45,13 @@ This mod adds an Angel Ring, which allows you to fly, like in a creative mode.
 [[dependencies.angelring]]
     modId="minecraft"
     mandatory=true
-    versionRange="[1.16.2,)"
+    versionRange="[1.16.4,)"
     ordering="NONE"
     side="BOTH"
 
 [[dependencies.angelring]]
    modId="curios"
    mandatory=true
-   versionRange="[1.16.2-4.0.0.0,)"
+   versionRange="[1.16.4-4.0.2.1,)"
    ordering="AFTER"
    side="BOTH"
