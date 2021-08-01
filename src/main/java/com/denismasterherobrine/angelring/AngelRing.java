@@ -1,22 +1,19 @@
 package com.denismasterherobrine.angelring;
 
-import com.denismasterherobrine.angelring.compat.ExternalMods;
-import com.denismasterherobrine.angelring.proxy.ClientProxy;
-import com.denismasterherobrine.angelring.proxy.IProxy;
-import com.denismasterherobrine.angelring.proxy.ServerProxy;
 import com.denismasterherobrine.angelring.register.ItemRegistry;
 import com.denismasterherobrine.angelring.ring.ItemDiamondRing;
 import com.denismasterherobrine.angelring.ring.ItemRing;
-import net.minecraft.item.Item;
-import net.minecraft.util.ResourceLocation;
+
+import net.minecraft.resources.ResourceLocation;
+import net.minecraft.world.item.Item;
+
 import net.minecraftforge.common.MinecraftForge;
 import net.minecraftforge.event.RegistryEvent;
 import net.minecraftforge.eventbus.api.SubscribeEvent;
-import net.minecraftforge.fml.DistExecutor;
 import net.minecraftforge.fml.common.Mod;
 import net.minecraftforge.fml.event.lifecycle.FMLCommonSetupEvent;
-import net.minecraftforge.fml.event.server.FMLServerStartingEvent;
 import net.minecraftforge.fml.javafmlmod.FMLJavaModLoadingContext;
+
 import org.apache.logging.log4j.LogManager;
 import org.apache.logging.log4j.Logger;
 
@@ -24,7 +21,6 @@ import org.apache.logging.log4j.Logger;
 public class AngelRing {
     public static final String MODID = "angelring";
     private static final Logger LOGGER = LogManager.getLogger();
-    public static IProxy proxy = DistExecutor.runForDist(() -> () -> new ClientProxy(), () -> () -> new ServerProxy());
 
     public AngelRing() {
         FMLJavaModLoadingContext.get().getModEventBus().addListener(this::setup);
@@ -32,13 +28,7 @@ public class AngelRing {
     }
 
     private void setup(final FMLCommonSetupEvent event) {
-    }
-
-    @SubscribeEvent
-    public void onServerStarting(FMLServerStartingEvent event) {
-        if (ExternalMods.TINKERSCONSTRUCT.isLoaded()) {
-            LOGGER.warn("Tinkers' Construct is loaded! Slime Boots doesn't work with Angel Ring at the moment.");
-        }
+        LOGGER.info("Angel Ring's setup initialized.");
     }
 
     @Mod.EventBusSubscriber(bus = Mod.EventBusSubscriber.Bus.MOD)
@@ -56,4 +46,6 @@ public class AngelRing {
             return new ResourceLocation(MODID, name);
         }
     }
+
+
 }
