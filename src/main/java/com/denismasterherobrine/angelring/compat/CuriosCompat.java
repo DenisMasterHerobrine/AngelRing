@@ -24,7 +24,7 @@ import javax.annotation.Nullable;
 
 public class CuriosCompat {
     public static void sendImc() {
-        InterModComms.sendTo("curios", SlotTypeMessage.REGISTER_TYPE, () -> new SlotTypeMessage.Builder("angelring").cosmetic().build());
+        InterModComms.sendTo("curios", SlotTypeMessage.REGISTER_TYPE, () -> new SlotTypeMessage.Builder("angelring").build());
     }
 
     public static ICapabilityProvider initCapabilities() {
@@ -89,8 +89,8 @@ public class CuriosCompat {
             }
 
             @Override
-            public void onEquipFromUse(SlotContext slotContext) {
-                slotContext.entity().playSound(SoundEvents.ARMOR_EQUIP_ELYTRA,
+            public void playRightClickEquipSound(LivingEntity livingEntity) {
+                livingEntity.playSound(SoundEvents.ARMOR_EQUIP_ELYTRA,
                         1.0F, 1.0F);
             }
         };

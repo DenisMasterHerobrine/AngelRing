@@ -21,7 +21,7 @@ version="${file.jarVersion}"
  # A display name for the mod
 displayName="Angel Ring" #mandatory
 # A URL to query for updates for this mod. See the JSON update specification <here>
-updateJSONURL="https://www.curseforge.com/minecraft/mc-mods/curios" #optional
+updateJSONURL="https://www.curseforge.com/minecraft/mc-mods/angel-ring" #optional
 # A URL for the "homepage" for this mod, displayed in the mod UI
 displayURL="" #optional
 # A file name (in the root of the mod JAR) containing a logo for display

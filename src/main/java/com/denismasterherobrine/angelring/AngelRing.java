@@ -46,6 +46,4 @@ public class AngelRing {
             return new ResourceLocation(MODID, name);
         }
     }
-
-
 }
