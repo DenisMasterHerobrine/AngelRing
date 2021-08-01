@@ -21,7 +21,7 @@ version="${file.jarVersion}"
  # A display name for the mod
 displayName="Angel Ring" #mandatory
 # A URL to query for updates for this mod. See the JSON update specification <here>
-updateJSONURL="http://myurl.me/" #optional
+updateJSONURL="https://www.curseforge.com/minecraft/mc-mods/angel-ring" #optional
 # A URL for the "homepage" for this mod, displayed in the mod UI
 displayURL="" #optional
 # A file name (in the root of the mod JAR) containing a logo for display
@@ -38,20 +38,20 @@ This mod adds an Angel Ring, which allows you to fly, like in a creative mode.
 [[dependencies.angelring]]
     modId="forge"
     mandatory=true
-    versionRange="[32,)"
+    versionRange="[35,)"
     ordering="NONE"
     side="BOTH"
 
 [[dependencies.angelring]]
     modId="minecraft"
     mandatory=true
-    versionRange="[1.16.4,)"
+    versionRange="[1.17,)"
     ordering="NONE"
     side="BOTH"
 
 [[dependencies.angelring]]
    modId="curios"
    mandatory=true
-   versionRange="[1.16.4-4.0.2.1,)"
+   versionRange="[1.17.1-5.0.0.0,)"
    ordering="AFTER"
    side="BOTH"
