@@ -89,10 +89,18 @@ public class CuriosCompat {
             }
 
             @Override
-            public void playRightClickEquipSound(LivingEntity livingEntity) {
-                livingEntity.playSound(SoundEvents.ARMOR_EQUIP_ELYTRA,
+            public void onEquipFromUse(SlotContext slotContext) {
+                slotContext.entity().playSound(SoundEvents.ARMOR_EQUIP_ELYTRA,
                         1.0F, 1.0F);
             }
+
+            @Nonnull
+            @Override
+            public SoundInfo getEquipSound(SlotContext slotContext) {
+                return new SoundInfo(SoundEvents.ARMOR_EQUIP_ELYTRA,
+                        1.0F, 1.0F);
+            }
+
         };
 
         return new ICapabilityProvider() {

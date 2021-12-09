@@ -16,5 +16,4 @@ public class AngelRingAPI {
         ItemStack angelRing = ItemRegistry.ItemRing.getDefaultInstance();
         return CuriosApi.getCuriosHelper().findEquippedCurio(angelRing.getItem(), player).isPresent();
     }
-
 }
