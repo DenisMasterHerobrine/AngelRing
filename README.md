@@ -1,7 +1,7 @@
-![](https://cf.way2muchnoise.eu/angel-ring.svg)
-![](https://cf.way2muchnoise.eu/versions/angel-ring.svg)
-![](https://img.shields.io/github/license/DenisMasterHerobrine/AngelRing) 
-![](https://img.shields.io/github/issues/denismasterherobrine/AngelRing)
+![https://www.curseforge.com/minecraft/mc-mods/angel-ring](https://cf.way2muchnoise.eu/angel-ring.svg)
+![https://www.curseforge.com/minecraft/mc-mods/angel-ring](https://cf.way2muchnoise.eu/versions/angel-ring.svg)
+![https://github.com/DenisMasterHerobrine/AngelRing](https://img.shields.io/github/license/DenisMasterHerobrine/AngelRing) 
+![https://github.com/DenisMasterHerobrine/AngelRing](https://img.shields.io/github/issues/denismasterherobrine/AngelRing)
 <div align="center"> <h1>  Angel Ring </h1> </div>
 <div align="center"> Angel Ring is a mod which adds a new ring into Minecraft. This ring allows you to fly like in a creative mode. Inspired by Extra Utilities 2. </div>
 
@@ -14,9 +14,9 @@ Ever wanted to fly without using commands in Survival Mode? Then this mod is for
 # Ports?
 - Fabric: **Planned**, but there's no ETA at the moment of writing this.
 - Forge:
-- - 1.17: Stable, shouldn't cause any problems as of now, however equip sound is still not fixed.
-- - 1.16: Stable, however some custom **very big** modpacks have some issues with flying sometimes.
-- - 1.14.x, 1.15.x: Stable, no support will be given since these versions isn't supported by Forge. Should work without any problems.
+- - 1.18+: Stable, shouldn't cause any problems as of now, however equip sound is still not fixed.
+- - 1.16.x: Stable, however some custom **very big** modpacks have some issues with flying sometimes.
+- - 1.14.x, 1.15.x, 1.17.x: Stable, no support will be given since these versions isn't supported by Forge. Should work without any problems.
 - - 1.12.2: Use Extra Utilities 2 or other alternatives for this version.
 
 # To-Do List
