@@ -1,5 +1,5 @@
-![https://www.curseforge.com/minecraft/mc-mods/angel-ring](https://cf.way2muchnoise.eu/angel-ring.svg)
-![https://www.curseforge.com/minecraft/mc-mods/angel-ring](https://cf.way2muchnoise.eu/versions/angel-ring.svg)
+[![CurseForge](https://cf.way2muchnoise.eu/angel-ring.svg)](https://www.curseforge.com/minecraft/mc-mods/angel-ring)
+[![CurseForge](https://cf.way2muchnoise.eu/versions/angel-ring.svg)](https://www.curseforge.com/minecraft/mc-mods/angel-ring)
 ![https://github.com/DenisMasterHerobrine/AngelRing](https://img.shields.io/github/license/DenisMasterHerobrine/AngelRing) 
 ![https://github.com/DenisMasterHerobrine/AngelRing](https://img.shields.io/github/issues/denismasterherobrine/AngelRing)
 <div align="center"> <h1>  Angel Ring </h1> </div>
