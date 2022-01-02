@@ -2,11 +2,15 @@
 [![CurseForge](https://cf.way2muchnoise.eu/versions/angel-ring.svg)](https://www.curseforge.com/minecraft/mc-mods/angel-ring)
 ![https://github.com/DenisMasterHerobrine/AngelRing](https://img.shields.io/github/license/DenisMasterHerobrine/AngelRing) 
 ![https://github.com/DenisMasterHerobrine/AngelRing](https://img.shields.io/github/issues/denismasterherobrine/AngelRing)
-<div align="center"> <h1>  Angel Ring </h1> </div>
+<div align="center"> <h1>  Angel Ring 2</h1> </div>
 <div align="center"> Angel Ring is a mod which adds a new ring into Minecraft. This ring allows you to fly like in a creative mode. Inspired by Extra Utilities 2. </div>
 
 # Information
 Ever wanted to fly without using commands in Survival Mode? Then this mod is for you. Craft an Angel Ring and fly as long as you want.
+
+# What's the difference with the 1.x and 2.x versions?
+- The Classic Version (1.x) is a simple standalone mod which brings just one ring without any mod integrations and allows you to fly.
+- The Reworked Version (2.x) is an advanced, rebalanced and rich-featured version of The Classic Version, featuring rebalanced recipes, lots of mods integrations such as Botania, Blood Magic, Thermal Series and many more mod integrations, upgrades for the ring and reworked textures. 
 
 # Compatibility
  - Compatible with mostly every mod at the moment, however some mod interactions can cause weird bugs, while breaking flight at all.
