@@ -2,23 +2,17 @@ package dev.denismasterherobrine.angelring.compat;
 
 import dev.denismasterherobrine.angelring.config.Configuration;
 import dev.denismasterherobrine.angelring.register.ItemRegistry;
-
 import dev.denismasterherobrine.angelring.utils.ExperienceUtils;
 
-import net.minecraft.client.entity.player.ClientPlayerEntity;
-import net.minecraft.client.gui.IngameGui;
-import net.minecraft.entity.LivingEntity;
-import net.minecraft.entity.player.PlayerEntity;
-import net.minecraft.entity.player.ServerPlayerEntity;
-import net.minecraft.item.ItemStack;
-import net.minecraft.util.Direction;
-import net.minecraft.util.SoundEvents;
+import net.minecraft.core.Direction;
+import net.minecraft.network.chat.ChatType;
+import net.minecraft.network.chat.TextComponent;
+import net.minecraft.server.level.ServerPlayer;
+import net.minecraft.sounds.SoundEvents;
+import net.minecraft.world.entity.LivingEntity;
+import net.minecraft.world.entity.player.Player;
+import net.minecraft.world.item.ItemStack;
 
-import net.minecraft.util.text.ChatType;
-import net.minecraft.util.text.StringTextComponent;
-import net.minecraft.util.text.TextComponent;
-import net.minecraft.util.text.TranslationTextComponent;
-import net.minecraftforge.client.event.GuiScreenEvent;
 import net.minecraftforge.common.capabilities.Capability;
 import net.minecraftforge.common.capabilities.ICapabilityProvider;
 import net.minecraftforge.common.util.LazyOptional;
@@ -43,15 +37,20 @@ public class ClassicAngelRingIntegration {
     public static ICapabilityProvider initCapabilities() {
         ICurio curio = new ICurio() {
             @Override
+            public ItemStack getStack() {
+                return ItemRegistry.ItemRing.getDefaultInstance();
+            };
+
+            @Override
             public boolean canEquipFromUse(SlotContext slotContext) {
                 return true;
             }
 
             @Override
             public void onEquip(SlotContext slotContext, ItemStack prevStack) {
-                LivingEntity livingEntity = slotContext.getWearer();
-                if (livingEntity instanceof PlayerEntity) {
-                    PlayerEntity player = (PlayerEntity) livingEntity;
+                LivingEntity livingEntity = slotContext.entity();
+                if (livingEntity instanceof Player) {
+                    Player player = (Player) livingEntity;
                     startFlying(player);
                 }
             }
@@ -59,42 +58,42 @@ public class ClassicAngelRingIntegration {
             @Override
             public void onUnequip(SlotContext slotContext, ItemStack newStack) {
                 LivingEntity livingEntity = slotContext.getWearer();
-                if (livingEntity instanceof PlayerEntity) {
-                    PlayerEntity player = (PlayerEntity) livingEntity;
+                if (livingEntity instanceof Player) {
+                    Player player = (Player) livingEntity;
                     stopFlying(player);
                 }
             }
 
-            private void startFlying(PlayerEntity player) {
+            private void startFlying(Player player) {
                 if (!player.isCreative() && !player.isSpectator()) {
-                    player.abilities.mayfly = true;
+                    player.getAbilities().mayfly = true;
                     player.onUpdateAbilities();
                 }
             }
 
-            private void stopFlying(PlayerEntity player) {
+            private void stopFlying(Player player) {
                 if (!player.isCreative() && !player.isSpectator()) {
-                    player.abilities.flying = false;
-                    player.abilities.mayfly = false;
+                    player.getAbilities().flying = false;
+                    player.getAbilities().mayfly = false;
                     player.onUpdateAbilities();
                 }
             }
 
             @Override
             public void curioTick(String identifier, int index, LivingEntity livingEntity) {
-                if (livingEntity instanceof PlayerEntity) {
-                    PlayerEntity player = ((PlayerEntity) livingEntity);
-                    if (!player.abilities.mayfly && ExperienceUtils.getPlayerXP(player) > Configuration.XPCost.get()) {
+                if (livingEntity instanceof Player) {
+                    Player player = ((Player) livingEntity);
+                    if (!player.getAbilities().mayfly && ExperienceUtils.getPlayerXP(player) > Configuration.XPCost.get()) {
                         startFlying(player);
                     }
-                    if (ExperienceUtils.getPlayerXP(player) <= Configuration.XPCost.get() && Configuration.XPCost.get() != 0){
+                    if (ExperienceUtils.getPlayerXP(player) <= Configuration.XPCost.get()){
                         stopFlying(player);
-                        if (player instanceof ServerPlayerEntity){
+                        if (player instanceof ServerPlayer){
                             // TODO: Localize it through i18n.
-                            ((ServerPlayerEntity) player).sendMessage(new StringTextComponent("You need to have XP to fly. Get more XP to fly or take off Angel Ring."), ChatType.GAME_INFO, player.getUUID());
+                            ((ServerPlayer) player).sendMessage(new TextComponent("You need to have XP to fly. Get more XP to fly or take off Angel Ring."), ChatType.GAME_INFO, player.getUUID());
                         }
                     }
-                    if (player.abilities.mayfly && player.abilities.flying && ExperienceUtils.getPlayerXP(player) > Configuration.XPCost.get() && Configuration.XPCost.get() != 0) {
+                    if (player.getAbilities().mayfly && player.getAbilities().flying && ExperienceUtils.getPlayerXP(player) > Configuration.XPCost.get()) {
                         i++;
                         if (i >= Configuration.TicksPerDrain.get()){
                             ExperienceUtils.addPlayerXP(player, -Configuration.XPCost.get());
@@ -111,7 +110,7 @@ public class ClassicAngelRingIntegration {
 
             @Override
             public void onEquipFromUse(SlotContext slotContext) {
-                slotContext.getWearer().playSound(SoundEvents.ARMOR_EQUIP_ELYTRA,
+                slotContext.entity().playSound(SoundEvents.ARMOR_EQUIP_ELYTRA,
                         1.0F, 1.0F);
             }
 

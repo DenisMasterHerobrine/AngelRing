@@ -23,7 +23,7 @@
 
 package dev.denismasterherobrine.angelring.utils;
 
-import net.minecraft.entity.player.PlayerEntity;
+import net.minecraft.world.entity.player.Player;
 
 public class ExperienceUtils {
 
@@ -35,11 +35,11 @@ public class ExperienceUtils {
      * @return
      */
 
-    public static int getPlayerXP(PlayerEntity player) {
+    public static int getPlayerXP(Player player) {
         return (int)(ExperienceUtils.getExperienceForLevel(player.experienceLevel) + (player.experienceProgress * player.getXpNeededForNextLevel()));
     }
 
-    public static void addPlayerXP(PlayerEntity player, int amount) {
+    public static void addPlayerXP(Player player, int amount) {
         int experience = getPlayerXP(player) + amount;
         player.totalExperience = experience;
         player.experienceLevel = ExperienceUtils.getLevelForExperience(experience);
@@ -114,7 +114,7 @@ public class ExperienceUtils {
     }
 
     // Solution found somewhere on the Forge Forum.
-    public static void decreaseXP(PlayerEntity player, float amount)
+    public static void decreaseXP(Player player, float amount)
     {
         if (player.totalExperience - amount <= 0)
         {
