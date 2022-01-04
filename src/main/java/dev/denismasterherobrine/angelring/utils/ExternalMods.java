@@ -3,8 +3,18 @@ package dev.denismasterherobrine.angelring.utils;
 import net.minecraftforge.fml.ModList;
 
 public enum ExternalMods {
+    /*
+        This is a list of mod integration for Angel Ring. If any of these mods is present: mod integration will be enabled by default.
+    */
     CURIOS("curios"),
-    TINKERSCONSTRUCT("tconstruct");
+    TINKERSCONSTRUCT("tconstruct"),
+    BOTANIA("botania"),
+    BLOODMAGIC("bloodmagic"),
+    THERMALFOUNDATION("thermal"),
+    MEKANISM("mekanism"),
+    ENDERIO("enderio"), // Only for 1.18.1 and higher
+    PNEUMATICCRAFT("pneumaticcraft"),
+    FTBINDUSTRIALCONTRAPTIONS("ftbic");
 
     private final boolean loaded;
 
