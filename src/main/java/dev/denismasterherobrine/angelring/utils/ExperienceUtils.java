@@ -77,4 +77,69 @@ public class ExperienceUtils {
             targetXp -= xpToNextLevel;
         }
     }
+
+    public static float calculateStoredLevels(int storedXP)
+    {
+        float storedLevels = 0.0F;
+        int xp = storedXP;
+
+        while(xp > 0)
+        {
+            int xpToNextLevel = ExperienceUtils.xpBarCap((int)storedLevels);
+
+            if(xp < xpToNextLevel)
+            {
+                storedLevels += (float)xp / xpToNextLevel;
+                break;
+            }
+
+            xp -= xpToNextLevel;
+            storedLevels += 1.0F;
+        }
+
+        return storedLevels;
+    }
+
+    /**
+     * Gets the amount of XP needed until reaching the next level
+     * @param currentXP The XP that the player already has
+     * @return
+     */
+    public static int getXPToNextLevel(int currentXP)
+    {
+        int level = ExperienceUtils.getLevelForExperience(currentXP);
+        int nextLevelXP = ExperienceUtils.getExperienceForLevel(level + 1);
+
+        return nextLevelXP - currentXP;
+    }
+
+    // Solution found somewhere on the Forge Forum.
+    public static void decreaseXP(PlayerEntity player, float amount)
+    {
+        if (player.totalExperience - amount <= 0)
+        {
+            player.experienceLevel = 0;
+            player.experienceProgress = 0;
+            player.totalExperience = 0;
+            return;
+        }
+
+        player.totalExperience -= amount;
+
+        if (player.experienceProgress * (float)ExperienceUtils.xpBarCap(player.experienceLevel) <= amount)
+        {
+            amount -= player.experienceProgress * (float)ExperienceUtils.xpBarCap(player.experienceLevel);
+            player.experienceProgress = 1.0f;
+            player.experienceLevel--;
+        }
+
+        while (ExperienceUtils.xpBarCap(player.experienceLevel) < amount)
+        {
+            amount -= ExperienceUtils.xpBarCap(player.experienceLevel);
+            player.experienceLevel--;
+        }
+
+        player.experienceProgress -= amount / (float)ExperienceUtils.xpBarCap(player.experienceLevel);
+    }
+
 }

@@ -1,7 +1,7 @@
 package dev.denismasterherobrine.angelring.ring;
 
 import dev.denismasterherobrine.angelring.AngelRing;
-import dev.denismasterherobrine.angelring.compat.CuriosCompat;
+import dev.denismasterherobrine.angelring.compat.ClassicAngelRingIntegration;
 import dev.denismasterherobrine.angelring.utils.ExternalMods;
 import net.minecraft.item.Item;
 import net.minecraft.item.ItemGroup;
@@ -24,13 +24,13 @@ public class ItemRing extends Item {
     @SubscribeEvent
     public static void sendImc(InterModEnqueueEvent event) {
         if (ExternalMods.CURIOS.isLoaded())
-            CuriosCompat.sendImc();
+            ClassicAngelRingIntegration.sendImc();
     }
 
     @Override
     public ICapabilityProvider initCapabilities(final ItemStack stack, CompoundNBT unused) {
         if (ExternalMods.CURIOS.isLoaded()) {
-            return CuriosCompat.initCapabilities();
+            return ClassicAngelRingIntegration.initCapabilities();
         }
         return super.initCapabilities(stack, unused);
     }
