@@ -1,9 +1,9 @@
 {
     "type": "crafting_shaped",
     "pattern": [
-        "FGF",
+        "FXF",
         "GEG",
-        "XGX"
+        "NGN"
     ],
     "key": {
         "F": {
@@ -17,6 +17,9 @@
         },
         "X": {
             "item": "minecraft:blaze_rod"
+        },
+        "N": {
+            "item": "minecraft:nether_star"
         }
     },
     "result": {
