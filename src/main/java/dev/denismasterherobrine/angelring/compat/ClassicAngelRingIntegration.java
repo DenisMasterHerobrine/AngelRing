@@ -86,14 +86,14 @@ public class ClassicAngelRingIntegration {
                     if (!player.getAbilities().mayfly && ExperienceUtils.getPlayerXP(player) > Configuration.XPCost.get()) {
                         startFlying(player);
                     }
-                    if (ExperienceUtils.getPlayerXP(player) <= Configuration.XPCost.get()){
+                    if (ExperienceUtils.getPlayerXP(player) <= Configuration.XPCost.get() && Configuration.XPCost.get() != 0){
                         stopFlying(player);
                         if (player instanceof ServerPlayer){
                             // TODO: Localize it through i18n.
                             ((ServerPlayer) player).sendMessage(new TextComponent("You need to have XP to fly. Get more XP to fly or take off Angel Ring."), ChatType.GAME_INFO, player.getUUID());
                         }
                     }
-                    if (player.getAbilities().mayfly && player.getAbilities().flying && ExperienceUtils.getPlayerXP(player) > Configuration.XPCost.get()) {
+                    if (player.getAbilities().mayfly && player.getAbilities().flying && ExperienceUtils.getPlayerXP(player) > Configuration.XPCost.get() && Configuration.XPCost.get() != 0) {
                         i++;
                         if (i >= Configuration.TicksPerDrain.get()){
                             ExperienceUtils.addPlayerXP(player, -Configuration.XPCost.get());
