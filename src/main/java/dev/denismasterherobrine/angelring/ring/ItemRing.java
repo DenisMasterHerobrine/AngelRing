@@ -52,12 +52,12 @@ public class ItemRing extends Item {
     public void appendHoverText(ItemStack itemStack, @org.jetbrains.annotations.Nullable net.minecraft.world.level.Level world, List<Component> tooltip, TooltipFlag tooltipFlag) {
         if (!Screen.hasShiftDown())
             tooltip.add(new TextComponent("Hold Shift for more information!").withStyle(ChatFormatting.GRAY));
-        if (Screen.hasShiftDown() && Configuration.XPCost.get() != 0){
+        if (Screen.hasShiftDown() && Configuration.CommonConfiguration.XPCost.get() != 0){
             tooltip.add(new TextComponent("Angel Ring drains player's XP over time while flying.").withStyle(ChatFormatting.DARK_GREEN));
             tooltip.add(new TextComponent("If player's XP reaches less than 1 level,").withStyle(ChatFormatting.GRAY));
             tooltip.add(new TextComponent("magic will disappear and flight will not be possible.").withStyle(ChatFormatting.GRAY));
         }
-        if (Screen.hasShiftDown() && Configuration.XPCost.get() == 0){
+        if (Screen.hasShiftDown() && Configuration.CommonConfiguration.XPCost.get() == 0){
             tooltip.add(new TextComponent("Angel Ring is switched into Classic Mode. Grants creative flight while in Curios slot.").withStyle(ChatFormatting.RED));
             tooltip.add(new TextComponent("Switch XP draining to more than 0 points in the config to switch to Rebalanced Mode.").withStyle(ChatFormatting.RED));
         }
