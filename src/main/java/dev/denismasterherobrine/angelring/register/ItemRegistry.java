@@ -8,4 +8,6 @@ public class ItemRegistry {
     public static Item ItemRing;
     @ObjectHolder("angelring:itemdiamondring")
     public static Item ItemDiamondRing;
+    @ObjectHolder("angelring:itemfering")
+    public static Item ItemFERing;
 }

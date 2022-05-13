@@ -2,72 +2,69 @@ package dev.denismasterherobrine.angelring.compat;
 
 import dev.denismasterherobrine.angelring.config.Configuration;
 import dev.denismasterherobrine.angelring.register.ItemRegistry;
-
-import dev.denismasterherobrine.angelring.utils.ExperienceUtils;
-
+import dev.denismasterherobrine.angelring.item.EnergyItem;
 import net.minecraft.entity.LivingEntity;
 import net.minecraft.entity.player.PlayerEntity;
-import net.minecraft.entity.player.ServerPlayerEntity;
 import net.minecraft.item.ItemStack;
 import net.minecraft.util.Direction;
-import net.minecraft.util.SoundEvents;
-
-import net.minecraft.util.text.ChatType;
-import net.minecraft.util.text.StringTextComponent;
 import net.minecraft.util.text.TextComponent;
 import net.minecraft.util.text.TranslationTextComponent;
 import net.minecraftforge.common.capabilities.Capability;
 import net.minecraftforge.common.capabilities.ICapabilityProvider;
 import net.minecraftforge.common.util.LazyOptional;
+import net.minecraftforge.energy.CapabilityEnergy;
+import net.minecraftforge.energy.IEnergyStorage;
 import net.minecraftforge.fml.InterModComms;
-
 import top.theillusivec4.curios.api.CuriosApi;
 import top.theillusivec4.curios.api.CuriosCapability;
-import top.theillusivec4.curios.api.SlotContext;
 import top.theillusivec4.curios.api.SlotTypeMessage;
 import top.theillusivec4.curios.api.type.capability.ICurio;
 
 import javax.annotation.Nonnull;
 import javax.annotation.Nullable;
 
-public class ClassicAngelRingIntegration {
-    private static int ticksDrained;
-
+public class FEAngelRingIntegration {
     public static void sendImc() {
-        InterModComms.sendTo("curios", SlotTypeMessage.REGISTER_TYPE, () -> new SlotTypeMessage.Builder("angelring").build());
+        InterModComms.sendTo("curios", SlotTypeMessage.REGISTER_TYPE, () -> new SlotTypeMessage.Builder("rfangelring").build());
     }
 
-    public static ICapabilityProvider initCapabilities() {
-        ICurio curio = new AbstractRingCurio(ItemRegistry.ItemRing) {
+    public static ICapabilityProvider initCapabilities(ItemStack stack) {
+        ICurio curio = new AbstractRingCurio(ItemRegistry.ItemFERing) {
+            private IEnergyStorage getEnergyStorage(ItemStack stack) {
+                return stack.getCapability(CapabilityEnergy.ENERGY).resolve().get();
+            }
+
             @Override
             protected boolean checkIfAllowedToFly(PlayerEntity player, ItemStack stack) {
-                return ExperienceUtils.getPlayerXP(player) > Configuration.XPCost.get();
+                return getEnergyStorage(stack).getEnergyStored() > 1;
             }
 
             @Override
             protected TextComponent getNotAbleToFlyMessage() {
-                return new TranslationTextComponent("item.angelring.itemring.not_enough_xp");
+                return new TranslationTextComponent("item.angelring.itemfering.not_enough_fe");
             }
 
             @Override
             protected void payForFlight(PlayerEntity player, ItemStack stack) {
-                ticksDrained++;
-                if (ticksDrained >= Configuration.TicksPerDrain.get()){
-                    ExperienceUtils.addPlayerXP(player, -Configuration.XPCost.get());
-                    ticksDrained = 0;
-                }
+                getEnergyStorage(stack).extractEnergy(Configuration.FEPerTick.get(), false);
             }
         };
 
+        EnergyItem energyItem = new EnergyItem(stack, Configuration.FECapacity.get());
+
         return new ICapabilityProvider() {
             private final LazyOptional<ICurio> curioOpt = LazyOptional.of(() -> curio);
+            private final LazyOptional<IEnergyStorage> energyStorageOpt = LazyOptional.of(() -> energyItem);
 
             @Nonnull
             @Override
             public <T> LazyOptional<T> getCapability(@Nonnull Capability<T> cap,
                                                      @Nullable Direction side) {
-
-                return CuriosCapability.ITEM.orEmpty(cap, curioOpt);
+                if (cap == CapabilityEnergy.ENERGY) {
+                    return energyStorageOpt.cast();
+                } else {
+                    return CuriosCapability.ITEM.orEmpty(cap, curioOpt);
+                }
             }
         };
 

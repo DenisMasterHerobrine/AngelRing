@@ -1,0 +1,29 @@
+{
+  "type": "crafting_shaped",
+  "pattern": [
+    "FXF",
+    "GEG",
+    "NGN"
+  ],
+  "key": {
+    "F": {
+      "item": "minecraft:feather"
+    },
+    "E": {
+      "item": "angelring:itemdiamondring"
+    },
+    "G": {
+      "item": "minecraft:gold_block"
+    },
+    "X": {
+      "item": "minecraft:redstone"
+    },
+    "N": {
+      "item": "minecraft:nether_star"
+    }
+  },
+  "result": {
+    "item": "angelring:itemring",
+    "count": 1
+  }
+}

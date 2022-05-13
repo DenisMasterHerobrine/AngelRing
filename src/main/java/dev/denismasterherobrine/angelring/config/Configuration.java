@@ -18,6 +18,8 @@ public class Configuration {
     public static ForgeConfigSpec.BooleanValue BalancedRecipe;
     public static ForgeConfigSpec.IntValue XPCost;
     public static ForgeConfigSpec.IntValue TicksPerDrain;
+    public static ForgeConfigSpec.IntValue FEPerTick;
+    public static ForgeConfigSpec.IntValue FECapacity;
 
     static {
         COMMON_BUILDER.comment("General Angel Ring 2 configuration options.").push(CATEGORY_GENERAL);
@@ -27,6 +29,9 @@ public class Configuration {
 
         XPCost = COMMON_BUILDER.comment("Define how much XP will be drained from player when flying by wearing classic Angel Ring? Put 0 if you need to disable XP requirement for flight.").defineInRange("XPCost", 5, 0, 2147483647);
         TicksPerDrain = COMMON_BUILDER.comment("Define how much ticks is required to pass between each XP drain event of classic Angel Ring?").defineInRange("TicksPerDrain", 50, 1, 2147483647);
+
+        FEPerTick = COMMON_BUILDER.comment("Define how much FE the Energetic Angel Ring will drain every tick while flying.").defineInRange("FEPerTick", 100, 1, 2147483647);
+        FECapacity = COMMON_BUILDER.comment("Define how much FE the Energetic Angel Ring can store.").defineInRange("FECapacity", 100000, 1, 2147483647);
 
         COMMON_BUILDER.pop();
         COMMON_CONFIG = COMMON_BUILDER.build();
