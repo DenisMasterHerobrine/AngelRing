@@ -30,6 +30,8 @@ public class FEAngelRingIntegration {
 
     public static ICapabilityProvider initCapabilities(ItemStack stack) {
         ICurio curio = new AbstractRingCurio(ItemRegistry.ItemFERing) {
+            private final int fePerTick = Configuration.FEPerTick.get();
+
             private IEnergyStorage getEnergyStorage(ItemStack stack) {
                 return stack.getCapability(CapabilityEnergy.ENERGY).resolve().get();
             }
@@ -46,7 +48,7 @@ public class FEAngelRingIntegration {
 
             @Override
             protected void payForFlight(PlayerEntity player, ItemStack stack) {
-                getEnergyStorage(stack).extractEnergy(Configuration.FEPerTick.get(), false);
+                getEnergyStorage(stack).extractEnergy(fePerTick, false);
             }
         };
 
