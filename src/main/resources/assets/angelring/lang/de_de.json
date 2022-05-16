@@ -6,12 +6,12 @@
     "item.angelring.itemring": "Engelsring",
     "item.angelring.itemring.desc2": "wird die Magie verschwinden und er wird nicht mehr fliegen können.",
     "item.angelring.itemring.classic.desc0": "Der Engelsring ist im klassischen Modus. Er erlaubt Kreativ-Modus-Flug während dieser im Curios Slot ist.",
-    "item.angelring.itemring.classic.desc1": "Wähle einen EP-Verbrauch von mehr als 0 Punkten um den neu ausgewogenen Modus zu wechseln.",
+    "item.angelring.itemring.classic.desc1": "Wähle einen EP-Verbrauch von mehr als 0 Punkten um zu dem neu ausgewogenen Modus zu wechseln.",
     "item.angelring.itemfering": "Energetischer Engelsring",
     "item.angelring.itemfering.tooltip": "Halte Umschalten für mehr Informationen!",
     "item.angelring.itemfering.desc0": "Der Engelsring braucht während des Fliegens die in ihm gespeicherte FE auf.",
     "item.angelring.itemfering.desc1": "Der Engelsring enthält %s FE / %s FE.",
     "curios.identifier.angelring": "Engelsring",
     "item.angelring.itemring.not_enough_xp": "Du musst EP haben, um fliegen zu können.",
-    "item.angelring.itemfering.not_enough_fe": "Du brauchst mehr FE um zu fliegen. Lade den Engelsring um wieder zu fliegen."
+    "item.angelring.itemfering.not_enough_fe": "Du brauchst mehr FE um zu fliegen. Lade den Engelsring auf um wieder zu fliegen."
 }
