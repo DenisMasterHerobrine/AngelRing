@@ -1,4 +1,9 @@
 {
   "replace": false,
-  "values": ["angelring:itemring", "angelring:itemfering"]
+  "values":
+    [
+      "angelring:itemring",
+      "angelring:energetic_angel_ring",
+      "angelring:leadstone_angel_ring"
+    ]
 }

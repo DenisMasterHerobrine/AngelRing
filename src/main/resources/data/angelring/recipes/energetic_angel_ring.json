@@ -1,0 +1,29 @@
+{
+  "type": "crafting_shaped",
+  "pattern": [
+    "XFN",
+    "GEG",
+    "NFX"
+  ],
+  "key": {
+    "F": {
+      "tag": "forge:storage_blocks/redstone"
+    },
+    "E": {
+      "item": "angelring:itemring"
+    },
+    "G": {
+      "item": "minecraft:gold_block"
+    },
+    "X": {
+      "item": "minecraft:netherite_ingot"
+    },
+    "N": {
+      "item": "minecraft:nether_star"
+    }
+  },
+  "result": {
+    "item": "angelring:energetic_angel_ring",
+    "count": 1
+  }
+}
