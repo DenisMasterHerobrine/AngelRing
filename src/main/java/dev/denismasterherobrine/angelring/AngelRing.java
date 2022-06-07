@@ -1,15 +1,14 @@
 package dev.denismasterherobrine.angelring;
 
-import dev.denismasterherobrine.angelring.recipes.ClassicAngelRingRecipeProvider;
+import dev.denismasterherobrine.angelring.item.ItemFERing;
 import dev.denismasterherobrine.angelring.utils.ExternalMods;
 import dev.denismasterherobrine.angelring.config.Configuration;
 import dev.denismasterherobrine.angelring.proxy.ClientProxy;
 import dev.denismasterherobrine.angelring.proxy.IProxy;
 import dev.denismasterherobrine.angelring.proxy.ServerProxy;
 import dev.denismasterherobrine.angelring.register.ItemRegistry;
-import dev.denismasterherobrine.angelring.ring.ItemDiamondRing;
-import dev.denismasterherobrine.angelring.ring.ItemRing;
-import net.minecraft.data.DataGenerator;
+import dev.denismasterherobrine.angelring.item.ItemDiamondRing;
+import dev.denismasterherobrine.angelring.item.ItemRing;
 import net.minecraft.item.Item;
 import net.minecraft.util.ResourceLocation;
 import net.minecraftforge.common.MinecraftForge;
@@ -18,7 +17,6 @@ import net.minecraftforge.eventbus.api.SubscribeEvent;
 import net.minecraftforge.fml.DistExecutor;
 import net.minecraftforge.fml.common.Mod;
 import net.minecraftforge.fml.event.lifecycle.FMLCommonSetupEvent;
-import net.minecraftforge.fml.event.lifecycle.GatherDataEvent;
 import net.minecraftforge.fml.event.server.FMLServerStartingEvent;
 import net.minecraftforge.fml.javafmlmod.FMLJavaModLoadingContext;
 import net.minecraftforge.fml.loading.FMLPaths;
@@ -55,7 +53,8 @@ public class AngelRing {
             event.getRegistry().registerAll
                     (
                             ItemRegistry.ItemRing = new ItemRing().setRegistryName(location("itemring")),
-                            ItemRegistry.ItemDiamondRing = new ItemDiamondRing().setRegistryName(location("itemdiamondring"))
+                            ItemRegistry.ItemDiamondRing = new ItemDiamondRing().setRegistryName(location("itemdiamondring")),
+                            ItemRegistry.ItemFERing = new ItemFERing().setRegistryName(location("itemfering"))
                     );
         }
         /*
