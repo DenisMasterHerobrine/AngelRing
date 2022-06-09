@@ -8,7 +8,7 @@
     "item.angelring.itemring.classic.desc0": "Der Engelsring ist im klassischen Modus. Er erlaubt Kreativ-Modus-Flug während dieser im Curios Slot ist.",
     "item.angelring.itemring.classic.desc1": "Wähle einen EP-Verbrauch von mehr als 0 Punkten um den neu ausgewogenen Modus zu wechseln.",
     "item.angelring.energetic_angel_ring": "Energetischer Engelsring",
-    "item.angelring.energetic_angel_ring.tooltip": "Halte Umschalten für mehr Informationen!",
+    "item.angelring.energetic_angel_ring.tooltip": "Halte §eUmschalten§7 für mehr Informationen!",
     "item.angelring.energetic_angel_ring.desc0": "Der Engelsring braucht während des Fliegens die in ihm gespeicherte FE auf.",
     "item.angelring.energetic_angel_ring.desc1": "Der Engelsring enthält %s FE / %s FE.",
     "curios.identifier.angelring": "Engelsring",

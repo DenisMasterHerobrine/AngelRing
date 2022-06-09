@@ -1,9 +1,9 @@
-package dev.denismasterherobrine.angelring.compat.curios;
+package dev.denismasterherobrine.angelring.compat.thermal;
 
+import dev.denismasterherobrine.angelring.compat.curios.AbstractRingCurio;
 import dev.denismasterherobrine.angelring.config.Configuration;
-import dev.denismasterherobrine.angelring.register.ItemRegistry;
 import dev.denismasterherobrine.angelring.item.utils.EnergyItem;
-
+import dev.denismasterherobrine.angelring.register.ItemRegistry;
 import net.minecraft.entity.LivingEntity;
 import net.minecraft.entity.player.PlayerEntity;
 import net.minecraft.item.ItemStack;
@@ -22,10 +22,10 @@ import top.theillusivec4.curios.api.type.capability.ICurio;
 import javax.annotation.Nonnull;
 import javax.annotation.Nullable;
 
-public class EnergeticAngelRingIntegration {
+public class HardenedAngelRingIntegration {
     public static ICapabilityProvider initCapabilities(ItemStack stack) {
-        ICurio curio = new AbstractRingCurio(ItemRegistry.EnergeticAngelRing) {
-            private final int fePerTick = Configuration.EnergeticFEPerTick.get();
+        ICurio curio = new AbstractRingCurio(ItemRegistry.HardenedAngelRing) {
+            private final int fePerTick = Configuration.HardenedFEPerTick.get();
 
             private IEnergyStorage getEnergyStorage(ItemStack stack) {
                 return stack.getCapability(CapabilityEnergy.ENERGY).resolve().get();
@@ -47,7 +47,7 @@ public class EnergeticAngelRingIntegration {
             }
         };
 
-        EnergyItem energyItem = new EnergyItem(stack, Configuration.EnergeticFECapacity.get());
+        EnergyItem energyItem = new EnergyItem(stack, Configuration.HardenedCapacity.get());
 
         return new ICapabilityProvider() {
             private final LazyOptional<ICurio> curioOpt = LazyOptional.of(() -> curio);

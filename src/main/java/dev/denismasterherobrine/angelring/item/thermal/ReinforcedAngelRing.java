@@ -1,8 +1,7 @@
-package dev.denismasterherobrine.angelring.item.vanilla;
+package dev.denismasterherobrine.angelring.item.thermal;
 
-import dev.denismasterherobrine.angelring.AngelRing;
 import dev.denismasterherobrine.angelring.compat.curios.ClassicAngelRingIntegration;
-import dev.denismasterherobrine.angelring.compat.curios.EnergeticAngelRingIntegration;
+import dev.denismasterherobrine.angelring.compat.thermal.ReinforcedAngelRingIntegration;
 import dev.denismasterherobrine.angelring.utils.AngelRingTab;
 import dev.denismasterherobrine.angelring.utils.ExternalMods;
 import net.minecraft.client.gui.screen.Screen;
@@ -20,17 +19,13 @@ import net.minecraftforge.common.capabilities.ICapabilityProvider;
 import net.minecraftforge.energy.CapabilityEnergy;
 import net.minecraftforge.energy.IEnergyStorage;
 import net.minecraftforge.eventbus.api.SubscribeEvent;
-import net.minecraftforge.fml.common.Mod;
 import net.minecraftforge.fml.event.lifecycle.InterModEnqueueEvent;
-import net.minecraftforge.registries.ObjectHolder;
 
 import javax.annotation.Nullable;
 import java.util.List;
 
-@Mod.EventBusSubscriber(modid = AngelRing.MODID, bus = Mod.EventBusSubscriber.Bus.MOD)
-@ObjectHolder(AngelRing.MODID)
-public class EnergeticAngelRing extends Item {
-    public EnergeticAngelRing() {
+public class ReinforcedAngelRing extends Item {
+    public ReinforcedAngelRing() {
         super(new Item.Properties().stacksTo(1).tab(AngelRingTab.ANGELRING2));
     }
 
@@ -43,7 +38,7 @@ public class EnergeticAngelRing extends Item {
     @Override
     public ICapabilityProvider initCapabilities(final ItemStack stack, CompoundNBT unused) {
         if (ExternalMods.CURIOS.isLoaded()) {
-            return EnergeticAngelRingIntegration.initCapabilities(stack);
+            return ReinforcedAngelRingIntegration.initCapabilities(stack);
         }
         return super.initCapabilities(stack, unused);
     }
@@ -72,5 +67,4 @@ public class EnergeticAngelRing extends Item {
             tooltip.add(new TranslationTextComponent("item.angelring.energetic_angel_ring.desc1", energy.getEnergyStored(), energy.getMaxEnergyStored()).withStyle(TextFormatting.GRAY));
         }
     }
-
 }

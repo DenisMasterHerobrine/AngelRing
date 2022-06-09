@@ -3,11 +3,11 @@ package dev.denismasterherobrine.angelring.item.vanilla;
 import dev.denismasterherobrine.angelring.AngelRing;
 import dev.denismasterherobrine.angelring.compat.curios.ClassicAngelRingIntegration;
 import dev.denismasterherobrine.angelring.config.Configuration;
+import dev.denismasterherobrine.angelring.utils.AngelRingTab;
 import dev.denismasterherobrine.angelring.utils.ExternalMods;
 import net.minecraft.client.gui.screen.Screen;
 import net.minecraft.client.util.ITooltipFlag;
 import net.minecraft.item.Item;
-import net.minecraft.item.ItemGroup;
 import net.minecraft.item.ItemStack;
 import net.minecraft.nbt.CompoundNBT;
 import net.minecraft.util.text.ITextComponent;
@@ -30,7 +30,7 @@ import java.util.List;
 public class ItemRing extends Item {
 
     public ItemRing() {
-        super(new Item.Properties().stacksTo(1).tab(ItemGroup.TAB_MISC));
+        super(new Item.Properties().stacksTo(1).tab(AngelRingTab.ANGELRING2));
     }
 
     @SubscribeEvent
@@ -53,7 +53,7 @@ public class ItemRing extends Item {
         if (!Screen.hasShiftDown())
             tooltip.add(new TranslationTextComponent("item.angelring.itemring.tooltip").withStyle(TextFormatting.GRAY));
         if (Screen.hasShiftDown() && Configuration.XPCost.get() != 0){
-            tooltip.add(new TranslationTextComponent("item.angelring.itemring.desc0").withStyle(TextFormatting.GOLD));
+            tooltip.add(new TranslationTextComponent("item.angelring.itemring.desc0").withStyle(TextFormatting.DARK_GREEN));
             tooltip.add(new TranslationTextComponent("item.angelring.itemring.desc1").withStyle(TextFormatting.GRAY));
             tooltip.add(new TranslationTextComponent("item.angelring.itemring.desc2").withStyle(TextFormatting.GRAY));
         }

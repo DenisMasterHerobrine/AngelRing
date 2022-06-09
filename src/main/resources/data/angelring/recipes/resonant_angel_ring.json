@@ -7,26 +7,26 @@
   ],
   "key": {
     "F": {
-      "tag": "forge:storage_blocks/lead"
+      "tag": "forge:storage_blocks/enderium"
     },
     "E": {
-      "item": "angelring:itemring"
+      "item": "angelring:reinforced_angel_ring"
     },
     "G": {
-      "item": "thermal:obsidian_glass"
+      "item": "thermal:enderium_glass"
     },
     "X": {
-      "tag": "forge:storage_blocks/cinnabar"
+      "item": "thermal:blizz_powder"
     },
     "L": {
-      "item": "thermal:upgrade_augment_1"
+      "item": "thermal:upgrade_augment_3"
     },
     "N": {
       "item": "minecraft:nether_star"
     }
   },
   "result": {
-    "item": "angelring:leadstone_angel_ring",
+    "item": "angelring:resonant_angel_ring",
     "count": 1
   },
   "conditions": [

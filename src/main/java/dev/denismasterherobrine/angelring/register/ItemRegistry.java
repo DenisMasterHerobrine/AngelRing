@@ -12,4 +12,10 @@ public class ItemRegistry {
     public static Item EnergeticAngelRing;
     @ObjectHolder("angelring:leadstone_angel_ring")
     public static Item LeadstoneAngelRing;
+    @ObjectHolder("angelring:hardened_angel_ring")
+    public static Item HardenedAngelRing;
+    @ObjectHolder("angelring:reinforced_angel_ring")
+    public static Item ReinforcedAngelRing;
+    @ObjectHolder("angelring:resonant_angel_ring")
+    public static Item ResonantAngelRing;
 }

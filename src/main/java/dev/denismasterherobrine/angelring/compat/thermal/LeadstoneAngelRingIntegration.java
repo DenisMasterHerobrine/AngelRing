@@ -15,20 +15,14 @@ import net.minecraftforge.common.capabilities.ICapabilityProvider;
 import net.minecraftforge.common.util.LazyOptional;
 import net.minecraftforge.energy.CapabilityEnergy;
 import net.minecraftforge.energy.IEnergyStorage;
-import net.minecraftforge.fml.InterModComms;
 import top.theillusivec4.curios.api.CuriosApi;
 import top.theillusivec4.curios.api.CuriosCapability;
-import top.theillusivec4.curios.api.SlotTypeMessage;
 import top.theillusivec4.curios.api.type.capability.ICurio;
 
 import javax.annotation.Nonnull;
 import javax.annotation.Nullable;
 
 public class LeadstoneAngelRingIntegration {
-    public static void sendImc() {
-        InterModComms.sendTo("curios", SlotTypeMessage.REGISTER_TYPE, () -> new SlotTypeMessage.Builder("angelring").build());
-    }
-
     public static ICapabilityProvider initCapabilities(ItemStack stack) {
         ICurio curio = new AbstractRingCurio(ItemRegistry.LeadstoneAngelRing) {
             private final int fePerTick = Configuration.LeadstoneFEPerTick.get();
@@ -70,7 +64,6 @@ public class LeadstoneAngelRingIntegration {
                 }
             }
         };
-
     }
 
     public static boolean isRingInCuriosSlot(ItemStack angelRing, LivingEntity player) {

@@ -10,10 +10,13 @@
   "item.angelring.itemring.classic.desc1": "Switch XP draining to more than 0 points in the config to switch to Rebalanced Mode.",
   "item.angelring.energetic_angel_ring": "Energetic Angel Ring",
   "item.angelring.energetic_angel_ring.not_enough_fe": "You need more FE to fly. Charge you angel ring to fly again.",
-  "item.angelring.energetic_angel_ring.tooltip": "Hold Shift for more information!",
+  "item.angelring.energetic_angel_ring.tooltip": "Hold §eShift§7 for more information!",
   "item.angelring.energetic_angel_ring.desc0": "Angel Ring drains the stored FE over time while flying.",
   "item.angelring.energetic_angel_ring.desc1": "Angel Ring currently contains %s FE / %s FE.",
   "item.angelring.leadstone_angel_ring": "Leadstone Angel Ring",
-  "item.angelring.leadstone_angel_ring.desc1": "Angel Ring currently contains %s FE / %s FE.",
-  "curios.identifier.angelring": "Angel Ring"
+  "item.angelring.hardened_angel_ring": "Hardened Angel Ring",
+  "item.angelring.reinforced_angel_ring": "Reinforced Angel Ring",
+  "item.angelring.resonant_angel_ring": "Resonant Angel Ring",
+  "curios.identifier.angelring": "Angel Ring",
+  "itemGroup.angelring2": "Angel Ring 2"
 }

@@ -1,7 +1,7 @@
 package dev.denismasterherobrine.angelring;
 
-import dev.denismasterherobrine.angelring.item.thermal.LeadstoneAngerlRing;
-import dev.denismasterherobrine.angelring.item.vanilla.EnergeticAngelRing;
+import dev.denismasterherobrine.angelring.item.thermal.*;
+import dev.denismasterherobrine.angelring.item.vanilla.*;
 import dev.denismasterherobrine.angelring.utils.ExternalMods;
 import dev.denismasterherobrine.angelring.config.Configuration;
 import dev.denismasterherobrine.angelring.register.ItemRegistry;
@@ -52,7 +52,10 @@ public class AngelRing {
             event.getRegistry().register(ItemRegistry.EnergeticAngelRing = new EnergeticAngelRing().setRegistryName(location("energetic_angel_ring")));
 
             // Thermal Expansion's Angel Ring Tiers
-            event.getRegistry().register(ItemRegistry.LeadstoneAngelRing = new LeadstoneAngerlRing().setRegistryName(location("leadstone_angel_ring")));
+            event.getRegistry().register(ItemRegistry.LeadstoneAngelRing = new LeadstoneAngelRing().setRegistryName(location("leadstone_angel_ring")));
+            event.getRegistry().register(ItemRegistry.HardenedAngelRing = new HardenedAngelRing().setRegistryName(location("hardened_angel_ring")));
+            event.getRegistry().register(ItemRegistry.ReinforcedAngelRing = new ReinforcedAngelRing().setRegistryName(location("reinforced_angel_ring")));
+            event.getRegistry().register(ItemRegistry.ResonantAngelRing = new ResonantAngelRing().setRegistryName(location("resonant_angel_ring")));
         }
 
         private static ResourceLocation location(String name) {
