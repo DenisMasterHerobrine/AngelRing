@@ -1,0 +1,38 @@
+{
+  "type": "crafting_shaped",
+  "pattern": [
+    "XGX",
+    "FEF",
+    "NLN"
+  ],
+  "key": {
+    "F": {
+      "tag": "forge:storage_blocks/enderium"
+    },
+    "E": {
+      "item": "angelring:reinforced_angel_ring"
+    },
+    "G": {
+      "item": "thermal:enderium_glass"
+    },
+    "X": {
+      "item": "thermal:blizz_powder"
+    },
+    "L": {
+      "item": "thermal:upgrade_augment_3"
+    },
+    "N": {
+      "item": "minecraft:nether_star"
+    }
+  },
+  "result": {
+    "item": "angelring:resonant_angel_ring",
+    "count": 1
+  },
+  "conditions": [
+    {
+      "type": "forge:mod_loaded",
+      "modid": "thermal"
+    }
+  ]
+}

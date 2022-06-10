@@ -1,0 +1,17 @@
+{
+    "item.angelring.itemring": "Eng'lsring",
+    "item.angelring.itemdiamondring": "Diamandring",
+    "item.angelring.itemring.tooltip": "Halde dä §eUmschalddasde§7 gedrüggd für mähr Informatschoon!",
+    "item.angelring.itemring.desc0": "Dor Eng'lsring vorbraucht EP vom Schbielorr währndn Flieschn.",
+    "item.angelring.itemring.desc1": "Wenn dor Schbielorr wenschor als eene Erfahrungsschdufe hat,",
+    "item.angelring.itemring.classic.desc0": "Dor Eng'lsring is im klassischn Modus. Er erlobt flieschn wie im Greativmodus solange der angezochn is.",
+    "item.angelring.energetic_angel_ring": "Enorgiegeladenor Eng'lsring",
+    "item.angelring.itemring.not_enough_xp": "Du benödischst EP, um flieschn zu könn'.",
+    "item.angelring.itemring.desc2": "wird dor Hokuspokus nen Ende nähm und dor Schbielorr wird nimmer weidor flieschn könn' odor abschdürdsn.",
+    "item.angelring.itemring.classic.desc1": "Schdell in dor Gonfiguratschoon een EP-Vorbrauch von mähr als 0 Bungd'n ein, um in d'n ausgeglischnen Modus zu weggsl'n.",
+    "item.angelring.energetic_angel_ring.not_enough_fe": "Du benödischst mähr FE zum flieschn. Du musst d'n Eng'lsring wiedor uffladen um zu flieschn.",
+    "item.angelring.energetic_angel_ring.tooltip": "Umschalddasde gedrüggd haldn für mähr Informatschoonen!",
+    "item.angelring.energetic_angel_ring.desc0": "Dor Eng'lsring vorbraucht seine Enorgie währndn flieschn.",
+    "item.angelring.energetic_angel_ring.desc1": "Dor Eng'lsring enthäld %s FE / %s FE.",
+    "curios.identifier.angelring": "Eng'lsring"
+}

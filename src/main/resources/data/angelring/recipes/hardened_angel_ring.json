@@ -1,0 +1,38 @@
+{
+  "type": "crafting_shaped",
+  "pattern": [
+    "XGX",
+    "FEF",
+    "NLN"
+  ],
+  "key": {
+    "F": {
+      "tag": "forge:storage_blocks/invar"
+    },
+    "E": {
+      "item": "angelring:leadstone_angel_ring"
+    },
+    "G": {
+      "item": "thermal:lumium_glass"
+    },
+    "X": {
+      "item": "thermal:rf_coil_storage_augment"
+    },
+    "L": {
+      "item": "thermal:upgrade_augment_2"
+    },
+    "N": {
+      "item": "minecraft:nether_star"
+    }
+  },
+  "result": {
+    "item": "angelring:hardened_angel_ring",
+    "count": 1
+  },
+  "conditions": [
+    {
+      "type": "forge:mod_loaded",
+      "modid": "thermal"
+    }
+  ]
+}
