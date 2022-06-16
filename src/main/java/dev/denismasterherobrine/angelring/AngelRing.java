@@ -1,17 +1,17 @@
 package dev.denismasterherobrine.angelring;
 
-import dev.denismasterherobrine.angelring.item.thermal.*;
-import dev.denismasterherobrine.angelring.item.vanilla.*;
+import dev.denismasterherobrine.angelring.item.thermal.HardenedAngelRing;
+import dev.denismasterherobrine.angelring.item.thermal.LeadstoneAngelRing;
+import dev.denismasterherobrine.angelring.item.thermal.ReinforcedAngelRing;
+import dev.denismasterherobrine.angelring.item.thermal.ResonantAngelRing;
+import dev.denismasterherobrine.angelring.item.vanilla.EnergeticAngelRing;
+import dev.denismasterherobrine.angelring.item.vanilla.DiamondRing;
+import dev.denismasterherobrine.angelring.item.vanilla.AngelRingItem;
+import dev.denismasterherobrine.angelring.register.ItemRegistry;
 import dev.denismasterherobrine.angelring.utils.ExternalMods;
 import dev.denismasterherobrine.angelring.config.Configuration;
-import dev.denismasterherobrine.angelring.register.ItemRegistry;
-import dev.denismasterherobrine.angelring.item.vanilla.ItemDiamondRing;
-import dev.denismasterherobrine.angelring.item.vanilla.ItemRing;
 
-import net.minecraft.resources.ResourceLocation;
-import net.minecraft.world.item.Item;
 import net.minecraftforge.common.MinecraftForge;
-import net.minecraftforge.event.RegistryEvent;
 import net.minecraftforge.event.server.ServerStartingEvent;
 import net.minecraftforge.eventbus.api.SubscribeEvent;
 import net.minecraftforge.fml.common.Mod;
@@ -29,7 +29,7 @@ public class AngelRing {
     public AngelRing() {
         FMLJavaModLoadingContext.get().getModEventBus().addListener(this::setup);
         MinecraftForge.EVENT_BUS.register(this);
-
+        ItemRegistry.init();
         Configuration.loadConfig(Configuration.COMMON_CONFIG, FMLPaths.CONFIGDIR.get().resolve("angelring2.toml"));
     }
 
@@ -40,27 +40,6 @@ public class AngelRing {
     public void onServerStarting(ServerStartingEvent event) {
         if (ExternalMods.TINKERSCONSTRUCT.isLoaded()) {
             LOGGER.warn("Tinkers' Construct is loaded! Slime Boots doesn't work with Angel Ring at the moment.");
-        }
-    }
-
-    @Mod.EventBusSubscriber(bus = Mod.EventBusSubscriber.Bus.MOD)
-    public static class RegistryEvents {
-        @SubscribeEvent
-        public static void RegisterItems(final RegistryEvent.Register<Item> event) {
-            // Vanilla Angel Ring Tiers
-            event.getRegistry().register(ItemRegistry.ItemRing = new ItemRing().setRegistryName(location("itemring")));
-            event.getRegistry().register(ItemRegistry.ItemDiamondRing = new ItemDiamondRing().setRegistryName(location("itemdiamondring")));
-            event.getRegistry().register(ItemRegistry.EnergeticAngelRing = new EnergeticAngelRing().setRegistryName(location("energetic_angel_ring")));
-
-            // Thermal Expansion's Angel Ring Tiers
-            event.getRegistry().register(ItemRegistry.LeadstoneAngelRing = new LeadstoneAngelRing().setRegistryName(location("leadstone_angel_ring")));
-            event.getRegistry().register(ItemRegistry.HardenedAngelRing = new HardenedAngelRing().setRegistryName(location("hardened_angel_ring")));
-            event.getRegistry().register(ItemRegistry.ReinforcedAngelRing = new ReinforcedAngelRing().setRegistryName(location("reinforced_angel_ring")));
-            event.getRegistry().register(ItemRegistry.ResonantAngelRing = new ResonantAngelRing().setRegistryName(location("resonant_angel_ring")));
-        }
-
-        private static ResourceLocation location(String name) {
-            return new ResourceLocation(MODID, name);
         }
     }
 }

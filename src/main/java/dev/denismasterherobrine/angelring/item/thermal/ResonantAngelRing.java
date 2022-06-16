@@ -8,7 +8,6 @@ import net.minecraft.ChatFormatting;
 import net.minecraft.client.gui.screens.Screen;
 import net.minecraft.nbt.CompoundTag;
 import net.minecraft.network.chat.Component;
-import net.minecraft.network.chat.TranslatableComponent;
 import net.minecraft.world.item.Item;
 import net.minecraft.world.item.ItemStack;
 import net.minecraft.world.item.TooltipFlag;
@@ -61,10 +60,10 @@ public class ResonantAngelRing extends Item {
     public void appendHoverText(ItemStack stack, @Nullable Level world, List<Component> tooltip, TooltipFlag tooltipFlag) {
         IEnergyStorage energy = stack.getCapability(CapabilityEnergy.ENERGY, null).orElse(null);
         if (!Screen.hasShiftDown())
-            tooltip.add(new TranslatableComponent("item.angelring.energetic_angel_ring.tooltip").withStyle(ChatFormatting.GRAY));
+            tooltip.add(Component.translatable("item.angelring.energetic_angel_ring.tooltip").withStyle(ChatFormatting.GRAY));
         else {
-            tooltip.add(new TranslatableComponent("item.angelring.energetic_angel_ring.desc0").withStyle(ChatFormatting.GOLD));
-            tooltip.add(new TranslatableComponent("item.angelring.energetic_angel_ring.desc1", energy.getEnergyStored(), energy.getMaxEnergyStored()).withStyle(ChatFormatting.GRAY));
+            tooltip.add(Component.translatable("item.angelring.energetic_angel_ring.desc0").withStyle(ChatFormatting.GOLD));
+            tooltip.add(Component.translatable("item.angelring.energetic_angel_ring.desc1", energy.getEnergyStored(), energy.getMaxEnergyStored()).withStyle(ChatFormatting.GRAY));
         }
     }
 }

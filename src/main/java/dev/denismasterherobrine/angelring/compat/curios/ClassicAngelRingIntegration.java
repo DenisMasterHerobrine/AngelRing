@@ -5,7 +5,9 @@ import dev.denismasterherobrine.angelring.register.ItemRegistry;
 import dev.denismasterherobrine.angelring.utils.ExperienceUtils;
 
 import net.minecraft.core.Direction;
-import net.minecraft.network.chat.TranslatableComponent;
+import net.minecraft.network.chat.Component;
+import net.minecraft.network.chat.contents.TranslatableContents;
+import net.minecraft.resources.ResourceLocation;
 import net.minecraft.world.entity.LivingEntity;
 import net.minecraft.world.entity.player.Player;
 import net.minecraft.world.item.ItemStack;
@@ -26,12 +28,12 @@ public class ClassicAngelRingIntegration {
     private static int ticksDrained;
 
     public static void sendImc() {
-        InterModComms.sendTo("curios", SlotTypeMessage.REGISTER_TYPE, () -> new SlotTypeMessage.Builder("angelring").build());
+        InterModComms.sendTo("curios", SlotTypeMessage.REGISTER_TYPE, () -> new SlotTypeMessage.Builder("angelring").icon(new ResourceLocation("curios:slot/empty_ring_slot")).build());
     }
 
     public static ICapabilityProvider initCapabilities() {
-        ICurio curio = new AbstractRingCurio(ItemRegistry.ItemRing) {
-            final ItemStack stack = new ItemStack(ItemRegistry.ItemRing.asItem()); // I believe it should work since there is no additional data by default.
+        ICurio curio = new AbstractRingCurio(ItemRegistry.ANGEL_RING.get().asItem()) {
+            final ItemStack stack = new ItemStack(ItemRegistry.ANGEL_RING.get()); // I believe it should work since there is no additional data by default.
 
             @Override
             public ItemStack getStack() {
@@ -44,8 +46,8 @@ public class ClassicAngelRingIntegration {
             }
 
             @Override
-            protected TranslatableComponent getNotAbleToFlyMessage() {
-                return new TranslatableComponent("item.angelring.itemring.not_enough_xp");
+            protected Component getNotAbleToFlyMessage() {
+                return Component.translatable("item.angelring.angel_ring.not_enough_xp");
             }
 
             @Override

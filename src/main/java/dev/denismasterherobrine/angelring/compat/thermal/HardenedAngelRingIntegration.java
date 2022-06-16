@@ -5,7 +5,8 @@ import dev.denismasterherobrine.angelring.config.Configuration;
 import dev.denismasterherobrine.angelring.item.utils.EnergyItem;
 import dev.denismasterherobrine.angelring.register.ItemRegistry;
 import net.minecraft.core.Direction;
-import net.minecraft.network.chat.TranslatableComponent;
+import net.minecraft.network.chat.Component;
+import net.minecraft.network.chat.contents.TranslatableContents;
 import net.minecraft.world.entity.LivingEntity;
 import net.minecraft.world.entity.player.Player;
 import net.minecraft.world.item.ItemStack;
@@ -24,7 +25,7 @@ import javax.annotation.Nullable;
 
 public class HardenedAngelRingIntegration {
     public static ICapabilityProvider initCapabilities(ItemStack stack) {
-        ICurio curio = new AbstractRingCurio(ItemRegistry.HardenedAngelRing) {
+        ICurio curio = new AbstractRingCurio(ItemRegistry.HARDENED_ANGEL_RING.get()) {
             @Override
             public ItemStack getStack() {
                 return stack;
@@ -43,8 +44,8 @@ public class HardenedAngelRingIntegration {
             }
 
             @Override
-            protected TranslatableComponent getNotAbleToFlyMessage() {
-                return new TranslatableComponent("item.angelring.energetic_angel_ring.not_enough_fe");
+            protected Component getNotAbleToFlyMessage() {
+                return Component.translatable("item.angelring.energetic_angel_ring.not_enough_fe");
             }
 
             @Override

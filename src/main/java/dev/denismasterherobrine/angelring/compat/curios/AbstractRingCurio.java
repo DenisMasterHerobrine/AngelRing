@@ -2,7 +2,8 @@ package dev.denismasterherobrine.angelring.compat.curios;
 
 import dev.denismasterherobrine.angelring.register.ItemRegistry;
 import net.minecraft.network.chat.ChatType;
-import net.minecraft.network.chat.TranslatableComponent;
+import net.minecraft.network.chat.Component;
+
 import net.minecraft.server.level.ServerPlayer;
 import net.minecraft.sounds.SoundEvents;
 import net.minecraft.world.entity.LivingEntity;
@@ -66,11 +67,6 @@ public abstract class AbstractRingCurio implements ICurio {
     }
 
     @Override
-    public boolean canEquip(String identifier, LivingEntity entityLivingBase) {
-        return !CuriosApi.getCuriosHelper().findFirstCurio(entityLivingBase, ItemRegistry.ItemRing).isPresent();
-    }
-
-    @Override
     public void onEquipFromUse(SlotContext slotContext) {
         slotContext.entity().playSound(SoundEvents.ARMOR_EQUIP_ELYTRA,
                 1.0F, 1.0F);
@@ -82,7 +78,7 @@ public abstract class AbstractRingCurio implements ICurio {
     }
 
     abstract protected boolean checkIfAllowedToFly(Player player, ItemStack stack);
-    abstract protected TranslatableComponent getNotAbleToFlyMessage();
+    abstract protected Component getNotAbleToFlyMessage();
     abstract protected void payForFlight(Player player, ItemStack stack);
 
     @Override
@@ -102,7 +98,7 @@ public abstract class AbstractRingCurio implements ICurio {
             } else if (!checkIfAllowedToFly(player, stack) && player.getAbilities().mayfly) {
                 stopFlying(player);
                 if (player instanceof ServerPlayer){
-                    ((ServerPlayer) player).sendMessage(getNotAbleToFlyMessage(), ChatType.GAME_INFO, player.getUUID());
+                    ((ServerPlayer) player).sendSystemMessage(getNotAbleToFlyMessage(), ChatType.GAME_INFO);
                 }
             }
 

@@ -1,0 +1,23 @@
+{
+  "type": "crafting_shaped",
+  "pattern": [
+    "IGI",
+    "GEG",
+    "IGI"
+  ],
+  "key": {
+    "I": {
+      "item": "minecraft:ghast_tear"
+    },
+    "E": {
+      "item": "minecraft:elytra"
+    },
+    "G": {
+      "item": "minecraft:diamond_block"
+    }
+  },
+  "result": {
+    "item": "angelring:diamond_ring",
+    "count": 1
+  }
+}

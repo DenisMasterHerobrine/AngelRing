@@ -8,7 +8,7 @@ public class AngelRingTab {
     public static final CreativeModeTab ANGELRING2 = new CreativeModeTab("angelring2") {
         @Override
         public ItemStack makeIcon() {
-            return ItemRegistry.ItemRing.getDefaultInstance();
+            return ItemRegistry.ANGEL_RING.get().getDefaultInstance();
         }
     };
 }
