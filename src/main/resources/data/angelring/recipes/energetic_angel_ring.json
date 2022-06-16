@@ -1,9 +1,9 @@
 {
   "type": "crafting_shaped",
   "pattern": [
-    "XFN",
+    "XFX",
     "GEG",
-    "NFX"
+    "NFN"
   ],
   "key": {
     "F": {

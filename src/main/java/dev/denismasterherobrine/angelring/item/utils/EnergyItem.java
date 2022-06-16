@@ -3,6 +3,8 @@ package dev.denismasterherobrine.angelring.item.utils;
 import net.minecraft.world.item.ItemStack;
 import net.minecraftforge.energy.IEnergyStorage;
 
+import java.util.Objects;
+
 public class EnergyItem implements IEnergyStorage {
     private final ItemStack stack;
     private final int capacity;
@@ -32,7 +34,7 @@ public class EnergyItem implements IEnergyStorage {
 
     @Override
     public int getEnergyStored() {
-        return stack.hasTag() && stack.getTag().contains("energy") ? stack.getTag().getInt("energy") : 0;
+        return stack.hasTag() && Objects.requireNonNull(stack.getTag()).contains("energy") ? stack.getTag().getInt("energy") : 0;
     }
 
     @Override

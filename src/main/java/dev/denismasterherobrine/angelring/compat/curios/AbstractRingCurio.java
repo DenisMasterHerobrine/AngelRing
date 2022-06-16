@@ -44,7 +44,7 @@ public abstract class AbstractRingCurio implements ICurio {
         // We have to avoid this.
         if (newStack.getItem().getClass() == item.getClass()) return;
 
-        LivingEntity livingEntity = slotContext.getWearer();
+        LivingEntity livingEntity = slotContext.entity();
         if (livingEntity instanceof Player) {
             Player player = (Player) livingEntity;
 
@@ -72,7 +72,7 @@ public abstract class AbstractRingCurio implements ICurio {
 
     @Override
     public void onEquipFromUse(SlotContext slotContext) {
-        slotContext.getWearer().playSound(SoundEvents.ARMOR_EQUIP_ELYTRA,
+        slotContext.entity().playSound(SoundEvents.ARMOR_EQUIP_ELYTRA,
                 1.0F, 1.0F);
     }
 
@@ -86,13 +86,14 @@ public abstract class AbstractRingCurio implements ICurio {
     abstract protected void payForFlight(Player player, ItemStack stack);
 
     @Override
-    public void curioTick(String identifier, int index, LivingEntity livingEntity) {
-        Optional<SlotResult> optStack = CuriosApi.getCuriosHelper().findFirstCurio(livingEntity, item);
-        if (!optStack.isPresent()) return;
+    public void curioTick(SlotContext slotContext) {
+        Optional<SlotResult> optStack = CuriosApi.getCuriosHelper().findFirstCurio(slotContext.entity(), item);
+        if (optStack.isEmpty()) return;
 
         ItemStack stack = optStack.get().stack().getContainerItem();
-        if (livingEntity instanceof Player) {
-            Player player = ((Player) livingEntity);
+
+        if (slotContext.entity() instanceof Player) {
+            Player player = ((Player) slotContext.entity());
 
             if (player.isCreative() || player.isSpectator()) return;
 

@@ -52,7 +52,7 @@ public class LeadstoneAngelRing extends Item {
     @Override
     public int getBarWidth(ItemStack stack) {
         return stack.getCapability(CapabilityEnergy.ENERGY, null)
-                .map(e -> 1 - (e.getEnergyStored() / (int) e.getMaxEnergyStored()))
+                .map(e -> Math.min(13 * e.getEnergyStored() / e.getMaxEnergyStored(), 13))
                 .orElse(0);
     }
 

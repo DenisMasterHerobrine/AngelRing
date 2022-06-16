@@ -14,6 +14,7 @@ import net.minecraftforge.common.capabilities.ICapabilityProvider;
 import net.minecraftforge.common.util.LazyOptional;
 import net.minecraftforge.energy.CapabilityEnergy;
 import net.minecraftforge.energy.IEnergyStorage;
+import org.jetbrains.annotations.NotNull;
 import top.theillusivec4.curios.api.CuriosApi;
 import top.theillusivec4.curios.api.CuriosCapability;
 import top.theillusivec4.curios.api.type.capability.ICurio;
@@ -31,13 +32,14 @@ public class HardenedAngelRingIntegration {
 
             private final int fePerTick = Configuration.HardenedFEPerTick.get();
 
+            @NotNull
             private IEnergyStorage getEnergyStorage(ItemStack stack) {
-                return stack.getCapability(CapabilityEnergy.ENERGY).resolve().get();
+                return getStack().getCapability(CapabilityEnergy.ENERGY).resolve().get();
             }
 
             @Override
             protected boolean checkIfAllowedToFly(Player player, ItemStack stack) {
-                return getEnergyStorage(stack).getEnergyStored() > 1;
+                return getEnergyStorage(getStack()).getEnergyStored() > 1;
             }
 
             @Override
@@ -47,7 +49,7 @@ public class HardenedAngelRingIntegration {
 
             @Override
             protected void payForFlight(Player player, ItemStack stack) {
-                getEnergyStorage(stack).extractEnergy(fePerTick, false);
+                getEnergyStorage(getStack()).extractEnergy(fePerTick, false);
             }
         };
 

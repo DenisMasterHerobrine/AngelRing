@@ -32,12 +32,12 @@ public class LeadstoneAngelRingIntegration {
             private final int fePerTick = Configuration.LeadstoneFEPerTick.get();
 
             private IEnergyStorage getEnergyStorage(ItemStack stack) {
-                return stack.getCapability(CapabilityEnergy.ENERGY).resolve().get();
+                return getStack().getCapability(CapabilityEnergy.ENERGY).resolve().get();
             }
 
             @Override
             protected boolean checkIfAllowedToFly(Player player, ItemStack stack) {
-                return getEnergyStorage(stack).getEnergyStored() > 1;
+                return getEnergyStorage(getStack()).getEnergyStored() > 1;
             }
 
             @Override
@@ -47,7 +47,7 @@ public class LeadstoneAngelRingIntegration {
 
             @Override
             protected void payForFlight(Player player, ItemStack stack) {
-                getEnergyStorage(stack).extractEnergy(fePerTick, false);
+                getEnergyStorage(getStack()).extractEnergy(fePerTick, false);
             }
         };
 
