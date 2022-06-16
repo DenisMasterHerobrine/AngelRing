@@ -1,0 +1,38 @@
+{
+  "type": "crafting_shaped",
+  "pattern": [
+    "XGX",
+    "FEF",
+    "NLN"
+  ],
+  "key": {
+    "F": {
+      "tag": "forge:storage_blocks/lead"
+    },
+    "E": {
+      "item": "angelring:itemring"
+    },
+    "G": {
+      "item": "thermal:obsidian_glass"
+    },
+    "X": {
+      "tag": "forge:storage_blocks/cinnabar"
+    },
+    "L": {
+      "item": "thermal:upgrade_augment_1"
+    },
+    "N": {
+      "item": "minecraft:nether_star"
+    }
+  },
+  "result": {
+    "item": "angelring:leadstone_angel_ring",
+    "count": 1
+  },
+  "conditions": [
+    {
+      "type": "forge:mod_loaded",
+      "modid": "thermal"
+    }
+  ]
+}

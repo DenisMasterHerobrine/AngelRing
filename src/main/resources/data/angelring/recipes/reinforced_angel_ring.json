@@ -1,0 +1,38 @@
+{
+  "type": "crafting_shaped",
+  "pattern": [
+    "XGX",
+    "FEF",
+    "NLN"
+  ],
+  "key": {
+    "F": {
+      "tag": "forge:storage_blocks/electrum"
+    },
+    "E": {
+      "item": "angelring:hardened_angel_ring"
+    },
+    "G": {
+      "item": "thermal:signalum_glass"
+    },
+    "X": {
+      "item": "thermal:rf_coil_xfer_augment"
+    },
+    "L": {
+      "item": "thermal:glowstone_bucket"
+    },
+    "N": {
+      "item": "minecraft:nether_star"
+    }
+  },
+  "result": {
+    "item": "angelring:reinforced_angel_ring",
+    "count": 1
+  },
+  "conditions": [
+    {
+      "type": "forge:mod_loaded",
+      "modid": "thermal"
+    }
+  ]
+}

@@ -1,0 +1,17 @@
+{
+    "item.angelring.itemdiamondring": "Diamantring",
+    "item.angelring.itemring.tooltip": "Halte §eUmschalten§7 für mehr Informationen!",
+    "item.angelring.itemring.desc0": "Der Engelsring braucht die EP des Spielers auf während dieser fliegt.",
+    "item.angelring.itemring.desc1": "Wenn der Spieler weniger als ein EP-Level hat,",
+    "item.angelring.itemring": "Engelsring",
+    "item.angelring.itemring.desc2": "wird die Magie verschwinden und er wird nicht mehr fliegen können.",
+    "item.angelring.itemring.classic.desc0": "Der Engelsring ist im klassischen Modus. Er erlaubt Kreativ-Modus-Flug während dieser im Curios Slot ist.",
+    "item.angelring.itemring.classic.desc1": "Wähle einen EP-Verbrauch von mehr als 0 Punkten um den neu ausgewogenen Modus zu wechseln.",
+    "item.angelring.energetic_angel_ring": "Energetischer Engelsring",
+    "item.angelring.energetic_angel_ring.tooltip": "Halte §eUmschalten§7 für mehr Informationen!",
+    "item.angelring.energetic_angel_ring.desc0": "Der Engelsring braucht während des Fliegens die in ihm gespeicherte FE auf.",
+    "item.angelring.energetic_angel_ring.desc1": "Der Engelsring enthält %s FE / %s FE.",
+    "curios.identifier.angelring": "Engelsring",
+    "item.angelring.itemring.not_enough_xp": "Du musst EP haben, um fliegen zu können.",
+    "item.angelring.energetic_angel_ring.not_enough_fe": "Du brauchst mehr FE um zu fliegen. Lade den Engelsring um wieder zu fliegen."
+}
