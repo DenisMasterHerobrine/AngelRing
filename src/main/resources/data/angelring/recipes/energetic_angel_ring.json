@@ -1,16 +1,16 @@
 {
   "type": "crafting_shaped",
   "pattern": [
-    "XFN",
+    "XFX",
     "GEG",
-    "NFX"
+    "NFN"
   ],
   "key": {
     "F": {
       "tag": "forge:storage_blocks/redstone"
     },
     "E": {
-      "item": "angelring:itemring"
+      "item": "angelring:itemdiamondring"
     },
     "G": {
       "item": "minecraft:gold_block"

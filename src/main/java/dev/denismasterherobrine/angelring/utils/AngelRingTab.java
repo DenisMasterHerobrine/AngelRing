@@ -11,5 +11,4 @@ public class AngelRingTab {
             return ItemRegistry.ItemRing.getDefaultInstance();
         }
     };
-
 }

@@ -17,9 +17,9 @@ issueTrackerURL="https://github.com/DenisMasterHerobrine/AngelRing/issues" #opti
 # The modid of the mod
 modId="angelring" #mandatory
 # The version number of the mod - there's a few well known ${} variables useable here or just hardcode it
-version="2.0.0"
+version="2.0.1"
  # A display name for the mod
-displayName="Angel Ring" #mandatory
+displayName="Angel Ring 2" #mandatory
 # A URL to query for updates for this mod. See the JSON update specification <here>
 # updateJSONURL="http://myurl.me/" #optional
 # A URL for the "homepage" for this mod, displayed in the mod UI
@@ -38,20 +38,20 @@ This mod adds an Angel Ring, which allows you to fly, like in a creative mode.
 [[dependencies.angelring]]
     modId="forge"
     mandatory=true
-    versionRange="[32,)"
+    versionRange="[36,)"
     ordering="NONE"
     side="BOTH"
 
 [[dependencies.angelring]]
     modId="minecraft"
     mandatory=true
-    versionRange="[1.16.4,)"
+    versionRange="[1.16.5,)"
     ordering="NONE"
     side="BOTH"
 
 [[dependencies.angelring]]
    modId="curios"
    mandatory=true
-   versionRange="[1.16.4-4.0.8.2,)"
+   versionRange="[1.16.5-4.0.8.2,)"
    ordering="AFTER"
    side="BOTH"

@@ -35,7 +35,10 @@ public class ClassicAngelRingIntegration {
         ICurio curio = new AbstractRingCurio(ItemRegistry.ItemRing) {
             @Override
             protected boolean checkIfAllowedToFly(PlayerEntity player, ItemStack stack) {
-                return ExperienceUtils.getPlayerXP(player) > Configuration.XPCost.get();
+                if (Configuration.XPCost.get() == 0) {
+                    return true;
+                }
+                else return ExperienceUtils.getPlayerXP(player) >= Configuration.XPCost.get();
             }
 
             @Override
