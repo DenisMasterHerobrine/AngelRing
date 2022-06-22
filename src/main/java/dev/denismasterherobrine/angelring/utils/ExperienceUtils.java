@@ -141,5 +141,4 @@ public class ExperienceUtils {
 
         player.experienceProgress -= amount / (float)ExperienceUtils.xpBarCap(player.experienceLevel);
     }
-
 }
