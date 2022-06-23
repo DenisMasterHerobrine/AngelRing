@@ -42,7 +42,10 @@ public class ClassicAngelRingIntegration {
 
             @Override
             protected boolean checkIfAllowedToFly(Player player, ItemStack stack) {
-                return ExperienceUtils.getPlayerXP(player) > Configuration.XPCost.get();
+                if (Configuration.XPCost.get() == 0) {
+                    return true;
+                }
+                else return ExperienceUtils.getPlayerXP(player) >= Configuration.XPCost.get();
             }
 
             @Override

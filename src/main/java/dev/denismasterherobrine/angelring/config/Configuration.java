@@ -13,7 +13,7 @@ public class Configuration {
 
     public static final String CATEGORY_GENERAL = "general";
     private static final ForgeConfigSpec.Builder COMMON_BUILDER = new ForgeConfigSpec.Builder();
-    public static ForgeConfigSpec COMMON_CONFIG;
+    public static ForgeConfigSpec SERVER_CONFIG;
 
     public static ForgeConfigSpec.BooleanValue BalancedRecipe;
     public static ForgeConfigSpec.IntValue XPCost;
@@ -33,7 +33,6 @@ public class Configuration {
 
     public static ForgeConfigSpec.IntValue ResonantFEPerTick;
     public static ForgeConfigSpec.IntValue ResonantCapacity;
-
 
     static {
         COMMON_BUILDER.comment("General Angel Ring 2 configuration options.").push(CATEGORY_GENERAL);
@@ -60,7 +59,7 @@ public class Configuration {
         ResonantCapacity = COMMON_BUILDER.comment("Define how much FE the Resonant Angel Ring can store.").defineInRange("ResonantFECapacity", 16000000, 1, 2147483647);
 
         COMMON_BUILDER.pop();
-        COMMON_CONFIG = COMMON_BUILDER.build();
+        SERVER_CONFIG = COMMON_BUILDER.build();
     }
 
     public static void loadConfig(ForgeConfigSpec spec, Path path) {
@@ -68,10 +67,15 @@ public class Configuration {
         final CommentedFileConfig configData = CommentedFileConfig.builder(path)
                 .sync()
                 .autosave()
+                .preserveInsertionOrder()
                 .writingMode(WritingMode.REPLACE)
                 .build();
 
         configData.load();
         spec.setConfig(configData);
+    }
+
+    public ForgeConfigSpec getSpec(){
+        return SERVER_CONFIG;
     }
 }

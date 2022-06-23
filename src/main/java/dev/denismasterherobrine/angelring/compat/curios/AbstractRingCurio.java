@@ -1,6 +1,5 @@
 package dev.denismasterherobrine.angelring.compat.curios;
 
-import dev.denismasterherobrine.angelring.register.ItemRegistry;
 import net.minecraft.network.chat.ChatType;
 import net.minecraft.network.chat.Component;
 
@@ -10,6 +9,7 @@ import net.minecraft.world.entity.LivingEntity;
 import net.minecraft.world.entity.player.Player;
 import net.minecraft.world.item.Item;
 import net.minecraft.world.item.ItemStack;
+import net.minecraftforge.energy.CapabilityEnergy;
 import top.theillusivec4.curios.api.CuriosApi;
 import top.theillusivec4.curios.api.SlotContext;
 import top.theillusivec4.curios.api.SlotResult;
@@ -44,6 +44,13 @@ public abstract class AbstractRingCurio implements ICurio {
         // This function gets also called when the data of the item changes.
         // We have to avoid this.
         if (newStack.getItem().getClass() == item.getClass()) return;
+
+        // If any "wireless" charging method tries to recharge Curios slot with Angel Ring we need to recheck if we're full or not, because of skipping ticks on large modpacks.
+        // We have to avoid this.
+        if (newStack.getCapability(CapabilityEnergy.ENERGY).isPresent()) {
+            if (newStack.getCapability(CapabilityEnergy.ENERGY).resolve().get().getEnergyStored() ==
+                    item.getDefaultInstance().getCapability(CapabilityEnergy.ENERGY).resolve().get().getEnergyStored()) return;
+        }
 
         LivingEntity livingEntity = slotContext.entity();
         if (livingEntity instanceof Player) {
