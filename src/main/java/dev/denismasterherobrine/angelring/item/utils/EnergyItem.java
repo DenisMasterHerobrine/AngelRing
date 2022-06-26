@@ -12,22 +12,29 @@ public class EnergyItem implements IEnergyStorage {
         this.capacity = capacity;
     }
 
+    // Now supporting overflowing Integer.MAX_VALUE. (solution by @BloCamLimb)
     @Override
-    public int receiveEnergy(int maxReceive, boolean simulate) {
+    public int receiveEnergy(int maxReceived, boolean simulate) {
         final int stored = getEnergyStored();
-        final int newValue = stored + maxReceive;
 
-        final int finalValue = Math.min(Math.max(newValue, 0), getMaxEnergyStored());
+        final int received = Math.max(0, Math.min(maxReceived, getMaxEnergyStored() - stored));
 
         if (!simulate)
-            stack.getOrCreateTag().putInt("energy", finalValue);
+            stack.getOrCreateTag().putInt("energy", stored + received);
 
-        return finalValue - stored;
+        return received;
     }
 
     @Override
-    public int extractEnergy(int maxExtract, boolean simulate) {
-        return -receiveEnergy(-maxExtract, simulate);
+    public int extractEnergy(int maxExtracted, boolean simulate) {
+        final int stored = getEnergyStored();
+
+        final int extracted = Math.max(0, Math.min(maxExtracted, stored));
+
+        if (!simulate)
+            stack.getOrCreateTag().putInt("energy", stored - extracted);
+
+        return extracted;
     }
 
     @Override

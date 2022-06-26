@@ -47,7 +47,7 @@ public abstract class AbstractRingCurio implements ICurio {
 
         // If any "wireless" charging method tries to recharge Curios slot with Angel Ring we need to recheck if we're full or not, because of skipping ticks on large modpacks.
         // We have to avoid this.
-        if (newStack.getCapability(CapabilityEnergy.ENERGY).isPresent()) {
+        if (newStack.getCapability(CapabilityEnergy.ENERGY).isPresent() && item.getDefaultInstance().getCapability(CapabilityEnergy.ENERGY).isPresent()) {
             if (newStack.getCapability(CapabilityEnergy.ENERGY).resolve().get().getEnergyStored() ==
                     item.getDefaultInstance().getCapability(CapabilityEnergy.ENERGY).resolve().get().getEnergyStored()) return;
         }
