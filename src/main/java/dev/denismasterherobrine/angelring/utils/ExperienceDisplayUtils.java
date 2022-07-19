@@ -41,7 +41,7 @@ public class ExperienceDisplayUtils {
     public static void onDimensionChange(PlayerEvent.PlayerChangedDimensionEvent event)
     {
         if (!ExternalMods.EXPERIENCEBUGFIX.isLoaded()) {
-            Player player = event.getPlayer();
+            Player player = event.getEntity();
 
             if (player instanceof ServerPlayer)
             {

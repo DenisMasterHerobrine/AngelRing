@@ -17,7 +17,7 @@ issueTrackerURL="https://github.com/DenisMasterHerobrine/AngelRing/issues" #opti
 # The modid of the mod
 modId="angelring" #mandatory
 # The version number of the mod - there's a few well known ${} variables useable here or just hardcode it
-version="2.1.2"
+version="2.1.3"
  # A display name for the mod
 displayName="Angel Ring 2" #mandatory
 # A URL to query for updates for this mod. See the JSON update specification <here>
@@ -52,6 +52,6 @@ This mod adds an Angel Ring, which allows you to fly, like in a creative mode.
 [[dependencies.angelring]]
    modId="curios"
    mandatory=true
-   versionRange="[1.19-5.1.0.0,)"
+   versionRange="[1.19-5.1.0.4,)"
    ordering="AFTER"
    side="BOTH"

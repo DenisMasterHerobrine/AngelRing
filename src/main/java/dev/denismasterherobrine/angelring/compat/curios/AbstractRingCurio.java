@@ -93,7 +93,7 @@ public abstract class AbstractRingCurio implements ICurio {
         Optional<SlotResult> optStack = CuriosApi.getCuriosHelper().findFirstCurio(slotContext.entity(), item);
         if (optStack.isEmpty()) return;
 
-        ItemStack stack = optStack.get().stack().getContainerItem();
+        ItemStack stack = optStack.get().stack().getCraftingRemainingItem();
 
         if (slotContext.entity() instanceof Player) {
             Player player = ((Player) slotContext.entity());
