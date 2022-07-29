@@ -1,0 +1,22 @@
+{
+  "item.angelring.angel_ring": "Anello dell'angelo",
+  "item.angelring.diamond_ring": "Anello di diamante",
+  "item.angelring.angel_ring.not_enough_xp": "È necessario avere XP per volare. Ottenere più XP per volare di nuovo.",
+  "item.angelring.angel_ring.tooltip": "Tieni premuto §eShift§7 per ulteriori informazioni!",
+  "item.angelring.angel_ring.desc0": "L'Anello dell'angelo prosciuga XP del giocatore nel tempo mentre vola.",
+  "item.angelring.angel_ring.desc1": "Se la XP del giocatore raggiunge meno di 1 livello,",
+  "item.angelring.angel_ring.desc2": "la magia scomparirà e il volo non sarà possibile.",
+  "item.angelring.angel_ring.classic.desc0": "L'Anello dell'angelo passa in modalità classica. Concede il volo creativo quando si trova nello slot Curios.",
+  "item.angelring.angel_ring.classic.desc1": "Passa il drenaggio XP a più di 0 punti nella configurazione per passare alla modalità Riequilibrio.",
+  "item.angelring.energetic_angel_ring": "Anello dell'angelo energetico",
+  "item.angelring.energetic_angel_ring.not_enough_fe": "Hai bisogno di più FE per volare. Ricarica l'anello dell'angelo per volare di nuovo.",
+  "item.angelring.energetic_angel_ring.tooltip": "Tieni premuto §eShift§7 per ulteriori informazioni!",
+  "item.angelring.energetic_angel_ring.desc0": "L'Anello dell'angelo prosciuga la FE accumulata nel tempo durante il volo.",
+  "item.angelring.energetic_angel_ring.desc1": "Angel Ring contiene attualmente %s FE / %s FE.",
+  "item.angelring.leadstone_angel_ring": "Anello dell'angelo in pietra di piombo",
+  "item.angelring.hardened_angel_ring": "Anello dell'angelo temprato",
+  "item.angelring.reinforced_angel_ring": "Anello dell'angelo rinforzato",
+  "item.angelring.resonant_angel_ring": "Anello dell'angelo risonante",
+  "curios.identifier.angelring": "Anello dell'angelo",
+  "itemGroup.angelring2": "Angel Ring 2"
+}
