@@ -1,6 +1,7 @@
 package dev.denismasterherobrine.angelring.item.vanilla;
 
 import dev.denismasterherobrine.angelring.utils.AngelRingTab;
+
 import net.minecraft.world.item.Item;
 
 public class DiamondRing extends Item {

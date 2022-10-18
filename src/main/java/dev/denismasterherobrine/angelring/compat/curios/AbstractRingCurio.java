@@ -1,15 +1,15 @@
 package dev.denismasterherobrine.angelring.compat.curios;
 
-import net.minecraft.network.chat.ChatType;
 import net.minecraft.network.chat.Component;
-
 import net.minecraft.server.level.ServerPlayer;
 import net.minecraft.sounds.SoundEvents;
 import net.minecraft.world.entity.LivingEntity;
 import net.minecraft.world.entity.player.Player;
 import net.minecraft.world.item.Item;
 import net.minecraft.world.item.ItemStack;
-import net.minecraftforge.energy.CapabilityEnergy;
+
+import net.minecraftforge.common.capabilities.ForgeCapabilities;
+
 import top.theillusivec4.curios.api.CuriosApi;
 import top.theillusivec4.curios.api.SlotContext;
 import top.theillusivec4.curios.api.SlotResult;
@@ -47,9 +47,9 @@ public abstract class AbstractRingCurio implements ICurio {
 
         // If any "wireless" charging method tries to recharge Curios slot with Angel Ring we need to recheck if we're full or not, because of skipping ticks on large modpacks.
         // We have to avoid this.
-        if (newStack.getCapability(CapabilityEnergy.ENERGY).isPresent() && item.getDefaultInstance().getCapability(CapabilityEnergy.ENERGY).isPresent()) {
-            if (newStack.getCapability(CapabilityEnergy.ENERGY).resolve().get().getEnergyStored() ==
-                    item.getDefaultInstance().getCapability(CapabilityEnergy.ENERGY).resolve().get().getEnergyStored()) return;
+        if (newStack.getCapability(ForgeCapabilities.ENERGY).isPresent() && item.getDefaultInstance().getCapability(ForgeCapabilities.ENERGY).isPresent()) {
+            if (newStack.getCapability(ForgeCapabilities.ENERGY).resolve().get().getEnergyStored() ==
+                    item.getDefaultInstance().getCapability(ForgeCapabilities.ENERGY).resolve().get().getEnergyStored()) return;
         }
 
         LivingEntity livingEntity = slotContext.entity();
@@ -105,7 +105,7 @@ public abstract class AbstractRingCurio implements ICurio {
             } else if (!checkIfAllowedToFly(player, stack) && player.getAbilities().mayfly) {
                 stopFlying(player);
                 if (player instanceof ServerPlayer){
-                    ((ServerPlayer) player).sendSystemMessage(getNotAbleToFlyMessage(), ChatType.GAME_INFO);
+                    player.sendSystemMessage(getNotAbleToFlyMessage());
                 }
             }
 

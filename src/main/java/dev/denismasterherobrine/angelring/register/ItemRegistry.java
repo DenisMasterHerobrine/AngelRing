@@ -8,6 +8,7 @@ import dev.denismasterherobrine.angelring.item.thermal.ResonantAngelRing;
 import dev.denismasterherobrine.angelring.item.vanilla.AngelRingItem;
 import dev.denismasterherobrine.angelring.item.vanilla.DiamondRing;
 import dev.denismasterherobrine.angelring.item.vanilla.EnergeticAngelRing;
+
 import net.minecraft.world.item.Item;
 import net.minecraftforge.fml.common.Mod;
 import net.minecraftforge.fml.javafmlmod.FMLJavaModLoadingContext;

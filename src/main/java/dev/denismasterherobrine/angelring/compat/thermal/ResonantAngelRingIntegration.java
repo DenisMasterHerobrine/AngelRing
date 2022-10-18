@@ -4,16 +4,19 @@ import dev.denismasterherobrine.angelring.compat.curios.AbstractRingCurio;
 import dev.denismasterherobrine.angelring.config.Configuration;
 import dev.denismasterherobrine.angelring.item.utils.EnergyItem;
 import dev.denismasterherobrine.angelring.register.ItemRegistry;
+
 import net.minecraft.core.Direction;
 import net.minecraft.network.chat.Component;
 import net.minecraft.world.entity.LivingEntity;
 import net.minecraft.world.entity.player.Player;
 import net.minecraft.world.item.ItemStack;
+
 import net.minecraftforge.common.capabilities.Capability;
+import net.minecraftforge.common.capabilities.ForgeCapabilities;
 import net.minecraftforge.common.capabilities.ICapabilityProvider;
 import net.minecraftforge.common.util.LazyOptional;
-import net.minecraftforge.energy.CapabilityEnergy;
 import net.minecraftforge.energy.IEnergyStorage;
+
 import top.theillusivec4.curios.api.CuriosApi;
 import top.theillusivec4.curios.api.CuriosCapability;
 import top.theillusivec4.curios.api.type.capability.ICurio;
@@ -32,7 +35,7 @@ public class ResonantAngelRingIntegration {
             private final int fePerTick = Configuration.ResonantFEPerTick.get();
 
             private IEnergyStorage getEnergyStorage(ItemStack stack) {
-                return getStack().getCapability(CapabilityEnergy.ENERGY).resolve().get();
+                return getStack().getCapability(ForgeCapabilities.ENERGY).resolve().get();
             }
 
             @Override
@@ -61,7 +64,7 @@ public class ResonantAngelRingIntegration {
             @Override
             public <T> LazyOptional<T> getCapability(@Nonnull Capability<T> cap,
                                                      @Nullable Direction side) {
-                if (cap == CapabilityEnergy.ENERGY) {
+                if (cap == ForgeCapabilities.ENERGY) {
                     return energyStorageOpt.cast();
                 } else {
                     return CuriosCapability.ITEM.orEmpty(cap, curioOpt);

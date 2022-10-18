@@ -4,6 +4,7 @@ import dev.denismasterherobrine.angelring.compat.curios.ClassicAngelRingIntegrat
 import dev.denismasterherobrine.angelring.compat.thermal.ResonantAngelRingIntegration;
 import dev.denismasterherobrine.angelring.utils.AngelRingTab;
 import dev.denismasterherobrine.angelring.utils.ExternalMods;
+
 import net.minecraft.ChatFormatting;
 import net.minecraft.client.gui.screens.Screen;
 import net.minecraft.nbt.CompoundTag;
@@ -12,13 +13,15 @@ import net.minecraft.world.item.Item;
 import net.minecraft.world.item.ItemStack;
 import net.minecraft.world.item.TooltipFlag;
 import net.minecraft.world.level.Level;
+
 import net.minecraftforge.api.distmarker.Dist;
 import net.minecraftforge.api.distmarker.OnlyIn;
+import net.minecraftforge.common.capabilities.ForgeCapabilities;
 import net.minecraftforge.common.capabilities.ICapabilityProvider;
-import net.minecraftforge.energy.CapabilityEnergy;
 import net.minecraftforge.energy.IEnergyStorage;
 import net.minecraftforge.eventbus.api.SubscribeEvent;
 import net.minecraftforge.fml.event.lifecycle.InterModEnqueueEvent;
+
 import org.jetbrains.annotations.Nullable;
 
 import java.util.List;
@@ -44,13 +47,13 @@ public class ResonantAngelRing extends Item {
 
     @Override
     public boolean isBarVisible(ItemStack stack) {
-        IEnergyStorage energy = stack.getCapability(CapabilityEnergy.ENERGY, null).orElse(null);
+        IEnergyStorage energy = stack.getCapability(ForgeCapabilities.ENERGY, null).orElse(null);
         return (energy.getEnergyStored() < energy.getMaxEnergyStored());
     }
 
     @Override
     public int getBarWidth(ItemStack stack) {
-        return stack.getCapability(CapabilityEnergy.ENERGY, null)
+        return stack.getCapability(ForgeCapabilities.ENERGY, null)
                 .map(e -> Math.min(13 * e.getEnergyStored() / e.getMaxEnergyStored(), 13))
                 .orElse(0);
     }
@@ -58,7 +61,7 @@ public class ResonantAngelRing extends Item {
     @OnlyIn(Dist.CLIENT)
     @Override
     public void appendHoverText(ItemStack stack, @Nullable Level world, List<Component> tooltip, TooltipFlag tooltipFlag) {
-        IEnergyStorage energy = stack.getCapability(CapabilityEnergy.ENERGY, null).orElse(null);
+        IEnergyStorage energy = stack.getCapability(ForgeCapabilities.ENERGY, null).orElse(null);
         if (!Screen.hasShiftDown())
             tooltip.add(Component.translatable("item.angelring.energetic_angel_ring.tooltip").withStyle(ChatFormatting.GRAY));
         else {
