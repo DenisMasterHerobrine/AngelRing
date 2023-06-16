@@ -1,9 +1,7 @@
 package dev.denismasterherobrine.angelring.item.vanilla;
 
-import dev.denismasterherobrine.angelring.AngelRing;
 import dev.denismasterherobrine.angelring.compat.curios.ClassicAngelRingIntegration;
 import dev.denismasterherobrine.angelring.config.Configuration;
-import dev.denismasterherobrine.angelring.utils.AngelRingTab;
 import dev.denismasterherobrine.angelring.utils.ExternalMods;
 
 import net.minecraft.ChatFormatting;
@@ -26,10 +24,10 @@ import javax.annotation.Nullable;
 
 import java.util.List;
 
-@Mod.EventBusSubscriber(modid = AngelRing.MODID, bus = Mod.EventBusSubscriber.Bus.MOD)
-public class AngelRingItem extends Item {
-    public AngelRingItem() {
-        super(new Item.Properties().stacksTo(1).tab(AngelRingTab.ANGELRING2));
+@Mod.EventBusSubscriber(modid = dev.denismasterherobrine.angelring.AngelRing.MODID, bus = Mod.EventBusSubscriber.Bus.MOD)
+public class LegacyAngelRing extends Item {
+    public LegacyAngelRing() {
+        super(new Item.Properties().stacksTo(1));
     }
 
     @SubscribeEvent

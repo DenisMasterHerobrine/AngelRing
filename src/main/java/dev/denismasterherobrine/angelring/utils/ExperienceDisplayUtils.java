@@ -35,6 +35,8 @@ import net.minecraftforge.event.entity.player.PlayerEvent;
 import net.minecraftforge.eventbus.api.SubscribeEvent;
 import net.minecraftforge.fml.common.Mod;
 
+import static dev.denismasterherobrine.angelring.utils.ExperienceUtils.getPlayerXP;
+
 @Mod.EventBusSubscriber(modid = AngelRing.MODID, bus = Mod.EventBusSubscriber.Bus.FORGE)
 public class ExperienceDisplayUtils {
     @SubscribeEvent
@@ -47,6 +49,17 @@ public class ExperienceDisplayUtils {
             {
                 ((ServerPlayer) player).setExperienceLevels(player.experienceLevel);
             }
+        }
+    }
+
+    @SubscribeEvent
+    public static void onQuit(PlayerEvent.PlayerLoggedOutEvent event)
+    {
+        Player player = event.getEntity();
+
+        if (player instanceof ServerPlayer) {
+            player.totalExperience = getPlayerXP(player);
+            ((ServerPlayer) player).setExperienceLevels(player.experienceLevel);
         }
     }
 }

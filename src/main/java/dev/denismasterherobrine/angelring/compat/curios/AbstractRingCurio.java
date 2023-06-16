@@ -104,7 +104,7 @@ public abstract class AbstractRingCurio implements ICurio {
                 startFlying(player);
             } else if (!checkIfAllowedToFly(player, stack) && player.getAbilities().mayfly) {
                 stopFlying(player);
-                if (player instanceof ServerPlayer){
+                if (player instanceof ServerPlayer) {
                     player.sendSystemMessage(getNotAbleToFlyMessage());
                 }
             }

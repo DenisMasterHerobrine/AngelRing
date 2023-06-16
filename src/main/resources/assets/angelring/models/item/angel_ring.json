@@ -1,6 +1,6 @@
 {
-  "parent": "item/generated",
+  "parent": "minecraft:item/generated",
   "textures": {
-    "layer0": "angelring:items/angel_ring"
+    "layer0": "angelring:item/angel_ring"
   }
 }

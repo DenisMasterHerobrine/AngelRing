@@ -44,7 +44,7 @@ public class ExperienceUtils {
         player.totalExperience = experience;
         player.experienceLevel = ExperienceUtils.getLevelForExperience(experience);
         int expForLevel = ExperienceUtils.getExperienceForLevel(player.experienceLevel);
-        player.experienceProgress = (experience - expForLevel) / (float)player.getXpNeededForNextLevel();
+        player.experienceProgress = ((experience - expForLevel) / (float) player.getXpNeededForNextLevel());
     }
 
     public static int xpBarCap(int level) {
@@ -139,7 +139,7 @@ public class ExperienceUtils {
             player.experienceLevel--;
         }
 
-        player.experienceProgress -= amount / (float)ExperienceUtils.xpBarCap(player.experienceLevel);
+        player.experienceProgress -= (float) amount / (float)ExperienceUtils.xpBarCap(player.experienceLevel);
     }
 
 }

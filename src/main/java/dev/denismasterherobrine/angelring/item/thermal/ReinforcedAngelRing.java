@@ -2,7 +2,6 @@ package dev.denismasterherobrine.angelring.item.thermal;
 
 import dev.denismasterherobrine.angelring.compat.curios.ClassicAngelRingIntegration;
 import dev.denismasterherobrine.angelring.compat.thermal.ReinforcedAngelRingIntegration;
-import dev.denismasterherobrine.angelring.utils.AngelRingTab;
 import dev.denismasterherobrine.angelring.utils.ExternalMods;
 
 import net.minecraft.ChatFormatting;
@@ -28,7 +27,7 @@ import java.util.List;
 
 public class ReinforcedAngelRing extends Item {
     public ReinforcedAngelRing() {
-        super(new Item.Properties().stacksTo(1).tab(AngelRingTab.ANGELRING2));
+        super(new Item.Properties().stacksTo(1));
     }
 
     @SubscribeEvent

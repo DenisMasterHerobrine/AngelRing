@@ -3,7 +3,6 @@ package dev.denismasterherobrine.angelring.item.vanilla;
 import dev.denismasterherobrine.angelring.AngelRing;
 import dev.denismasterherobrine.angelring.compat.curios.ClassicAngelRingIntegration;
 import dev.denismasterherobrine.angelring.compat.curios.EnergeticAngelRingIntegration;
-import dev.denismasterherobrine.angelring.utils.AngelRingTab;
 import dev.denismasterherobrine.angelring.utils.ExternalMods;
 
 import net.minecraft.ChatFormatting;
@@ -31,7 +30,7 @@ import java.util.List;
 @Mod.EventBusSubscriber(modid = AngelRing.MODID, bus = Mod.EventBusSubscriber.Bus.MOD)
 public class EnergeticAngelRing extends Item {
     public EnergeticAngelRing() {
-        super(new Item.Properties().stacksTo(1).tab(AngelRingTab.ANGELRING2));
+        super(new Item.Properties().stacksTo(1));
     }
 
     @SubscribeEvent

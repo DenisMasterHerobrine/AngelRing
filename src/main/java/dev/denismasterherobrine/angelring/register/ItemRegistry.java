@@ -1,11 +1,10 @@
 package dev.denismasterherobrine.angelring.register;
 
-import dev.denismasterherobrine.angelring.AngelRing;
 import dev.denismasterherobrine.angelring.item.thermal.HardenedAngelRing;
 import dev.denismasterherobrine.angelring.item.thermal.LeadstoneAngelRing;
 import dev.denismasterherobrine.angelring.item.thermal.ReinforcedAngelRing;
 import dev.denismasterherobrine.angelring.item.thermal.ResonantAngelRing;
-import dev.denismasterherobrine.angelring.item.vanilla.AngelRingItem;
+import dev.denismasterherobrine.angelring.item.vanilla.LegacyAngelRing;
 import dev.denismasterherobrine.angelring.item.vanilla.DiamondRing;
 import dev.denismasterherobrine.angelring.item.vanilla.EnergeticAngelRing;
 
@@ -18,13 +17,13 @@ import net.minecraftforge.registries.RegistryObject;
 
 import static dev.denismasterherobrine.angelring.AngelRing.MODID;
 
-@Mod.EventBusSubscriber(modid = AngelRing.MODID, bus = Mod.EventBusSubscriber.Bus.MOD)
+@Mod.EventBusSubscriber(modid = dev.denismasterherobrine.angelring.AngelRing.MODID, bus = Mod.EventBusSubscriber.Bus.MOD)
 public class ItemRegistry {
     private static final DeferredRegister<Item> ITEMS =
             DeferredRegister.create(ForgeRegistries.ITEMS, MODID);
 
     public static final RegistryObject<Item> DIAMOND_RING = ITEMS.register("diamond_ring", DiamondRing::new);
-    public static final RegistryObject<Item> ANGEL_RING = ITEMS.register("angel_ring", AngelRingItem::new);
+    public static final RegistryObject<Item> ANGEL_RING = ITEMS.register("angel_ring", LegacyAngelRing::new);
     public static final RegistryObject<Item> ENERGETIC_ANGEL_RING = ITEMS.register("energetic_angel_ring", EnergeticAngelRing::new);
 
     public static final RegistryObject<Item> LEADSTONE_ANGEL_RING = ITEMS.register("leadstone_angel_ring", LeadstoneAngelRing::new);

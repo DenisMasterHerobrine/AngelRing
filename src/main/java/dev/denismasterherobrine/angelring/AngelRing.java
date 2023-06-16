@@ -1,6 +1,7 @@
 package dev.denismasterherobrine.angelring;
 
 import dev.denismasterherobrine.angelring.register.ItemRegistry;
+import dev.denismasterherobrine.angelring.register.CreativeTabRegistry;
 import dev.denismasterherobrine.angelring.utils.ExternalMods;
 import dev.denismasterherobrine.angelring.config.Configuration;
 
@@ -19,19 +20,20 @@ import org.apache.logging.log4j.Logger;
 public class AngelRing {
     public static final String MODID = "angelring";
     private static final Logger LOGGER = LogManager.getLogger();
-    public static final Configuration SERVER_CONFIG = new Configuration();
+    public static final Configuration COMMON_CONFIG = new Configuration();
 
     public AngelRing() {
         FMLJavaModLoadingContext.get().getModEventBus().addListener(this::setup);
         MinecraftForge.EVENT_BUS.register(this);
+        MinecraftForge.EVENT_BUS.register(CreativeTabRegistry.class);
 
         ItemRegistry.init();
+        CreativeTabRegistry.init();
 
-        ModLoadingContext.get().registerConfig(ModConfig.Type.SERVER, SERVER_CONFIG.getSpec());
+        ModLoadingContext.get().registerConfig(ModConfig.Type.COMMON, COMMON_CONFIG.getSpec());
     }
 
-    private void setup(final FMLCommonSetupEvent event) {
-    }
+    private void setup(final FMLCommonSetupEvent event) {}
 
     @SubscribeEvent
     public void onServerStarting(ServerStartingEvent event) {
