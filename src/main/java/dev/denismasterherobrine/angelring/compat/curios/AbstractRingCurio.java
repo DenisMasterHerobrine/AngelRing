@@ -28,25 +28,12 @@ public abstract class AbstractRingCurio implements ICurio {
         return true;
     }
 
-    /*
-    @Override
-    public void onEquip(SlotContext slotContext, ItemStack prevStack) {
-        LivingEntity livingEntity = slotContext.getWearer();
-        if (livingEntity instanceof PlayerEntity) {
-            PlayerEntity player = (PlayerEntity) livingEntity;
-            startFlying(player);
-        }
-    }
-    */
-
     @Override
     public void onUnequip(SlotContext slotContext, ItemStack newStack) {
         // This function gets also called when the data of the item changes.
         // We have to avoid this.
         if (newStack.getItem().getClass() == item.getClass()) return;
 
-        // If any "wireless" charging method tries to recharge Curios slot with Angel Ring we need to recheck if we're full or not, because of skipping ticks on large modpacks.
-        // We have to avoid this.
         if (newStack.getCapability(ForgeCapabilities.ENERGY).isPresent() && item.getDefaultInstance().getCapability(ForgeCapabilities.ENERGY).isPresent()) {
             if (newStack.getCapability(ForgeCapabilities.ENERGY).resolve().get().getEnergyStored() ==
                     item.getDefaultInstance().getCapability(ForgeCapabilities.ENERGY).resolve().get().getEnergyStored()) return;
@@ -110,6 +97,7 @@ public abstract class AbstractRingCurio implements ICurio {
             }
 
             if (player.getAbilities().mayfly && player.getAbilities().flying) {
+                ClassicAngelRingIntegration.once = true;
                 payForFlight(player, stack);
             }
         }
