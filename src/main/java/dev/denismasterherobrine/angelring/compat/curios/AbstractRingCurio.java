@@ -28,17 +28,6 @@ public abstract class AbstractRingCurio implements ICurio {
         return true;
     }
 
-    /*
-    @Override
-    public void onEquip(SlotContext slotContext, ItemStack prevStack) {
-        LivingEntity livingEntity = slotContext.getWearer();
-        if (livingEntity instanceof PlayerEntity) {
-            PlayerEntity player = (PlayerEntity) livingEntity;
-            startFlying(player);
-        }
-    }
-    */
-
     @Override
     public void onUnequip(SlotContext slotContext, ItemStack newStack) {
         // This function gets also called when the data of the item changes.
@@ -114,6 +103,7 @@ public abstract class AbstractRingCurio implements ICurio {
             }
 
             if (player.abilities.mayfly && player.abilities.flying) {
+                ClassicAngelRingIntegration.once = true;
                 payForFlight(player, stack);
             }
         }

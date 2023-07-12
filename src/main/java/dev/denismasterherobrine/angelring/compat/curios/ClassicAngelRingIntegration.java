@@ -1,6 +1,5 @@
 package dev.denismasterherobrine.angelring.compat.curios;
 
-import dev.denismasterherobrine.angelring.compat.curios.AbstractRingCurio;
 import dev.denismasterherobrine.angelring.config.Configuration;
 import dev.denismasterherobrine.angelring.register.ItemRegistry;
 import dev.denismasterherobrine.angelring.utils.ExperienceUtils;
@@ -26,6 +25,7 @@ import javax.annotation.Nullable;
 
 public class ClassicAngelRingIntegration {
     private static int ticksDrained;
+    public static boolean once = true;
 
     public static void sendImc() {
         InterModComms.sendTo("curios", SlotTypeMessage.REGISTER_TYPE, () -> new SlotTypeMessage.Builder("angelring").build());
@@ -49,9 +49,13 @@ public class ClassicAngelRingIntegration {
             @Override
             protected void payForFlight(PlayerEntity player, ItemStack stack) {
                 ticksDrained++;
-                if (ticksDrained >= Configuration.TicksPerDrain.get()){
+                if (ticksDrained > Configuration.TicksPerDrain.get()) {
+                    if (!once) return;
+
+                    player.totalExperience = player.totalExperience - Configuration.XPCost.get();
                     ExperienceUtils.addPlayerXP(player, -Configuration.XPCost.get());
-                    ticksDrained = 0;
+                    ticksDrained = -20; // Well, let it be less than 0, because we need to update rarer to avoid reading dirty data.
+                    once = false;
                 }
             }
         };
