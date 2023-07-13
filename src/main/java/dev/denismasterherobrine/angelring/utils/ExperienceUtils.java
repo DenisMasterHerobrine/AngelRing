@@ -40,11 +40,7 @@ public class ExperienceUtils {
     }
 
     public static void addPlayerXP(Player player, int amount) {
-        int experience = getPlayerXP(player) + amount;
-        player.totalExperience = experience;
-        player.experienceLevel = ExperienceUtils.getLevelForExperience(experience);
-        int expForLevel = ExperienceUtils.getExperienceForLevel(player.experienceLevel);
-        player.experienceProgress = (experience - expForLevel) / (float)player.getXpNeededForNextLevel();
+        player.giveExperiencePoints(amount);
     }
 
     public static int xpBarCap(int level) {
