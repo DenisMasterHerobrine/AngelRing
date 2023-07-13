@@ -7,20 +7,24 @@ import dev.denismasterherobrine.angelring.utils.ExperienceUtils;
 import net.minecraft.core.Direction;
 import net.minecraft.network.chat.Component;
 import net.minecraft.resources.ResourceLocation;
+import net.minecraft.server.level.ServerPlayer;
 import net.minecraft.world.entity.player.Player;
 import net.minecraft.world.item.ItemStack;
 
 import net.minecraftforge.common.capabilities.Capability;
 import net.minecraftforge.common.capabilities.ICapabilityProvider;
+import net.minecraftforge.common.util.FakePlayer;
 import net.minecraftforge.common.util.LazyOptional;
 
 import net.minecraftforge.fml.InterModComms;
+import net.minecraftforge.server.ServerLifecycleHooks;
 import top.theillusivec4.curios.api.CuriosCapability;
 import top.theillusivec4.curios.api.SlotTypeMessage;
 import top.theillusivec4.curios.api.type.capability.ICurio;
 
 import javax.annotation.Nonnull;
 import javax.annotation.Nullable;
+import java.util.UUID;
 
 public class ClassicAngelRingIntegration {
     private static int ticksDrained;
@@ -58,9 +62,13 @@ public class ClassicAngelRingIntegration {
                 if (ticksDrained > Configuration.TicksPerDrain.get()) {
                     if (!once) return;
 
-                    player.totalExperience = player.totalExperience - Configuration.XPCost.get();
-                    ExperienceUtils.addPlayerXP(player, -Configuration.XPCost.get());
-                    ticksDrained = -20; // Well, let it be less than 0, because we need to update rarer to avoid reading dirty data.
+                    ServerPlayer serverPlayer = getServerPlayerInstance(player.getUUID());
+
+                    if (serverPlayer != null) {
+                        serverPlayer.giveExperiencePoints(-Configuration.XPCost.get());
+                    }
+
+                    ticksDrained = 0;
                     once = false;
                 }
             }
@@ -77,5 +85,9 @@ public class ClassicAngelRingIntegration {
                 return CuriosCapability.ITEM.orEmpty(cap, curioOpt);
             }
         };
+    }
+
+    public static ServerPlayer getServerPlayerInstance(UUID playerUUID) {
+        return ServerLifecycleHooks.getCurrentServer().getPlayerList().getPlayer(playerUUID);
     }
 }

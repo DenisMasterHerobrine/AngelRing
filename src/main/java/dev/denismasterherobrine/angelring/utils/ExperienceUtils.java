@@ -40,7 +40,6 @@ public class ExperienceUtils {
     }
 
     public static void addPlayerXP(Player player, int amount) {
-        int experience = getPlayerXP(player);
         player.giveExperiencePoints(amount);
     }
 
