@@ -81,6 +81,12 @@ public class ClassicAngelRingIntegration {
     }
 
     public static ServerPlayerEntity getServerPlayerInstance(UUID playerUUID) {
-        return ServerLifecycleHooks.getCurrentServer().getPlayerList().getPlayer(playerUUID);
+        ServerPlayerEntity player = null;
+
+        if (ServerLifecycleHooks.getCurrentServer() != null) {
+            player = ServerLifecycleHooks.getCurrentServer().getPlayerList().getPlayer(playerUUID);
+        }
+
+        return player;
     }
 }
