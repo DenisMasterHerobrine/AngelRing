@@ -115,6 +115,7 @@ public abstract class AbstractRingCurio implements ICurio {
             }
 
             if (player.getAbilities().mayfly && player.getAbilities().flying) {
+                ClassicAngelRingIntegration.once = true;
                 payForFlight(player, stack);
             }
         }
