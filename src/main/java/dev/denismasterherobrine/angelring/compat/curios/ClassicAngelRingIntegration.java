@@ -4,24 +4,26 @@ import dev.denismasterherobrine.angelring.config.Configuration;
 import dev.denismasterherobrine.angelring.register.ItemRegistry;
 import dev.denismasterherobrine.angelring.utils.ExperienceUtils;
 
-import net.minecraft.entity.LivingEntity;
 import net.minecraft.entity.player.PlayerEntity;
+import net.minecraft.entity.player.ServerPlayerEntity;
 import net.minecraft.item.ItemStack;
 import net.minecraft.util.Direction;
 import net.minecraft.util.text.TextComponent;
 import net.minecraft.util.text.TranslationTextComponent;
 import net.minecraftforge.common.capabilities.Capability;
 import net.minecraftforge.common.capabilities.ICapabilityProvider;
+import net.minecraftforge.common.util.FakePlayer;
 import net.minecraftforge.common.util.LazyOptional;
 import net.minecraftforge.fml.InterModComms;
 
-import top.theillusivec4.curios.api.CuriosApi;
+import net.minecraftforge.fml.server.ServerLifecycleHooks;
 import top.theillusivec4.curios.api.CuriosCapability;
 import top.theillusivec4.curios.api.SlotTypeMessage;
 import top.theillusivec4.curios.api.type.capability.ICurio;
 
 import javax.annotation.Nonnull;
 import javax.annotation.Nullable;
+import java.util.UUID;
 
 public class ClassicAngelRingIntegration {
     private static int ticksDrained;
@@ -52,9 +54,13 @@ public class ClassicAngelRingIntegration {
                 if (ticksDrained > Configuration.TicksPerDrain.get()) {
                     if (!once) return;
 
-                    player.totalExperience = player.totalExperience - Configuration.XPCost.get();
-                    ExperienceUtils.addPlayerXP(player, -Configuration.XPCost.get());
-                    ticksDrained = -20; // Well, let it be less than 0, because we need to update rarer to avoid reading dirty data.
+                    ServerPlayerEntity serverPlayer = getServerPlayerInstance(player.getUUID());
+
+                    if (serverPlayer != null) {
+                        serverPlayer.giveExperiencePoints(-Configuration.XPCost.get());
+                    }
+
+                    ticksDrained = 0;
                     once = false;
                 }
             }
@@ -74,7 +80,7 @@ public class ClassicAngelRingIntegration {
 
     }
 
-    public static boolean isRingInCuriosSlot(ItemStack angelRing, LivingEntity player) {
-        return CuriosApi.getCuriosHelper().findEquippedCurio(angelRing.getItem(), player).isPresent();
+    public static ServerPlayerEntity getServerPlayerInstance(UUID playerUUID) {
+        return ServerLifecycleHooks.getCurrentServer().getPlayerList().getPlayer(playerUUID);
     }
 }
