@@ -1,0 +1,22 @@
+{
+  "item.angelring.angel_ring": "천사의 반지",
+  "item.angelring.diamond_ring": "다이아몬드 반지",
+  "item.angelring.angel_ring.not_enough_xp": "비행하려면 경험치가 필요합니다. 다시 비행하려면 더 많은 경험치를 획득하세요.",
+  "item.angelring.angel_ring.tooltip": "자세히 보려면 §eShift§7 키를 누르세요!",
+  "item.angelring.angel_ring.desc0": "천사의 반지는 비행하는 동안 시간이 지남에 따라 플레이어의 경험치를 소모합니다..",
+  "item.angelring.angel_ring.desc1": "플레이어의 경험치가 1레벨 미만이 되면,",
+  "item.angelring.angel_ring.desc2": "마법이 사라지고 비행이 불가능해집니다.",
+  "item.angelring.angel_ring.classic.desc0": "천사의 반지가 클래식 모드로 전환됩니다. 장신구 슬롯에 있는 동안 크리에이티브 비행을 부여합니다.",
+  "item.angelring.angel_ring.classic.desc1": "재균형 모드로 전환하려면 설정에서 경험치 소모량을 0 포인트 이상으로 전환하세요.",
+  "item.angelring.energetic_angel_ring": "활기찬 천사의 반지",
+  "item.angelring.energetic_angel_ring.not_enough_fe": "비행하려면 더 많은 FE가 필요합니다. 천사의 반지를 충전하여 다시 비행하세요.",
+  "item.angelring.energetic_angel_ring.tooltip": "자세히 보려면 §eShift§7 키를 누르세요!",
+  "item.angelring.energetic_angel_ring.desc0": "천사의 반지는 비행하는 동안 시간이 지남에 따라 저장된 FE를 소모합니다.",
+  "item.angelring.energetic_angel_ring.desc1": "천사의 반지는 현재 %s FE / %s FE가 포함되어 있습니다.",
+  "item.angelring.leadstone_angel_ring": "납석 천사의 반지",
+  "item.angelring.hardened_angel_ring": "단단해진 천사의 반지",
+  "item.angelring.reinforced_angel_ring": "강화된 천사의 반지",
+  "item.angelring.resonant_angel_ring": "공명하는 천사의 반지",
+  "curios.identifier.angelring": "천사의 반지",
+  "itemGroup.angelring2": "천사의 반지 2"
+}
