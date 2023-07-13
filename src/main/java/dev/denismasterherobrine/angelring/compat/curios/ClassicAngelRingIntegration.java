@@ -11,6 +11,8 @@ import net.minecraft.server.level.ServerPlayer;
 import net.minecraft.world.entity.player.Player;
 import net.minecraft.world.item.ItemStack;
 
+import net.minecraftforge.api.distmarker.Dist;
+import net.minecraftforge.api.distmarker.OnlyIn;
 import net.minecraftforge.common.capabilities.Capability;
 import net.minecraftforge.common.capabilities.ICapabilityProvider;
 import net.minecraftforge.common.util.FakePlayer;
@@ -88,6 +90,12 @@ public class ClassicAngelRingIntegration {
     }
 
     public static ServerPlayer getServerPlayerInstance(UUID playerUUID) {
-        return ServerLifecycleHooks.getCurrentServer().getPlayerList().getPlayer(playerUUID);
+        ServerPlayer player = null;
+
+        if (ServerLifecycleHooks.getCurrentServer() != null) {
+            player = ServerLifecycleHooks.getCurrentServer().getPlayerList().getPlayer(playerUUID);
+        }
+
+        return player;
     }
 }
