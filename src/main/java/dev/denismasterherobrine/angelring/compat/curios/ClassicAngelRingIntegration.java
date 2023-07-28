@@ -74,6 +74,11 @@ public class ClassicAngelRingIntegration {
                     once = false;
                 }
             }
+
+            @Override
+            protected boolean warnPlayer(Player player, ItemStack stack) {
+                return player.experienceLevel <= Configuration.XPWarningLevel.get();
+            }
         };
 
         return new ICapabilityProvider() {

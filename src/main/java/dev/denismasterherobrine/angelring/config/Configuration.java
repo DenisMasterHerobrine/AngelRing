@@ -34,6 +34,9 @@ public class Configuration {
     public static ForgeConfigSpec.IntValue ResonantFEPerTick;
     public static ForgeConfigSpec.IntValue ResonantCapacity;
 
+    public static ForgeConfigSpec.IntValue XPWarningLevel;
+    public static ForgeConfigSpec.IntValue EnergyWarningPercentage;
+
     static {
         COMMON_BUILDER.comment("General Angel Ring 2 configuration options.").push(CATEGORY_GENERAL);
 
@@ -57,6 +60,9 @@ public class Configuration {
 
         ResonantFEPerTick = COMMON_BUILDER.comment("Define how much FE the Resonant Angel Ring will drain every tick while flying.").defineInRange("ResonantFEPerTick", 50, 1, 2147483647);
         ResonantCapacity = COMMON_BUILDER.comment("Define how much FE the Resonant Angel Ring can store.").defineInRange("ResonantFECapacity", 16000000, 1, 2147483647);
+
+        XPWarningLevel = COMMON_BUILDER.comment("Defines at what XP Level to start displaying a warning of low XP for the Classic Angel Ring. Set to -1 to disable.").defineInRange("XPWarningLevel", 3, -1, 2147483647);
+        EnergyWarningPercentage = COMMON_BUILDER.comment("Defines at what percentage to start displaying a warning of low power for Energy Angel Rings. Set to -1 to disable.").defineInRange("EnergyWarningPercentage", 5, -1, 100);
 
         COMMON_BUILDER.pop();
         COMMON_CONFIG = COMMON_BUILDER.build();
