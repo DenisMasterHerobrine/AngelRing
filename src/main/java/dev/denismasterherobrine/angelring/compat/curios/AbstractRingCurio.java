@@ -68,11 +68,6 @@ public abstract class AbstractRingCurio implements ICurio {
                 1.0F, 1.0F);
     }
 
-    @Override
-    public boolean showAttributesTooltip(String identifier) {
-        return true;
-    }
-
     abstract protected boolean checkIfAllowedToFly(Player player, ItemStack stack);
     abstract protected Component getNotAbleToFlyMessage();
     abstract protected void payForFlight(Player player, ItemStack stack);
@@ -81,6 +76,7 @@ public abstract class AbstractRingCurio implements ICurio {
     @Override
     public void curioTick(SlotContext slotContext) {
         Optional<SlotResult> optStack = CuriosApi.getCuriosHelper().findFirstCurio(slotContext.entity(), item);
+
         if (optStack.isEmpty()) return;
 
         ItemStack stack = optStack.get().stack().getCraftingRemainingItem();
@@ -102,6 +98,7 @@ public abstract class AbstractRingCurio implements ICurio {
             if (player.getAbilities().mayfly && player.getAbilities().flying) {
                 ClassicAngelRingIntegration.once = true;
                 payForFlight(player, stack);
+
                 if (player instanceof ServerPlayer serverPlayer && warnPlayer(player, stack)) serverPlayer.connection.send(packet);
             }
         }

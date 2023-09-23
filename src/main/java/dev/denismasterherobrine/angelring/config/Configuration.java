@@ -38,31 +38,63 @@ public class Configuration {
     public static ForgeConfigSpec.IntValue EnergyWarningPercentage;
 
     static {
-        COMMON_BUILDER.comment("General Angel Ring 2 configuration options.").push(CATEGORY_GENERAL);
+        COMMON_BUILDER
+                .comment("General Angel Ring 2 configuration options.")
+                .push(CATEGORY_GENERAL);
 
         // TODO: Add a config option to switch recipes?
         // BalancedRecipe = COMMON_BUILDER.comment("Define if Angel Ring must have a harder recipe or have a default recipe as it was in versions before 2.0.0.").define("BalancedRecipe", true);
 
-        XPCost = COMMON_BUILDER.comment("Define how much XP will be drained from player when flying by wearing classic Angel Ring? Put 0 if you need to disable XP requirement for flight.").defineInRange("XPCost", 3, 0, 2147483647);
-        TicksPerDrain = COMMON_BUILDER.comment("Define how much ticks is required to pass between each XP drain event of classic Angel Ring?").defineInRange("TicksPerDrain", 50, 1, 2147483647);
+        XPCost = COMMON_BUILDER
+                .comment("Defines how much XP will be drained from player when flying by wearing classic Angel Ring? Put 0 if you need to disable XP requirement for flight.")
+                .defineInRange("XPCost", 3, 0, 2147483647);
 
-        EnergeticFEPerTick = COMMON_BUILDER.comment("Define how much FE the Energetic Angel Ring will drain every tick while flying.").defineInRange("EnergeticFEPerTick", 150, 1, 2147483647);
-        EnergeticFECapacity = COMMON_BUILDER.comment("Define how much FE the Energetic Angel Ring can store.").defineInRange("EnergeticFECapacity", 3000000, 1, 2147483647);
+        TicksPerDrain = COMMON_BUILDER
+                .comment("Defines how much ticks is required to pass between each XP drain event of classic Angel Ring?")
+                .defineInRange("TicksPerDrain", 50, 1, 2147483647);
 
-        LeadstoneFEPerTick = COMMON_BUILDER.comment("Define how much FE the Leadstone Angel Ring will drain every tick while flying.").defineInRange("LeadstoneFEPerTick", 250, 1, 2147483647);
-        LeadstoneCapacity = COMMON_BUILDER.comment("Define how much FE the Leadstone Angel Ring can store.").defineInRange("LeadstoneFECapacity", 2500000, 1, 2147483647);
+        EnergeticFEPerTick = COMMON_BUILDER
+                .comment("Defines how much FE the Energetic Angel Ring will drain every tick while flying.")
+                .defineInRange("EnergeticFEPerTick", 150, 1, 2147483647);
+        EnergeticFECapacity = COMMON_BUILDER
+                .comment("Defines how much FE the Energetic Angel Ring can store.")
+                .defineInRange("EnergeticFECapacity", 3000000, 1, 2147483647);
 
-        HardenedFEPerTick = COMMON_BUILDER.comment("Define how much FE the Hardened Angel Ring will drain every tick while flying.").defineInRange("HardenedFEPerTick", 200, 1, 2147483647);
-        HardenedCapacity = COMMON_BUILDER.comment("Define how much FE the Hardened Angel Ring can store.").defineInRange("HardenedFECapacity", 5000000, 1, 2147483647);
+        LeadstoneFEPerTick = COMMON_BUILDER
+                .comment("Defines how much FE the Leadstone Angel Ring will drain every tick while flying.")
+                .defineInRange("LeadstoneFEPerTick", 250, 1, 2147483647);
+        LeadstoneCapacity = COMMON_BUILDER
+                .comment("Defines how much FE the Leadstone Angel Ring can store.")
+                .defineInRange("LeadstoneFECapacity", 2500000, 1, 2147483647);
 
-        ReinforcedFEPerTick = COMMON_BUILDER.comment("Define how much FE the Reinforced Angel Ring will drain every tick while flying.").defineInRange("ReinforcedFEPerTick", 100, 1, 2147483647);
-        ReinforcedCapacity = COMMON_BUILDER.comment("Define how much FE the Reinforced Angel Ring can store.").defineInRange("ReinforcedFECapacity", 8000000, 1, 2147483647);
+        HardenedFEPerTick = COMMON_BUILDER
+                .comment("Defines how much FE the Hardened Angel Ring will drain every tick while flying.")
+                .defineInRange("HardenedFEPerTick", 200, 1, 2147483647);
+        HardenedCapacity = COMMON_BUILDER
+                .comment("Defines how much FE the Hardened Angel Ring can store.")
+                .defineInRange("HardenedFECapacity", 5000000, 1, 2147483647);
 
-        ResonantFEPerTick = COMMON_BUILDER.comment("Define how much FE the Resonant Angel Ring will drain every tick while flying.").defineInRange("ResonantFEPerTick", 50, 1, 2147483647);
-        ResonantCapacity = COMMON_BUILDER.comment("Define how much FE the Resonant Angel Ring can store.").defineInRange("ResonantFECapacity", 16000000, 1, 2147483647);
+        ReinforcedFEPerTick = COMMON_BUILDER
+                .comment("Defines how much FE the Reinforced Angel Ring will drain every tick while flying.")
+                .defineInRange("ReinforcedFEPerTick", 100, 1, 2147483647);
+        ReinforcedCapacity = COMMON_BUILDER
+                .comment("Defines how much FE the Reinforced Angel Ring can store.")
+                .defineInRange("ReinforcedFECapacity", 8000000, 1, 2147483647);
 
-        XPWarningLevel = COMMON_BUILDER.comment("Defines at what XP Level to start displaying a warning of low XP for the Classic Angel Ring. Set to -1 to disable.").defineInRange("XPWarningLevel", 3, -1, 2147483647);
-        EnergyWarningPercentage = COMMON_BUILDER.comment("Defines at what percentage to start displaying a warning of low power for Energy Angel Rings. Set to -1 to disable.").defineInRange("EnergyWarningPercentage", 5, -1, 100);
+        ResonantFEPerTick = COMMON_BUILDER
+                .comment("Defines how much FE the Resonant Angel Ring will drain every tick while flying.")
+                .defineInRange("ResonantFEPerTick", 50, 1, 2147483647);
+        ResonantCapacity = COMMON_BUILDER
+                .comment("Defines how much FE the Resonant Angel Ring can store.")
+                .defineInRange("ResonantFECapacity", 16000000, 1, 2147483647);
+
+        XPWarningLevel = COMMON_BUILDER
+                .comment("Defines at what XP Level to start displaying a warning of low XP for the Classic Angel Ring. Set to -1 to disable.")
+                .defineInRange("XPWarningLevel", 3, -1, 2147483647);
+
+        EnergyWarningPercentage = COMMON_BUILDER
+                .comment("Defines at what percentage to start displaying a warning of low power for Energy Angel Rings. Set to -1 to disable.")
+                .defineInRange("EnergyWarningPercentage", 5, -1, 100);
 
         COMMON_BUILDER.pop();
         COMMON_CONFIG = COMMON_BUILDER.build();

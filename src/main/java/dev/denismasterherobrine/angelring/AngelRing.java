@@ -1,13 +1,11 @@
 package dev.denismasterherobrine.angelring;
 
-import dev.denismasterherobrine.angelring.compat.curios.ClassicAngelRingIntegration;
 import dev.denismasterherobrine.angelring.register.ItemRegistry;
 import dev.denismasterherobrine.angelring.register.CreativeTabRegistry;
 import dev.denismasterherobrine.angelring.utils.ExternalMods;
 import dev.denismasterherobrine.angelring.config.Configuration;
 
 import net.minecraftforge.common.MinecraftForge;
-import net.minecraftforge.event.entity.player.PlayerXpEvent;
 import net.minecraftforge.event.server.ServerStartingEvent;
 import net.minecraftforge.eventbus.api.SubscribeEvent;
 import net.minecraftforge.fml.ModLoadingContext;
