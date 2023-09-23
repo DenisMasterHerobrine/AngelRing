@@ -52,6 +52,12 @@ public class ReinforcedAngelRingIntegration {
             protected void payForFlight(Player player, ItemStack stack) {
                 getEnergyStorage(getStack()).extractEnergy(fePerTick, false);
             }
+
+            @Override
+            protected boolean warnPlayer(Player player, ItemStack stack) {
+                IEnergyStorage energy = getEnergyStorage(stack);
+                return ((double) energy.getEnergyStored())/energy.getMaxEnergyStored()*100 <= Configuration.EnergyWarningPercentage.get();
+            }
         };
 
         EnergyItem energyItem = new EnergyItem(stack, Configuration.ReinforcedCapacity.get());

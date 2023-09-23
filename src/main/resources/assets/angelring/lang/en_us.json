@@ -18,5 +18,6 @@
   "item.angelring.reinforced_angel_ring": "Reinforced Angel Ring",
   "item.angelring.resonant_angel_ring": "Resonant Angel Ring",
   "curios.identifier.angelring": "Angel Ring",
-  "itemGroup.angelring2": "Angel Ring 2"
+  "itemGroup.angelring2": "Angel Ring 2",
+  "angelring.warning": "§cYour angel ring is running low on power!"
 }
