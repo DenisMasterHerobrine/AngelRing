@@ -1,6 +1,7 @@
 package dev.denismasterherobrine.angelring.compat.curios;
 
 import net.minecraft.network.chat.Component;
+import net.minecraft.network.protocol.game.ClientboundSetActionBarTextPacket;
 import net.minecraft.server.level.ServerPlayer;
 import net.minecraft.sounds.SoundEvents;
 import net.minecraft.world.entity.LivingEntity;
@@ -18,6 +19,7 @@ import top.theillusivec4.curios.api.type.capability.ICurio;
 import java.util.Optional;
 
 public abstract class AbstractRingCurio implements ICurio {
+    private static final ClientboundSetActionBarTextPacket packet = new ClientboundSetActionBarTextPacket(Component.translatable("angelring.warning"));
     private final Item item;
     public AbstractRingCurio(Item item) {
         this.item = item;  // I have the suspicion that this results in a circular reference but yolo.
@@ -76,6 +78,7 @@ public abstract class AbstractRingCurio implements ICurio {
     abstract protected boolean checkIfAllowedToFly(Player player, ItemStack stack);
     abstract protected Component getNotAbleToFlyMessage();
     abstract protected void payForFlight(Player player, ItemStack stack);
+    abstract protected boolean warnPlayer(Player player, ItemStack stack);
 
     @Override
     public void curioTick(SlotContext slotContext) {
@@ -101,6 +104,8 @@ public abstract class AbstractRingCurio implements ICurio {
             if (player.getAbilities().mayfly && player.getAbilities().flying) {
                 ClassicAngelRingIntegration.once = true;
                 payForFlight(player, stack);
+
+                if (player instanceof ServerPlayer serverPlayer && warnPlayer(player, stack)) serverPlayer.connection.send(packet);
             }
         }
     }
