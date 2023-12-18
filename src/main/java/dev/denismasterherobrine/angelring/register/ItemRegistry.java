@@ -1,11 +1,11 @@
 package dev.denismasterherobrine.angelring.register;
 
-import dev.denismasterherobrine.angelring.item.thermal.HardenedAngelRing;
-import dev.denismasterherobrine.angelring.item.thermal.LeadstoneAngelRing;
-import dev.denismasterherobrine.angelring.item.thermal.ReinforcedAngelRing;
-import dev.denismasterherobrine.angelring.item.thermal.ResonantAngelRing;
+import dev.denismasterherobrine.angelring.item.compat.thermal.HardenedAngelRing;
+import dev.denismasterherobrine.angelring.item.compat.thermal.LeadstoneAngelRing;
+import dev.denismasterherobrine.angelring.item.compat.thermal.ReinforcedAngelRing;
+import dev.denismasterherobrine.angelring.item.compat.thermal.ResonantAngelRing;
 import dev.denismasterherobrine.angelring.item.vanilla.LegacyAngelRing;
-import dev.denismasterherobrine.angelring.item.vanilla.DiamondRing;
+import dev.denismasterherobrine.angelring.item.vanilla.crafting.DiamondRing;
 import dev.denismasterherobrine.angelring.item.vanilla.EnergeticAngelRing;
 
 import net.minecraft.world.item.Item;

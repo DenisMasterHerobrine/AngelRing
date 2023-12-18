@@ -1,8 +1,7 @@
-package dev.denismasterherobrine.angelring.item.vanilla;
+package dev.denismasterherobrine.angelring.item.compat.thermal;
 
-import dev.denismasterherobrine.angelring.AngelRing;
 import dev.denismasterherobrine.angelring.compat.curios.integration.ClassicAngelRingIntegration;
-import dev.denismasterherobrine.angelring.compat.curios.integration.EnergeticAngelRingIntegration;
+import dev.denismasterherobrine.angelring.compat.thermal.integration.ResonantAngelRingIntegration;
 import dev.denismasterherobrine.angelring.utils.ExternalMods;
 
 import net.minecraft.ChatFormatting;
@@ -20,16 +19,14 @@ import net.minecraftforge.common.capabilities.ForgeCapabilities;
 import net.minecraftforge.common.capabilities.ICapabilityProvider;
 import net.minecraftforge.energy.IEnergyStorage;
 import net.minecraftforge.eventbus.api.SubscribeEvent;
-import net.minecraftforge.fml.common.Mod;
 import net.minecraftforge.fml.event.lifecycle.InterModEnqueueEvent;
 
 import org.jetbrains.annotations.Nullable;
 
 import java.util.List;
 
-@Mod.EventBusSubscriber(modid = AngelRing.MODID, bus = Mod.EventBusSubscriber.Bus.MOD)
-public class EnergeticAngelRing extends Item {
-    public EnergeticAngelRing() {
+public class ResonantAngelRing extends Item {
+    public ResonantAngelRing() {
         super(new Item.Properties().stacksTo(1));
     }
 
@@ -42,7 +39,7 @@ public class EnergeticAngelRing extends Item {
     @Override
     public ICapabilityProvider initCapabilities(final ItemStack stack, CompoundTag unused) {
         if (ExternalMods.CURIOS.isLoaded()) {
-            return EnergeticAngelRingIntegration.initCapabilities(stack);
+            return ResonantAngelRingIntegration.initCapabilities(stack);
         }
         return super.initCapabilities(stack, unused);
     }
@@ -71,7 +68,10 @@ public class EnergeticAngelRing extends Item {
             tooltip.add(Component.translatable("item.angelring.energetic_angel_ring.desc1", energy.getEnergyStored(), energy.getMaxEnergyStored()).withStyle(ChatFormatting.GRAY));
         }
 
-        tooltip.add(Component.translatable("item.angelring.tooltip.base").withStyle(ChatFormatting.DARK_GREEN));
+        if (!ExternalMods.THERMALFOUNDATION.isLoaded()) {
+            tooltip.add(Component.translatable("item.angelring.tooltip.thermal").withStyle(ChatFormatting.DARK_RED));
+        } else {
+            tooltip.add(Component.translatable("item.angelring.tooltip.thermal").withStyle(ChatFormatting.DARK_GREEN));
+        }
     }
-
 }
