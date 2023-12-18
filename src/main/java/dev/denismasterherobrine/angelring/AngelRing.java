@@ -31,6 +31,7 @@ public class AngelRing {
     }
 
     private void setup(final FMLCommonSetupEvent event) {
+
     }
 
     @SubscribeEvent

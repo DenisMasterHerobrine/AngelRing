@@ -59,5 +59,7 @@ public class AngelRingItem extends Item {
         if (Screen.hasShiftDown() && Configuration.XPCost.get() == 0){
             tooltip.add(Component.translatable("item.angelring.angel_ring.classic.desc0").withStyle(ChatFormatting.RED));
         }
+
+        tooltip.add(Component.translatable("item.angelring.tooltip.base").withStyle(ChatFormatting.DARK_GREEN));
     }
 }
