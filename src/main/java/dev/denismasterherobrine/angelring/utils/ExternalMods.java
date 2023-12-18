@@ -8,13 +8,7 @@ public enum ExternalMods {
     */
     CURIOS("curios"),
     TINKERSCONSTRUCT("tconstruct"),
-    BOTANIA("botania"),
-    BLOODMAGIC("bloodmagic"),
     THERMALFOUNDATION("thermal"),
-    MEKANISM("mekanism"),
-    ENDERIO("enderio"), // Only for 1.18.1 and higher
-    PNEUMATICCRAFT("pneumaticcraft"),
-    FTBINDUSTRIALCONTRAPTIONS("ftbic"),
 
     /*
         Check if Experience Bug Fix is already installed, if not, we will patch the experience bar to sync it properly for Angel Ring item.

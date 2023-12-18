@@ -38,13 +38,11 @@ import net.minecraftforge.fml.common.Mod;
 @Mod.EventBusSubscriber(modid = AngelRing.MODID, bus = Mod.EventBusSubscriber.Bus.FORGE)
 public class ExperienceDisplayUtils {
     @SubscribeEvent
-    public static void onDimensionChange(PlayerEvent.PlayerChangedDimensionEvent event)
-    {
+    public static void onDimensionChange(PlayerEvent.PlayerChangedDimensionEvent event) {
         if (!ExternalMods.EXPERIENCEBUGFIX.isLoaded()) {
             Player player = event.getEntity();
 
-            if (player instanceof ServerPlayer)
-            {
+            if (player instanceof ServerPlayer) {
                 ((ServerPlayer) player).setExperienceLevels(player.experienceLevel);
             }
         }

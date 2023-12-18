@@ -1,7 +1,7 @@
 package dev.denismasterherobrine.angelring.item.vanilla;
 
 import dev.denismasterherobrine.angelring.AngelRing;
-import dev.denismasterherobrine.angelring.compat.curios.ClassicAngelRingIntegration;
+import dev.denismasterherobrine.angelring.compat.curios.integration.ClassicAngelRingIntegration;
 import dev.denismasterherobrine.angelring.config.Configuration;
 import dev.denismasterherobrine.angelring.utils.AngelRingTab;
 import dev.denismasterherobrine.angelring.utils.ExternalMods;

@@ -10,12 +10,10 @@ import java.nio.file.Path;
 
 @Mod.EventBusSubscriber
 public class Configuration {
-
     public static final String CATEGORY_GENERAL = "general";
     private static final ForgeConfigSpec.Builder COMMON_BUILDER = new ForgeConfigSpec.Builder();
     public static ForgeConfigSpec SERVER_CONFIG;
 
-    public static ForgeConfigSpec.BooleanValue BalancedRecipe;
     public static ForgeConfigSpec.IntValue XPCost;
     public static ForgeConfigSpec.IntValue TicksPerDrain;
 
@@ -39,9 +37,6 @@ public class Configuration {
 
     static {
         COMMON_BUILDER.comment("General Angel Ring 2 configuration options.").push(CATEGORY_GENERAL);
-
-        // TODO: Add a config option to switch recipes?
-        // BalancedRecipe = COMMON_BUILDER.comment("Define if Angel Ring must have a harder recipe or have a default recipe as it was in versions before 2.0.0.").define("BalancedRecipe", true);
 
         XPCost = COMMON_BUILDER
                 .comment("Defines how much XP will be drained from player when flying by wearing Classic Angel Ring. Put 0 if you need to disable XP requirement for flight.")

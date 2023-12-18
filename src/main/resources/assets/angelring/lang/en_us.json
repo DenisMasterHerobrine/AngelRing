@@ -17,6 +17,8 @@
   "item.angelring.hardened_angel_ring": "Hardened Angel Ring",
   "item.angelring.reinforced_angel_ring": "Reinforced Angel Ring",
   "item.angelring.resonant_angel_ring": "Resonant Angel Ring",
+  "item.angelring.tooltip.base": "Angel Ring 2: Base",
+  "item.angelring.tooltip.thermal": "Angel Ring 2: Thermal Foundation Compat",
   "curios.identifier.angelring": "Angel Ring",
   "itemGroup.angelring2": "Angel Ring 2",
   "angelring.warning": "§cYour Angel Ring is running low on power!"
