@@ -1,0 +1,26 @@
+{
+  "itemGroup.angelring2": "Angel Ring 2",
+  
+  "item.angelring.angel_ring": "Melek Yüzüğü",
+  "item.angelring.diamond_ring": "Elmas Yüzük",
+  "item.angelring.angel_ring.not_enough_xp": "Uçmak için XP'ye sahip olmanız gerekir. Tekrar uçmak için daha fazla XP toplayın.",
+  "item.angelring.angel_ring.tooltip": "Daha fazla bilgi için §eShift§7 tuşunu basılı tutun!",
+  "item.angelring.angel_ring.desc0": "Melek Yüzüğü uçarken oyuncunun XP'sini zamanla tüketir.",
+  "item.angelring.angel_ring.desc1": "Oyuncunun XP'si 1 seviyenin altına düşerse,",
+  "item.angelring.angel_ring.desc2": "büyü kaybolacak ve uçuş mümkün olmayacaktır.",
+  "item.angelring.angel_ring.classic.desc0": "Melek Yüzüğü Klasik Moda dönüştürüldü. Curios yuvasındayken yaratıcı mod uçuşu sağlar.",
+  "item.angelring.angel_ring.classic.desc1": "Dengelenmiş Moda geçmek için ayarlarda XP tükenmesini 0'dan fazla puanla değiştirin.",
+  "item.angelring.energetic_angel_ring": "Enerjik Melek Yüzüğü",
+  "item.angelring.energetic_angel_ring.not_enough_fe": "Uçmak için daha fazla FE'ye ihtiyacın var. Tekrar uçmak için Melek Yüzüğünü şarj et.",
+  "item.angelring.energetic_angel_ring.tooltip": "Daha fazla bilgi için §eShift§7 tuşunu basılı tutun!",
+  "item.angelring.energetic_angel_ring.desc0": "Melek Yüzüğü uçarken depolanan FE'yi zamanla tüketir.",
+  "item.angelring.energetic_angel_ring.desc1": "Melek Yüzüğü şu anda %s FE / %s FE içeriyor.",
+  "item.angelring.leadstone_angel_ring": "Kurşun Taşı Melek Yüzüğü",
+  "item.angelring.hardened_angel_ring": "Sertleştirilmiş Melek Yüzüğü",
+  "item.angelring.reinforced_angel_ring": "Güçlendirilmiş Melek Yüzüğü",
+  "item.angelring.resonant_angel_ring": "Rezonant Melek Yüzüğü",
+  
+  "curios.identifier.angelring": "Melek Yüzüğü",
+  
+  "angelring.warning": "§cMelek Yüzüğünüzün gücü azalıyor!"
+}
