@@ -55,7 +55,6 @@ public class ExperienceDisplayUtils {
         Player player = event.getEntity();
 
         if (player instanceof ServerPlayer) {
-            player.totalExperience = getPlayerXP(player);
             ((ServerPlayer) player).setExperienceLevels(player.experienceLevel);
         }
     }

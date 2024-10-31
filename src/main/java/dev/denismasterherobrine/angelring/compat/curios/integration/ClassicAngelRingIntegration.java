@@ -47,8 +47,9 @@ public class ClassicAngelRingIntegration {
             protected boolean checkIfAllowedToFly(Player player, ItemStack stack) {
                 if (Configuration.XPCost.get() == 0) {
                     return true;
+                } else {
+                    return ExperienceUtils.getPlayerXP(player) >= Configuration.XPCost.get();
                 }
-                else return ExperienceUtils.getPlayerXP(player) >= Configuration.XPCost.get();
             }
 
             @Override
@@ -75,6 +76,9 @@ public class ClassicAngelRingIntegration {
 
             @Override
             protected boolean warnPlayer(Player player, ItemStack stack) {
+                // Don't warn if the ring in Classic Mode
+                if (Configuration.XPCost.get() == 0) return false;
+
                 return player.experienceLevel <= Configuration.XPWarningLevel.get();
             }
         };

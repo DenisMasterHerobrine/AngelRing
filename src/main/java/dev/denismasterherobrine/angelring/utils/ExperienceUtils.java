@@ -35,39 +35,39 @@ public class ExperienceUtils {
      * @return
      */
 
-    public static int getPlayerXP(Player player) {
-        return (int)(ExperienceUtils.getExperienceForLevel(player.experienceLevel) + (player.experienceProgress * player.getXpNeededForNextLevel()));
+    public static long getPlayerXP(Player player) {
+        return (long)(ExperienceUtils.getExperienceForLevel(player.experienceLevel) + (player.experienceProgress * player.getXpNeededForNextLevel()));
     }
 
     public static void addPlayerXP(Player player, int amount) {
         player.giveExperiencePoints(amount);
     }
 
-    public static int xpBarCap(int level) {
+    public static long xpBarCap(int level) {
         if (level >= 30)
-            return 112 + (level - 30) * 9;
+            return 112 + (level - 30) * 9L;
 
         if (level >= 15)
             return 37 + (level - 15) * 5;
 
-        return 7 + level * 2;
+        return 7 + level * 2L;
     }
 
-    private static int sum(int n, int a0, int d) {
+    private static long sum(long n, long a0, long d) {
         return n * (2 * a0 + (n - 1) * d) / 2;
     }
 
-    public static int getExperienceForLevel(int level) {
+    public static long getExperienceForLevel(long level) {
         if (level == 0) return 0;
         if (level <= 15) return sum(level, 7, 2);
         if (level <= 30) return 315 + sum(level - 15, 37, 5);
         return 1395 + sum(level - 30, 112, 9);
     }
 
-    public static int getLevelForExperience(int targetXp) {
+    public static long getLevelForExperience(long targetXp) {
         int level = 0;
         while (true) {
-            final int xpToNextLevel = xpBarCap(level);
+            final int xpToNextLevel = (int) xpBarCap(level);
             if (targetXp < xpToNextLevel) return level;
             level++;
             targetXp -= xpToNextLevel;
@@ -77,11 +77,11 @@ public class ExperienceUtils {
     public static float calculateStoredLevels(int storedXP)
     {
         float storedLevels = 0.0F;
-        int xp = storedXP;
+        long xp = storedXP;
 
         while(xp > 0)
         {
-            int xpToNextLevel = ExperienceUtils.xpBarCap((int)storedLevels);
+            long xpToNextLevel = ExperienceUtils.xpBarCap((int)storedLevels);
 
             if(xp < xpToNextLevel)
             {
@@ -101,40 +101,11 @@ public class ExperienceUtils {
      * @param currentXP The XP that the player already has
      * @return
      */
-    public static int getXPToNextLevel(int currentXP)
+    public static long getXPToNextLevel(int currentXP)
     {
-        int level = ExperienceUtils.getLevelForExperience(currentXP);
-        int nextLevelXP = ExperienceUtils.getExperienceForLevel(level + 1);
+        long level = ExperienceUtils.getLevelForExperience(currentXP);
+        long nextLevelXP = (int) ExperienceUtils.getExperienceForLevel(level + 1);
 
         return nextLevelXP - currentXP;
-    }
-
-    // Solution found somewhere on the Forge Forum.
-    public static void decreaseXP(Player player, float amount)
-    {
-        if (player.totalExperience - amount <= 0)
-        {
-            player.experienceLevel = 0;
-            player.experienceProgress = 0;
-            player.totalExperience = 0;
-            return;
-        }
-
-        player.totalExperience -= amount;
-
-        if (player.experienceProgress * (float)ExperienceUtils.xpBarCap(player.experienceLevel) <= amount)
-        {
-            amount -= player.experienceProgress * (float)ExperienceUtils.xpBarCap(player.experienceLevel);
-            player.experienceProgress = 1.0f;
-            player.experienceLevel--;
-        }
-
-        while (ExperienceUtils.xpBarCap(player.experienceLevel) < amount)
-        {
-            amount -= ExperienceUtils.xpBarCap(player.experienceLevel);
-            player.experienceLevel--;
-        }
-
-        player.experienceProgress -= (float) amount / (float)ExperienceUtils.xpBarCap(player.experienceLevel);
     }
 }

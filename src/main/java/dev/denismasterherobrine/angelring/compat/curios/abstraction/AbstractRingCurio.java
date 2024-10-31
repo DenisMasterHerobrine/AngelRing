@@ -1,6 +1,7 @@
 package dev.denismasterherobrine.angelring.compat.curios.abstraction;
 
 import dev.denismasterherobrine.angelring.compat.curios.integration.ClassicAngelRingIntegration;
+import dev.denismasterherobrine.angelring.utils.ExperienceUtils;
 import net.minecraft.network.chat.Component;
 import net.minecraft.network.protocol.game.ClientboundSetActionBarTextPacket;
 import net.minecraft.server.level.ServerPlayer;
@@ -93,6 +94,7 @@ public abstract class AbstractRingCurio implements ICurio {
             }
 
             if (player.getAbilities().mayfly && player.getAbilities().flying) {
+                //System.out.println("ExperienceUtils.getPlayerXP(player): " + ExperienceUtils.getPlayerXP(player));
                 ClassicAngelRingIntegration.once = true;
                 payForFlight(player, stack);
 
