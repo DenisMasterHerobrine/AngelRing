@@ -1,9 +1,11 @@
 # Changelog - Angel Ring 2
 
-## [2.3.0] - 2024-10-??
+## [2.3.0] - 2024-11-01
 
 ### Added
 - Now Experience API supports Long values.
+- Russian translation by TheAnaxMan.
+- Turkish translation by RuyaSavascisi.
 
 ### Changed
 - Changed the recipe for the Thermal Foundation's Angel Ring to use energetic one instead of the original one.
