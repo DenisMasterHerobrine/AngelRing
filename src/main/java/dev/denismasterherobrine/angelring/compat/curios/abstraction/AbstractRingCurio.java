@@ -17,7 +17,7 @@ import top.theillusivec4.curios.api.CuriosApi;
 import top.theillusivec4.curios.api.SlotContext;
 import top.theillusivec4.curios.api.SlotResult;
 import top.theillusivec4.curios.api.type.capability.ICurio;
-ing
+
 import java.util.Optional;
 
 public abstract class AbstractRingCurio implements ICurio {
