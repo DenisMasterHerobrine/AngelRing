@@ -1,5 +1,11 @@
 # Changelog - Angel Ring 2
 
+## [2.3.1] - 2024-11-09
+
+### Fixed
+- Fixed an issue where the Angel Ring would not work properly due to a missing NBT check that was accidentally removed in the previous version when we started working on 3.0.0. Oops. Sorry about that.
+- Fixed a tooltip being wrongly displayed when the Angel Ring was in Classic Mode.
+
 ## [2.3.0] - 2024-11-01
 
 ### Added
