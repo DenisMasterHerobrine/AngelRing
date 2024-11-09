@@ -17,7 +17,7 @@ import top.theillusivec4.curios.api.CuriosApi;
 import top.theillusivec4.curios.api.SlotContext;
 import top.theillusivec4.curios.api.SlotResult;
 import top.theillusivec4.curios.api.type.capability.ICurio;
-
+ing
 import java.util.Optional;
 
 public abstract class AbstractRingCurio implements ICurio {
@@ -34,6 +34,8 @@ public abstract class AbstractRingCurio implements ICurio {
 
     @Override
     public void onUnequip(SlotContext slotContext, ItemStack newStack) {
+        if (newStack.getItem().getClass() == item.getClass()) return;
+
         if (newStack.getCapability(ForgeCapabilities.ENERGY).isPresent() && item.getDefaultInstance().getCapability(ForgeCapabilities.ENERGY).isPresent()) {
             if (newStack.getCapability(ForgeCapabilities.ENERGY).resolve().get().getEnergyStored() ==
                     item.getDefaultInstance().getCapability(ForgeCapabilities.ENERGY).resolve().get().getEnergyStored()) return;
