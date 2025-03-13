@@ -2,10 +2,10 @@
   "schemaVersion": 1,
   "id": "angelring",
   "version": "${version}",
-  "name": "Angel Ring",
-  "description": "This is an example description! Tell everyone what your mod is about!",
+  "name": "Angel Ring 3",
+  "description": "Angel Ring 3 is a mod which adds a new ring into Minecraft. This ring allows you to fly like in a creative mode. Inspired by Extra Utilities 2.",
   "authors": [
-    "Me!"
+    "DenisMasterHerobrine"
   ],
   "contact": {
     "homepage": "https://www.curseforge.com/minecraft/mc-mods/angel-ring/",
@@ -26,9 +26,12 @@
     "angelring.mixins.json"
   ],
   "depends": {
-    "fabricloader": ">=0.16.9",
+    "fabricloader": ">=0.16.10",
     "minecraft": ">=1.21",
     "java": ">=21",
-    "fabric-api": "*"
+    "fabric-api": "*",
+    "haydenapi": ">=1.0.0",
+    "flightapi": ">=1.0.4",
+    "trinkets": ">=3.10.0"
   }
 }

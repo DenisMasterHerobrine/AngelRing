@@ -1,17 +1,17 @@
 modLoader = "javafml"
 loaderVersion = "[4,)"
 #issueTrackerURL = ""
-license = "Insert License Here"
+license = "LGPLv3"
 
 [[mods]]
 modId = "angelring"
 version = "${version}"
-displayName = "angelring"
+displayName = "Angel Ring 3"
 authors = "DenisMasterHerobrine"
 description = '''
 Angel Ring 3 is a mod which adds a new ring into Minecraft. This ring allows you to fly like in a creative mode. Inspired by Extra Utilities 2.
 '''
-#logoFile = ""
+logoFile = "icon.png"
 
 [[dependencies.angelring]]
 modId = "neoforge"
@@ -24,6 +24,20 @@ side = "BOTH"
 modId = "minecraft"
 type = "required"
 versionRange = "[1.21,)"
+ordering = "NONE"
+side = "BOTH"
+
+[[dependencies.angelring]]
+modId = "haydenapi"
+type = "required"
+versionRange = "[1.0.0,)"
+ordering = "NONE"
+side = "BOTH"
+
+[[dependencies.angelring]]
+modId = "flightapi"
+type = "required"
+versionRange = "[1.0.4,)"
 ordering = "NONE"
 side = "BOTH"
 

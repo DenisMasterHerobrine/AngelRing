@@ -59,6 +59,7 @@ dependencies {
     modRuntimeOnly("top.theillusivec4.curios:curios-neoforge:$rootProject.curios_version")
 
     modImplementation "dev.denismasterherobrine:flightapi:${rootProject.flightapi_version}:neoforge@jar"
+    modImplementation "dev.denismasterherobrine:haydenapi-neoforge:${rootProject.haydenapi_version}@jar"
 }
 
 processResources {

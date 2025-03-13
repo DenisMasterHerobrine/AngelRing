@@ -9,4 +9,6 @@ dependencies {
     modImplementation "net.fabricmc:fabric-loader:$rootProject.fabric_loader_version"
     compileOnly ("io.wispforest:accessories-common:$rootProject.accessories_version")
     runtimeOnly ("io.wispforest:accessories-common:$rootProject.accessories_version")
+
+    modImplementation "dev.denismasterherobrine:haydenapi-common:${rootProject.haydenapi_version}@jar"
 }

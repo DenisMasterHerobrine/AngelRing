@@ -15,7 +15,9 @@ public class PlayerJoinListener {
         PlayerEntity entity = event.getEntity();
 
         if (entity instanceof ServerPlayerEntity player) {
-            FlightAPI.requestFlight(AngelRing.MOD_ID, player);
+            FlightAPI.getCurrentOwner(player.getGameProfile().getId()).ifPresent(owner -> {
+                FlightAPI.requestFlight(AngelRing.MOD_ID, player);
+            });
         }
     }
 }
