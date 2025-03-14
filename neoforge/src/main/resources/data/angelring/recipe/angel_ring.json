@@ -1,5 +1,5 @@
 {
-    "type": "crafting_shaped",
+    "type": "minecraft:crafting_shaped",
     "pattern": [
         "FXF",
         "GEG",
@@ -23,7 +23,7 @@
         }
     },
     "result": {
-        "item": "angelring:angel_ring",
+        "id": "angelring:angel_ring",
         "count": 1
     }
 }

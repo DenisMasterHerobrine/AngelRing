@@ -1,5 +1,5 @@
 {
-  "type": "crafting_shaped",
+  "type": "minecraft:crafting_shaped",
   "pattern": [
     "IGI",
     "GEG",
@@ -17,7 +17,7 @@
     }
   },
   "result": {
-    "item": "angelring:diamond_ring",
+    "id": "angelring:diamond_ring",
     "count": 1
   }
 }

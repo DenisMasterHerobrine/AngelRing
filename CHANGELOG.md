@@ -1,4 +1,9 @@
 # Changelog - Angel Ring 3
+    
+## [3.0.0+beta.2] - 2025-03-15
+
+### Fixed
+- Fixed missing recipe in JEI/REI. Now the recipe for the Angel Ring is displayed properly in the recipe viewer and should be craftable without any issues.
 
 ## [3.0.0+beta.1] - 2025-03-14
 
