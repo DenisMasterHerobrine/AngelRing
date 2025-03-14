@@ -1,12 +1,13 @@
 # Changelog - Angel Ring 3
 
-## [3.0.0+beta.1] - 2025-03-13
+## [3.0.0+beta.1] - 2025-03-14
 
-A brand new version of Angel Ring. This version is a complete rewrite of the mod, with a lot of new features and improvements. Requires Accessories instead of Curios API and support more modloaders: Fabric, Quilt and NeoForge. This version is not compatible with the previous versions of Angel Ring 2. Also note, if you previously used the any clone or fork of the mod, mod will try to override the ring with the new one to make sure that nothing was broken and you have seamless migration for 1.21+ versions. Modpack developers should provide a way to migrate the ring to the new version through the recipe changes, item replacement through CraftTweaker or KubeJS if any of the other forks or clones were used before.
+A brand new version of Angel Ring. This version is a complete rewrite of the mod, with a lot of new features coming along the way and improvements. Supports both Accessories, Curios API and Trinkets API. Support for more modloaders: Fabric, Quilt and NeoForge. This version is not compatible with the previous versions of Angel Ring 2. 
+Also note, if you previously used the any clone or fork of the mod with the same mod's id, mod will try to override the ring with the new one to make sure that nothing was broken and you have seamless migration for 1.21+ versions. Modpack developers should provide a way to migrate the ring to the new version through the recipe changes, item replacement through CraftTweaker or KubeJS if any of the other forks or clones were used before.
 
 # Requirements
 **Angel Ring 3 as of now requires:** 
-- HaydenAPI 1.0.0 or later
+- HaydenAPI 1.0.4 or later
 - Flight API 1.0.4 or later
 
 **NeoForge version:** 
@@ -22,6 +23,7 @@ A brand new version of Angel Ring. This version is a complete rewrite of the mod
 - Added support for Accessories API. Should work just fine also with just Curios or Trinkets API.
 - Added support for Fabric and NeoForge modloaders. Forge is currently unsupported, however its support may come a bit later in 3.0.x builds.
 - A brand new flight issues detection system provided by the Flight API. Now you will be notified about any issues with the flight and the mod will try to attempt to fix them. If this is not possible, then will notify you about the issue and problematic mod classes. You can report these issues to the mod authors by providing debug.log file from the `logs` directory
+- Moved to a HaydenAPI configuration system, now the configuration file is `angelring.json5`.
 
 ### Changed
 - Now the Angel Ring is in Classic Mode by default. Does not require anything. You can change the mode in the config file, so it will require durability points or XP to work if you changed this. Simple, yet powerful, right?
