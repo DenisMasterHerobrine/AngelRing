@@ -14,7 +14,5 @@ public final class AngelRingFabric implements ModInitializer {
         AngelRingRegistryFabric.register();
 
         onPlayerJoin();
-
-//        Configuration.configurationPath = () -> FabricLoader.getInstance().getConfigDir();
     }
 }

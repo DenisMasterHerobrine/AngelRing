@@ -30,7 +30,7 @@ side = "BOTH"
 [[dependencies.angelring]]
 modId = "haydenapi"
 type = "required"
-versionRange = "[1.0.0,)"
+versionRange = "[1.0.3,)"
 ordering = "NONE"
 side = "BOTH"
 
