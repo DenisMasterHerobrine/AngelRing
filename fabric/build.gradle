@@ -25,10 +25,10 @@ configurations {
 }
 
 repositories {
-    maven {
-        name = 'BehindTheScenery'
-        url = 'https://maven.behindthescenery.online/repository/maven-public/'
-    }
+//    maven {
+//        name = 'BehindTheScenery'
+//        url = 'https://maven.behindthescenery.online/repository/maven-public/'
+//    }
 }
 
 dependencies {

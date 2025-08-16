@@ -42,10 +42,10 @@ repositories {
         name = 'NeoForged'
         url = 'https://maven.neoforged.net/releases'
     }
-    maven {
-        name = 'BehindTheScenery'
-        url = 'https://maven.behindthescenery.online/repository/maven-public/'
-    }
+//    maven {
+//        name = 'BehindTheScenery'
+//        url = 'https://maven.behindthescenery.online/repository/maven-public/'
+//    }
 }
 
 dependencies {
