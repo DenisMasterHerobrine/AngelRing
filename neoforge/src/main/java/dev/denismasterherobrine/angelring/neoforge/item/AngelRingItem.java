@@ -20,14 +20,19 @@ import net.minecraft.util.Rarity;
 import net.neoforged.api.distmarker.Dist;
 import net.neoforged.api.distmarker.OnlyIn;
 import org.jetbrains.annotations.NotNull;
+import top.theillusivec4.curios.api.CuriosApi;
 import top.theillusivec4.curios.api.SlotContext;
 import top.theillusivec4.curios.api.type.capability.ICurio;
 import top.theillusivec4.curios.api.type.capability.ICurioItem;
+import top.theillusivec4.curios.api.type.capability.ICuriosItemHandler;
+import top.theillusivec4.curios.api.type.inventory.ICurioStacksHandler;
+import top.theillusivec4.curios.api.type.inventory.IDynamicStackHandler;
 
 import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
 import java.util.UUID;
+import java.util.concurrent.atomic.AtomicBoolean;
 
 public class AngelRingItem extends Item implements ICurioItem {
     private int ticksDrained;
@@ -120,6 +125,11 @@ public class AngelRingItem extends Item implements ICurioItem {
         if (entity.getEntityWorld().isClient) return;
 
         if (entity instanceof ServerPlayerEntity player) {
+            if (isAngelRingEquipped(player)) {
+                // If the player still has an Angel Ring equipped in the other slot, do not release flight.
+                return;
+            }
+
             FlightAPI.releaseFlight(AngelRing.MOD_ID, player);
         }
     }
@@ -151,5 +161,23 @@ public class AngelRingItem extends Item implements ICurioItem {
     @Override
     public boolean canEquipFromUse(SlotContext slotContext, ItemStack stack) {
         return true;
+    }
+
+    private static boolean isAngelRingEquipped(LivingEntity entity) {
+        AtomicBoolean isFound = new AtomicBoolean(false);
+        ICuriosItemHandler curiosInventory = CuriosApi.getCuriosInventory(entity).get();
+        Map<String, ICurioStacksHandler> curios = curiosInventory.getCurios();
+        curios.forEach((identifier, slotInventory) -> {
+            IDynamicStackHandler stacksHandler = slotInventory.getStacks();
+            for (int i = 0; i < stacksHandler.getSlots(); i++) {
+                ItemStack stack = stacksHandler.getStackInSlot(i);
+                if (stack.getItem() instanceof AngelRingItem) {
+                    isFound.set(true);
+                    return;
+                }
+            }
+        });
+
+        return isFound.get();
     }
 }

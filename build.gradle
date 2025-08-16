@@ -44,10 +44,11 @@ subprojects {
             name = "Illusive Soulworks maven"
             url = "https://maven.theillusivec4.top/"
         }
-        maven {
-            name = 'BehindTheScenery'
-            url = 'https://maven.behindthescenery.online/repository/maven-public/'
-        }
+        // Currently unused, but may be used in the future.
+//        maven {
+//            name = 'BehindTheScenery'
+//            url = 'https://maven.behindthescenery.dev/repository/maven-public/'
+//        }
     }
 
     dependencies {

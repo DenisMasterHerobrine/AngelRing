@@ -44,8 +44,11 @@ dependencies {
 
     modImplementation "dev.emi:trinkets:$rootProject.trinkets_version"
 
-    modImplementation "dev.denismasterherobrine:flightapi:${rootProject.flightapi_version}:fabric@jar"
-    modImplementation "dev.denismasterherobrine:haydenapi-fabric:${rootProject.haydenapi_version}@jar"
+    modImplementation files("libs/flightapi-fabric-${rootProject.flightapi_version}.jar")
+    modImplementation files("libs/haydenapi-fabric-${rootProject.haydenapi_version}.jar")
+
+//    modImplementation "dev.denismasterherobrine:flightapi:${rootProject.flightapi_version}:fabric@jar"
+//    modImplementation "dev.denismasterherobrine:haydenapi-fabric:${rootProject.haydenapi_version}@jar"
 }
 
 processResources {

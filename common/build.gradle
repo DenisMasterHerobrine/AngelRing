@@ -10,5 +10,6 @@ dependencies {
     compileOnly ("io.wispforest:accessories-common:$rootProject.accessories_version")
     runtimeOnly ("io.wispforest:accessories-common:$rootProject.accessories_version")
 
-    modImplementation "dev.denismasterherobrine:haydenapi-common:${rootProject.haydenapi_version}@jar"
+    modImplementation files("libs/haydenapi-common-${rootProject.haydenapi_version}.jar")
+    //modImplementation "dev.denismasterherobrine:haydenapi-common:${rootProject.haydenapi_version}@jar"
 }

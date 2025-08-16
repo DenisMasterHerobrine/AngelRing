@@ -58,8 +58,11 @@ dependencies {
     modCompileOnly("top.theillusivec4.curios:curios-neoforge:$rootProject.curios_version:api")
     modRuntimeOnly("top.theillusivec4.curios:curios-neoforge:$rootProject.curios_version")
 
-    modImplementation "dev.denismasterherobrine:flightapi:${rootProject.flightapi_version}:neoforge@jar"
-    modImplementation "dev.denismasterherobrine:haydenapi-neoforge:${rootProject.haydenapi_version}@jar"
+    modImplementation files("libs/flightapi-neoforge-${rootProject.flightapi_version}.jar")
+    modImplementation files("libs/haydenapi-neoforge-${rootProject.haydenapi_version}.jar")
+
+//    modImplementation "dev.denismasterherobrine:flightapi:${rootProject.flightapi_version}:neoforge@jar"
+//    modImplementation "dev.denismasterherobrine:haydenapi-neoforge:${rootProject.haydenapi_version}@jar"
 }
 
 processResources {

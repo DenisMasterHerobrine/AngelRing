@@ -6,8 +6,7 @@ import dev.denismasterherobrine.angelring.utils.AngelRingMode;
 import dev.denismasterherobrine.angelring.utils.AngelRingModeSelector;
 import dev.denismasterherobrine.angelring.utils.ExperienceUtils;
 import dev.denismasterherobrine.flightapi.api.FlightAPI;
-import dev.emi.trinkets.api.SlotReference;
-import dev.emi.trinkets.api.TrinketItem;
+import dev.emi.trinkets.api.*;
 import net.minecraft.entity.LivingEntity;
 import net.minecraft.item.ItemStack;
 import net.minecraft.item.tooltip.TooltipType;
@@ -20,10 +19,7 @@ import net.minecraft.text.TextColor;
 import net.minecraft.util.Identifier;
 import net.minecraft.util.Rarity;
 
-import java.util.HashMap;
-import java.util.List;
-import java.util.Map;
-import java.util.UUID;
+import java.util.*;
 
 public class AngelRingItem extends TrinketItem {
     private static int ticksDrained;
@@ -139,5 +135,16 @@ public class AngelRingItem extends TrinketItem {
         } else if (AngelRingModeSelector.getMode() == AngelRingMode.CLASSIC) {
             tooltip.add(Text.translatable("item.angelring.angel_ring.classic.desc0_1"));
         }
+    }
+
+    private static boolean isAngelRingEquipped(LivingEntity entity) {
+        Optional<TrinketComponent> component = TrinketsApi.getTrinketComponent(entity);
+        if (component.isPresent()) {
+            TrinketComponent trinketComponent = component.get();
+            return trinketComponent.getAllEquipped().stream()
+                    .anyMatch(slot -> slot.getRight().getItem() instanceof AngelRingItem);
+        }
+
+        return false;
     }
 }
