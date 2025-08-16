@@ -110,6 +110,11 @@ public class AngelRingItem extends TrinketItem {
         if (entity.getEntityWorld().isClient) return;
 
         if (entity instanceof ServerPlayerEntity player) {
+            if (isAngelRingEquipped(player)) {
+                // If the player still has an Angel Ring equipped in the other slot, do not release flight.
+                return;
+            }
+
             FlightAPI.releaseFlight(AngelRing.MOD_ID, player);
         }
     }
